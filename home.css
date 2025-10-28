@@ -66,7 +66,7 @@ a {
 }
 
 /* ===================================
-   HEADER & NAVIGATION
+   HEADER & NAVIGATION (ENHANCED VISIBILITY)
    =================================== */
 .header {
     position: fixed;
@@ -78,8 +78,8 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 3rem;
-    mix-blend-mode: difference;
     pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
 }
 
 .header * {
@@ -96,15 +96,17 @@ a {
     display: flex;
     align-items: center;
     text-decoration: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .logo:hover {
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .nav {
     display: flex;
     gap: 2.5rem;
+    align-items: center;
 }
 
 .nav-link {
@@ -112,19 +114,34 @@ a {
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    transition: opacity 0.3s var(--ease-out-expo);
+    transition: all 0.3s var(--ease-out-expo);
     position: relative;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.nav-link:hover,
+.nav-link:hover {
+    opacity: 0.8;
+}
+
 .nav-link.active {
-    opacity: 0.6;
+    opacity: 1;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-white);
 }
 
 .nav-indicator {
     width: 0.75rem;
     height: 0.75rem;
     color: var(--color-white);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 .nav-indicator svg {
@@ -148,10 +165,16 @@ a {
     position: relative;
     z-index: 10;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 8rem 3rem 3rem;
+    pointer-events: none;
+}
+
+.hero-content > * {
+    pointer-events: auto;
 }
 
 .hero-nav {
@@ -170,10 +193,11 @@ a {
     font-weight: 300;
     letter-spacing: 0.02em;
     transition: opacity 0.3s var(--ease-out-expo);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-nav a:hover {
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .scroll-indicator {
@@ -190,10 +214,12 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .scroll-arrow {
     animation: scrollBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes scrollBounce {
@@ -225,6 +251,47 @@ a {
 }
 
 /* ===================================
+   HERO TITLE (CENTERED)
+   =================================== */
+.hero-title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 3rem;
+}
+
+.hero .hero-title {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 300;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    color: var(--color-white);
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero .hero-line-wrapper {
+    overflow: hidden;
+}
+
+.hero .hero-line {
+    display: block;
+    will-change: transform;
+}
+
+.hero-cta {
+    position: absolute;
+    top: 8rem;
+    left: 3rem;
+    z-index: 10;
+}
+
+/* ===================================
    CTA BUTTON (EXACT EXOAPE)
    =================================== */
 .cta-button {
@@ -235,7 +302,8 @@ a {
     overflow: hidden;
     cursor: pointer;
     color: var(--color-white);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-white);
+    background: transparent;
 }
 
 .cta-button.dark {
@@ -255,7 +323,7 @@ a {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: var(--color-black);
+    background: var(--color-white);
     transform: translate(-50%, -50%);
     transition: width 0.6s var(--ease-out-expo), height 0.6s var(--ease-out-expo);
     z-index: 0;
@@ -274,11 +342,11 @@ a {
     height: 300%;
 }
 
-.cta-button:hover.dark {
+.cta-button:hover {
     color: var(--color-black);
 }
 
-.cta-button:hover.light {
+.cta-button:hover.dark {
     color: var(--color-black);
 }
 
@@ -353,6 +421,7 @@ a {
 
 .project-link {
     display: block;
+    cursor: pointer;
 }
 
 .project-image {
@@ -490,135 +559,92 @@ a {
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: 0Frame(raf);
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
 
-    // Connect Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+.footer-link {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    transition: opacity 0.3s var(--ease-out-expo);
+}
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
+.footer-link:hover {
+    opacity: 0.6;
+}
 
-    gsap.ticker.lagSmoothing(0);
+/* ===================================
+   RESPONSIVE
+   =================================== */
 
-    // ===================================
-    // HERO PARALLAX (EXACT EXOAPE)
-    // ===================================
-    gsap.to('.hero-image img', {
-        scale: 1.05,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 0.5
-        }
-    });
+/* Tablet */
+@media (max-width: 968px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-    // Scroll indicator fade
-    gsap.to('.scroll-indicator', {
-        opacity: 0,
-        y: -20,
-        ease: 'power2.out',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: '20% top',
-            scrub: 0.5
-        }
-    });
+/* Mobile */
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 2rem;
+    }
 
-    // ===================================
-    // WORK TITLE REVEAL (EXACT EXOAPE)
-    // ===================================
-    gsap.utils.toArray('.title-line').forEach((line, index) => {
-        gsap.from(line, {
-            y: '100%',
-            duration: 1.2,
-            ease: 'power4.out',
-            delay: index * 0.1,
-            scrollTrigger: {
-                trigger: line,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            }
-        });
-    });
+    .nav {
+        gap: 1.5rem;
+    }
 
-    // ===================================
-    // PROJECT CARDS STAGGER (EXACT EXOAPE)
-    // ===================================
-    gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.from(card, {
-            y: 100,
-            opacity: 0,
-            duration: 1.2,
-            ease: 'power4.out',
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-            }
-        });
-    });
+    .hero-content {
+        padding: 6rem 2rem 2rem;
+    }
 
-    // ===================================
-    // FOOTER TITLE REVEAL (EXACT EXOAPE)
-    // ===================================
-    gsap.utils.toArray('.footer-title-line').forEach((line, index) => {
-        gsap.from(line, {
-            y: '100%',
-            duration: 1.2,
-            ease: 'power4.out',
-            delay: index * 0.1,
-            scrollTrigger: {
-                trigger: line,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            }
-        });
-    });
+    .hero-title-container {
+        padding: 0 2rem;
+    }
 
-    // ===================================
-    // MAGNETIC BUTTON EFFECT (EXACT EXOAPE)
-    // ===================================
-    const ctaButtons = document.querySelectorAll('.cta-button');
+    .hero .hero-title {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
 
-    ctaButtons.forEach(button => {
-        const circle = button.querySelector('.cta-circle');
-        
-        button.addEventListener('mousemove', (e) => {
-            const rect = button.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            gsap.to(button, {
-                x: (x - rect.width / 2) * 0.2,
-                y: (y - rect.height / 2) * 0.2,
-                duration: 0.6,
-                ease: 'power2.out'
-            });
-        });
+    .hero-cta {
+        top: 6rem;
+        left: 2rem;
+    }
 
-        button.addEventListener('mouseleave', () => {
-            gsap.to(button, {
-                x: 0,
-                y: 0,
-                duration: 0.6,
-                ease: 'power2.out'
-            });
-        });
-    });
+    .hero-nav {
+        bottom: 2rem;
+        right: 2rem;
+    }
 
-    // ===================================
-    // PAGE LOAD ANIMATION
-    // ===================================
-    window.addEventListener('load', () => {
-        gsap.from('body', {
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out'
-        });
-    });
+    .work-section {
+        padding: 5rem 2rem;
+    }
 
-})();
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .reel-section {
+        padding: 8rem 2rem;
+    }
+
+    .footer {
+        padding: 5rem 2rem 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+.hero-image img,
+.project-image img {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
