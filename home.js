@@ -1,5 +1,6 @@
 /**
  * Home Page - 100% ExoApe Fidelity with GSAP + Lenis
+ * NOW WITH HERO TITLE ANIMATIONS
  */
 
 (function() {
@@ -40,6 +41,37 @@
     gsap.ticker.lagSmoothing(0);
 
     // ===================================
+    // HERO TITLE REVEAL ON PAGE LOAD (NEW)
+    // ===================================
+    window.addEventListener('load', () => {
+        // Animate hero title lines
+        gsap.utils.toArray('.hero .hero-line').forEach((line, index) => {
+            gsap.from(line, {
+                y: '120%',
+                duration: 1.4,
+                ease: 'power4.out',
+                delay: 0.3 + (index * 0.15)
+            });
+        });
+
+        // Fade in entire page
+        gsap.from('body', {
+            opacity: 0,
+            duration: 0.6,
+            ease: 'power2.out'
+        });
+
+        // Fade in hero CTA button
+        gsap.from('.hero-cta', {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 0.8
+        });
+    });
+
+    // ===================================
     // HERO PARALLAX (EXACT EXOAPE)
     // ===================================
     gsap.to('.hero-image img', {
@@ -49,6 +81,19 @@
             trigger: '.hero',
             start: 'top top',
             end: 'bottom top',
+            scrub: 0.5
+        }
+    });
+
+    // Hero title parallax on scroll (subtle fade out)
+    gsap.to('.hero-title', {
+        opacity: 0,
+        y: -100,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: '50% top',
             scrub: 0.5
         }
     });
@@ -145,17 +190,6 @@
                 duration: 0.6,
                 ease: 'power2.out'
             });
-        });
-    });
-
-    // ===================================
-    // PAGE LOAD ANIMATION
-    // ===================================
-    window.addEventListener('load', () => {
-        gsap.from('body', {
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out'
         });
     });
 
