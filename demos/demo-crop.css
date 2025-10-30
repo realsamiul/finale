@@ -1,6 +1,6 @@
 /* ============================================
    CROP INTELLIGENCE DEMO - SPECIFIC STYLES
-   Inherits from demo-base-dark.css
+   Inherits from demo-base.css
    ============================================ */
 
 /* ============================================
@@ -22,12 +22,6 @@
 
 .chart-card h3 {
     border-bottom: 2px solid rgba(16, 185, 129, 0.2);
-}
-
-
-
-.chart-card.span-2 .chart-container {
-    height: 350px;
 }
 
 /* ============================================
@@ -228,26 +222,4 @@
     color: var(--secondary-purple, #8B5CF6);
     font-family: var(--font-mono, 'IBM Plex Mono', monospace);
     font-weight: 600;
-}
-
-/* ============================================
-   RESPONSIVE ADJUSTMENTS SPECIFIC TO THIS DEMO
-   ============================================ */
-
-@media (max-width: 768px) {
-    .chart-container {
-        height: 250px;
-    }
-    
-    .chart-card.span-2 .chart-container {
-        height: 280px;
-    }
-    
-    .results-summary {
-        grid-template-columns: 1fr; /* Stack summary stats */
-    }
-    
-    .cluster-grid {
-        grid-template-columns: 1fr; /* Stack cluster cards */
-    }
 }
