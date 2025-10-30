@@ -1,199 +1,24 @@
-/* Add these to your existing demo-freight.css - DO NOT REPLACE EXISTING STYLES */
-
 /* ============================================
-   ENHANCED CHALLENGE SECTION
+   FREIGHT FORECASTING DEMO - SPECIFIC STYLES
+   Inherits from demo-base-dark.css
    ============================================ */
-.challenge-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg, 24px);
-    margin: var(--spacing-xl, 32px) 0;
-}
-
-.challenge-card {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
-    transition: all 0.3s ease;
-}
-
-.challenge-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(20, 184, 166, 0.2);
-    border-color: var(--primary-teal, #14B8A6);
-}
-
-.challenge-icon {
-    font-size: 48px;
-    margin-bottom: var(--spacing-md, 16px);
-    display: block;
-}
-
-.challenge-card h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-sm, 12px);
-}
-
-.challenge-card p {
-    font-size: var(--text-base, 16px);
-    line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
-}
-
-.challenge-card strong {
-    color: var(--primary-teal, #14B8A6);
-    font-weight: 600;
-}
-
-.stat-callout {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    border: 1px solid var(--primary-teal, #14B8A6);
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-xl, 32px);
-    text-align: center;
-    margin-top: var(--spacing-xl, 32px);
-}
-
-.stat-number {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-3xl, 48px);
-    font-weight: 700;
-    color: var(--primary-teal, #14B8A6);
-    line-height: 1;
-}
-
-.stat-description {
-    font-size: var(--text-base, 16px);
-    color: var(--text-secondary, #94A3B8);
-    margin-top: var(--spacing-sm, 12px);
-}
 
 /* ============================================
-   ENHANCED SOLUTION SECTION
-   ============================================ */
-.methodology-flow {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: var(--spacing-md, 16px);
-    align-items: center;
-    margin: var(--spacing-xl, 32px) 0;
-}
-
-@media (max-width: 1024px) {
-    .methodology-flow {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg, 24px);
-    }
-    
-    .method-arrow {
-        display: none;
-    }
-}
-
-.method-step {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
-    position: relative;
-}
-
-.step-number {
-    position: absolute;
-    top: -12px;
-    left: 20px;
-    background: var(--primary-teal, #14B8A6);
-    color: var(--dark-navy, #0A192F);
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-sm, 14px);
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-}
-
-.method-step h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin: var(--spacing-md, 16px) 0 var(--spacing-sm, 12px) 0;
-}
-
-.method-step p {
-    font-size: var(--text-base, 16px);
-    line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
-    margin-bottom: var(--spacing-md, 16px);
-}
-
-.method-arrow {
-    font-size: 36px;
-    color: var(--accent-orange, #FB923C);
-    font-weight: 300;
-}
-
-.tech-tags {
-    display: flex;
-    gap: var(--spacing-sm, 12px);
-    flex-wrap: wrap;
-}
-
-.tech-tag {
-    background: rgba(20, 184, 166, 0.1);
-    color: var(--primary-teal, #14B8A6);
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-xs, 12px);
-    padding: 4px 12px;
-    border-radius: 6px;
-    border: 1px solid rgba(20, 184, 166, 0.3);
-}
-
-.breakthrough-callout {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
-    border: 1px solid var(--secondary-purple, #8B5CF6);
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
-    margin-top: var(--spacing-xl, 32px);
-    display: flex;
-    gap: var(--spacing-md, 16px);
-    align-items: flex-start;
-}
-
-.breakthrough-icon {
-    font-size: 32px;
-    flex-shrink: 0;
-}
-
-.breakthrough-content h4 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-sm, 12px);
-}
-
-.breakthrough-content p {
-    font-size: var(--text-base, 16px);
-    line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
-}
-
-/* ============================================
-   ENHANCED RESULTS CARDS
+   ENHANCED RESULTS CARDS SPECIFICS
    ============================================ */
 .result-chart {
     margin-top: var(--spacing-md, 16px);
     padding: var(--spacing-md, 16px);
     background: rgba(0, 0, 0, 0.2);
     border-radius: var(--radius-md, 8px);
-    min-height: 200px;
+    min-height: 200px; /* Ensure space for chart */
 }
 
 .result-chart canvas {
-    max-height: 180px !important;
+    max-height: 180px !important; /* Limit chart height inside card */
 }
 
+/* Alpha Card Specific Styling */
 .alpha-card {
     background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
     border: 2px solid var(--primary-teal, #14B8A6);
@@ -201,7 +26,7 @@
     overflow: hidden;
 }
 
-.alpha-card::before {
+.alpha-card::before { /* Decorative element */
     content: '⚡';
     position: absolute;
     top: 10px;
@@ -274,7 +99,7 @@
 
 .impact-value {
     font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-2xl, 32px);
+    font-size: var(--text-2xl, 32px); /* Using 2xl for emphasis */
     font-weight: 700;
     color: var(--success-green, #10B981);
 }
@@ -285,23 +110,116 @@
     line-height: 1.5;
 }
 
-.confidence-high {
-    color: var(--success-green, #10B981) !important;
-}
+/* Confidence Colors (replicated from flood css, maybe move to base if used more) */
+.confidence-high { color: var(--success-green, #10B981) !important; }
+.confidence-medium { color: var(--accent-orange, #FB923C) !important; }
 
-.confidence-medium {
-    color: var(--accent-orange, #FB923C) !important;
-}
+/* Specific Result Badge Styles */
+.result-badge.champion { background: var(--primary-teal); color: var(--dark-navy); }
+.result-badge.production { background: var(--secondary-purple); color: var(--text-primary); }
+.result-badge.extended { background: var(--accent-orange); color: var(--dark-navy); }
+.result-badge.proprietary { background: var(--accent-yellow); color: var(--dark-navy); }
+
 
 /* ============================================
-   JOURNEY CHART
+   JOURNEY SECTION SPECIFICS
    ============================================ */
+.journey-section {
+     background: var(--surface-elevated); /* Ensure bg color if base changes */
+}
+
+.journey-timeline {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+    margin-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 968px) {
+    .journey-timeline {
+        grid-template-columns: 1fr;
+    }
+    .journey-connector {
+        display: none;
+    }
+}
+
+.journey-stage {
+    background: var(--dark-navy); /* Slightly darker cards */
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+}
+
+.stage-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-orange);
+    color: var(--dark-navy);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 14px;
+    border: 3px solid var(--surface-elevated);
+}
+
+.journey-stage h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stage-metric {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.stage-metric.illusion { color: var(--primary-teal); }
+.stage-metric.failure { color: var(--danger-red); }
+.stage-metric.breakthrough { color: var(--success-green); }
+
+.journey-stage p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.journey-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Align vertically */
+    padding-top: 50px; /* Rough alignment with card content */
+}
+.journey-connector::before {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-orange) 0%, rgba(251, 146, 60, 0) 100%);
+}
+
+
 .journey-chart {
-    margin-top: var(--spacing-xl, 32px);
-    padding: var(--spacing-lg, 24px);
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
 }
 
 .journey-chart canvas {
@@ -309,143 +227,113 @@
 }
 
 /* ============================================
-   PRODUCTION TEASER SECTION
+   MODEL COMPARISON TABLE
    ============================================ */
-.production-section {
-    background: linear-gradient(135deg, var(--dark-navy, #0A192F) 0%, rgba(20, 184, 166, 0.05) 100%);
-    position: relative;
-    overflow: hidden;
+.comparison-section {
+     background: var(--dark-navy);
 }
 
-.production-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.comparison-intro {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+}
+
+.model-comparison-table {
+    overflow-x: auto; /* Allow horizontal scroll on small screens */
+    margin-bottom: var(--spacing-xl);
+}
+
+#comparison-table {
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 50%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
-    pointer-events: none;
+    border-collapse: collapse;
+    background: var(--surface-elevated);
+    border-radius: var(--radius-md);
+    overflow: hidden; /* Clip rounded corners */
 }
 
-.production-comparison {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: var(--spacing-lg, 24px);
-    margin: var(--spacing-xl, 32px) 0;
-    align-items: center;
+#comparison-table thead {
+    background: rgba(20, 184, 166, 0.1);
 }
 
-@media (max-width: 768px) {
-    .production-comparison {
-        grid-template-columns: 1fr;
-    }
-    
-    .comparison-divider {
-        display: none;
-    }
+#comparison-table th {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    color: var(--primary-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer; /* Indicate sortable */
 }
 
-.comparison-column {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
+#comparison-table tbody tr {
+    border-bottom: 1px solid var(--border-subtle);
 }
-
-.demo-column {
-    opacity: 0.8;
-}
-
-.production-column {
-    border: 2px solid var(--primary-teal, #14B8A6);
-    box-shadow: 0 0 30px rgba(20, 184, 166, 0.2);
-}
-
-.comparison-column h4 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-md, 16px);
-}
-
-.spec-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.spec-list li {
-    padding: var(--spacing-sm, 12px) 0;
-    border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-sm, 14px);
-    color: var(--text-secondary, #94A3B8);
-}
-
-.spec-list li:last-child {
+#comparison-table tbody tr:last-child {
     border-bottom: none;
 }
 
-.production-column .spec-list li {
-    color: var(--primary-teal, #14B8A6);
+#comparison-table td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
 }
 
-.production-column .spec-list li strong {
-    color: var(--text-primary, #E2E8F0);
+#comparison-table td strong {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
-.comparison-divider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Style champion row? Add class via JS if needed */
+/* #comparison-table tbody tr.champion td { background: rgba(var(--primary-teal-rgb), 0.05); color: var(--primary-teal); } */
+
+
+/* ============================================
+   TECH STACK SECTION SPECIFICS
+   ============================================ */
+.tech-section {
+     background: var(--surface-elevated);
 }
 
-.divider-icon {
-    font-size: 48px;
-    color: var(--accent-orange, #FB923C);
-    animation: pulse 2s infinite;
+.tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax */
 }
 
-@keyframes pulse {
-    0%, 100% { 
-        transform: scale(1); 
-        opacity: 1; 
-    }
-    50% { 
-        transform: scale(1.2); 
-        opacity: 0.8; 
-    }
+.tech-card h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--primary-teal);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
-.production-features {
-    margin-top: var(--spacing-xl, 32px);
-    padding: var(--spacing-lg, 24px);
-    background: rgba(139, 92, 246, 0.05);
-    border: 1px solid var(--secondary-purple, #8B5CF6);
-    border-radius: var(--radius-lg, 12px);
+.tech-card ul {
+    list-style: none;
 }
 
-.production-features h4 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-md, 16px);
+.tech-card li {
+    padding: var(--spacing-xs) 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+.tech-card li::before {
+    content: '✓ ';
+    color: var(--primary-teal);
+    margin-right: var(--spacing-sm);
 }
 
-.feature-tags {
-    display: flex;
-    gap: var(--spacing-sm, 12px);
-    flex-wrap: wrap;
-}
-
-.feature-tag {
+/* ============================================
+   PRODUCTION TEASER (Feature Tag Color)
+   ============================================ */
+.production-features .feature-tag {
+    /* Overriding the common tech-tag slightly for purple theme */
     background: rgba(139, 92, 246, 0.1);
     color: var(--secondary-purple, #8B5CF6);
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-xs, 12px);
-    padding: 6px 14px;
-    border-radius: 6px;
     border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
@@ -453,13 +341,14 @@
    MODEL COMPARISON CHART
    ============================================ */
 .comparison-chart {
-    margin-top: var(--spacing-xl, 32px);
-    padding: var(--spacing-lg, 24px);
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
 }
 
 .comparison-chart canvas {
     max-height: 350px !important;
 }
+
