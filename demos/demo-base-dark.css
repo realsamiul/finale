@@ -313,7 +313,7 @@ h4 {
 p {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--color-grey);
+    color: #666; /* FIXED: Darker grey for better readability */
     font-weight: 300;
 }
 
@@ -941,6 +941,22 @@ tbody tr:last-child td {
     .comparison-divider {
         display: none;
     }
+    
+    /* START: ADDED THESE RULES */
+    .pipeline-diagram,
+    .integration-grid,
+    .journey-timeline {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pipeline-arrow,
+    .integration-link,
+    .journey-connector,
+    .comparison-divider {
+        display: none;
+    }
+    /* END: ADDED THESE RULES */
 }
 
 @media (max-width: 968px) {
