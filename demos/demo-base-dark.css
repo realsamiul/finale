@@ -1,57 +1,69 @@
 /* ===================================
-   M0NARQ DEMO - CORRECTED LIGHT BASE
-   (Proper spacing from original dark file + light theme)
+   M0NARQ DEMO - BASE LIGHT THEME
+   Inherits from home.css & studio.css
+   LIGHT MODE - Forces light backgrounds throughout
    =================================== */
 
 /* ===================================
    FONTS (EXACT HOME/STUDIO MATCH)
    =================================== */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300..700&family=Michroma&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 /* ===================================
-   ROOT VARIABLES (CORRECTED LIGHT THEME)
+   ROOT VARIABLES (LIGHT THEME)
    =================================== */
 :root {
-    /* Colors - NEW LIGHT THEME */
-    --dark-navy: #f8f8f8; /* Changed to light bg */
-    --surface-elevated: #ffffff; /* Changed to white for cards */
-    --border-subtle: rgba(0, 0, 0, 0.08); /* Changed to subtle dark border */
-    
-    --text-primary: #1a1a1a; /* Changed to black */
-    --text-secondary: #6b6b6b; /* Changed to grey */
-    --text-tertiary: #a1a1a1; /* Changed to light grey */
-    
-    /* Accent Colors (Unchanged) */
-    --accent-teal: #5eead4;
+    /* Colors - Light theme optimized */
+    --color-white: #fff;
+    --color-black: #000;
+    --color-off-white: #f8f8f8;
+    --color-light-grey: #f7f7f7;
+    --color-sand: #f4f1ec;
+    --color-grey: #999;
+    --color-text: #1a1a1a;
+
+    /* Accent colors */
+    --primary-teal: #14B8A6;
+    --success-green: #10B981;
+    --danger-red: #EF4444;
+    --accent-yellow: #FBBF24;
+    --secondary-purple: #8B5CF6;
+    --accent-coral: #F87171;
     --accent-orange: #fb923c;
-    
-    /* Fonts - EXACT MATCH */
+
+    /* Light theme specific - OVERRIDE dark variables */
+    --dark-navy: #f8f8f8 !important;  /* Force light instead of dark */
+    --surface-elevated: #ffffff !important;  /* Force white instead of dark */
+    --border-subtle: rgba(0, 0, 0, 0.08);
+
+    /* Fonts */
     --font-heading: 'Space Grotesk', -apple-system, sans-serif;
     --font-body: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
     --font-logo: 'Michroma', sans-serif;
 
-    /* Spacing - PRESERVED FROM ORIGINAL */
+    /* Spacing */
     --spacing-xs: 8px;
     --spacing-sm: 12px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
-    --spacing-xxl: 64px;
-    
-    /* Radius - Kept minimal from original, but cards will override */
-    --radius-sm: 2px;
-    --radius-md: 4px;
-    --radius-lg: 8px;
-    
-    /* Easing - EXACT HOME MATCH */
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-in-out-expo: cubic-bezier(0.76, 0, 0.24, 1);
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    /* Borders */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
 }
 
 /* ===================================
-   GLOBAL STYLES (NOW LIGHT)
+   GLOBAL STYLES
    =================================== */
 * {
     margin: 0;
@@ -61,678 +73,289 @@
 
 html {
     font-size: 16px;
-    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Body now uses the new light theme variables */
 body {
     font-family: var(--font-body);
-    background: var(--dark-navy); /* Becomes #f8f8f8 */
-    color: var(--text-secondary); /* Becomes #6b6b6b */
+    color: var(--color-text);
+    background: var(--color-white);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
 }
 
 a {
+    color: var(--primary-teal);
     text-decoration: none;
-    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--success-green);
 }
 
 /* ===================================
-   SHARED HEADER (FIXED FOR LIGHT MODE)
+   LAYOUT - FORCE LIGHT BACKGROUNDS
    =================================== */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 3rem;
-    pointer-events: none;
-    mix-blend-mode: difference;
-}
-
-/* * FIX: Header text is hard-coded to white.
- * 'mix-blend-mode: difference' will turn it BLACK on light backgrounds
- * and WHITE on dark backgrounds. This is the correct behavior.
-*/
-.header * {
-    pointer-events: auto;
-    color: #ffffff; /* FORCED WHITE */
-}
-
-.logo {
-    font-family: var(--font-logo);
-    font-weight: 400;
-    font-size: 1.375rem;
-    letter-spacing: 0.05em;
-    color: #ffffff; /* FORCED WHITE */
-    transition: opacity 0.3s var(--ease-out-expo);
-}
-
-.logo:hover {
-    opacity: 0.6;
-}
-
-.nav {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.nav-link {
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    position: relative;
-    color: #ffffff; /* FORCED WHITE */
-    transition: opacity 0.3s var(--ease-out-expo);
-}
-
-.nav-link:hover {
-    opacity: 0.6;
-}
-
-.nav-indicator {
-    width: 0.75rem;
-    height: 0.75rem;
-    color: #ffffff; /* FORCED WHITE */
-}
-
-.nav-indicator svg {
-    width: 100%;
-    height: 100%;
-}
-
-/* ===================================
-   SHARED DEMO COMPONENTS (SPACING PRESERVED)
-   =================================== */
-
-/* Container - SPACING PRESERVED */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 3rem;
-}
-
-/* Section Base - SPACING PRESERVED */
 section {
-    padding: 8rem 0;
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    background: var(--color-white) !important;
+    color: var(--color-text) !important;
 }
 
-.hero-section {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10rem 0 6rem;
-    /* This gradient now becomes white-to-light-grey */
-    background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--dark-navy) 100%);
-}
-
-/* REFINED BADGES (COLORS PRESERVED) */
-.demo-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background: transparent;
-    border: 1px solid rgba(94, 234, 212, 0.3);
-    border-radius: 20px;
-    color: var(--accent-teal);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    margin-bottom: var(--spacing-lg);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-/* HERO TITLE (TEXT NOW VISIBLE) */
-.hero-section h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 300;
-    color: var(--text-primary); /* Becomes black */
-    line-height: 1;
-    margin-bottom: var(--spacing-lg);
-    letter-spacing: -0.03em;
-}
-
-.hero-title-line {
-    display: block;
-}
-
-.hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    color: var(--text-secondary); /* Becomes grey */
-    font-weight: 300;
-    max-width: 800px;
-    margin: 0 auto var(--spacing-xl);
-    line-height: 1.7;
-}
-
-/* HERO STATS (COLORS PRESERVED) */
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-xxl);
-    margin-top: var(--spacing-xxl);
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-value {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    color: var(--accent-teal);
-    line-height: 1;
-}
-
-.stat-label {
-    display: block;
-    font-size: 13px;
-    color: var(--text-tertiary); /* Becomes light grey */
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: var(--spacing-sm);
-}
-
-/* SECTION LABELS (TEXT NOW VISIBLE) */
-.section-label {
-    font-size: 11px;
-    font-family: var(--font-mono);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--text-tertiary); /* Becomes light grey */
-    margin-bottom: var(--spacing-lg);
-    display: block;
-    text-align: center;
-    opacity: 0.6;
-}
-
-/* H2 TITLES (TEXT NOW VISIBLE) */
-h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 300;
-    color: var(--text-primary); /* Becomes black */
-    text-align: center;
-    line-height: 1.1;
-    margin-bottom: var(--spacing-xl);
-    letter-spacing: -0.02em;
-}
-
-.intro-text {
-    font-size: 1.125rem;
-    color: var(--text-secondary); /* Becomes grey */
-    font-weight: 300;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: var(--spacing-xxl);
-    line-height: 1.7;
-}
-
-/* * FIX: "EXCESSIVE BOXES"
- * Replaced transparent bg with the clean, shadow-based
- * card style from my previous (broken) file.
-*/
-.challenge-card,
-.result-card,
-.impact-card,
-.usecase-card,
-.tech-card,
-.chart-card,
-.integration-card,
-.method-step,
-.pipeline-stage {
-    background: var(--surface-elevated); /* Becomes white */
-    border: 1px solid var(--border-subtle); /* Becomes light grey border */
-    border-radius: var(--radius-lg); /* 8px radius */
-    padding: var(--spacing-xl);
-    transition: all 0.3s var(--ease-out-expo);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-}
-
-.challenge-card:hover,
-.result-card:hover,
-.impact-card:hover,
-.usecase-card:hover,
-.tech-card:hover,
-.chart-card:hover,
-.integration-card:hover,
-.method-step:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-    border-color: rgba(0, 0, 0, 0.0); /* Hide border on hover */
-}
-
-
-/* GRIDS (SPACING PRESERVED) */
-.challenge-grid,
-.results-grid,
-.impact-grid,
-.usecases-grid,
-.charts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xxl);
-    margin: var(--spacing-xxl) 0;
-}
-
-/* TECH GRID (SPACING PRESERVED) */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-xxl);
-    margin-top: var(--spacing-xxl);
-}
-
-/* TECH CARD (TEXT NOW VISIBLE) */
-.tech-card h4 {
-    font-family: var(--font-heading);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--accent-teal);
-    margin-bottom: var(--spacing-lg);
-    letter-spacing: -0.01em;
-}
-
-.tech-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.tech-card li {
-    padding: var(--spacing-sm) 0;
-    font-family: var(--font-mono);
-    font-size: 15px;
-    color: var(--text-secondary); /* Becomes grey */
-    line-height: 1.6;
-}
-
-.tech-card li::before {
-    content: '→ ';
-    color: var(--accent-teal);
-    margin-right: var(--spacing-sm);
-    font-weight: 400;
-}
-
-/* METHODOLOGY FLOW (SPACING PRESERVED) */
-.methodology-flow {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: var(--spacing-xl);
-    align-items: start;
-    margin: var(--spacing-xxl) 0;
-}
-
-.method-arrow {
-    font-size: 32px;
-    color: var(--accent-teal);
-    font-weight: 300;
-    text-align: center;
-    opacity: 0.3;
-}
-
-.step-number {
-    display: inline-block;
-    background: transparent;
-    color: var(--accent-teal);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border: 1px solid var(--accent-teal);
-    border-radius: 20px;
-    margin-bottom: var(--spacing-md);
-}
-
-.method-step h3 {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--text-primary); /* Becomes black */
-    margin: var(--spacing-md) 0 var(--spacing-sm);
-    letter-spacing: -0.01em;
-}
-
-.method-step p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-secondary); /* Becomes grey */
-    margin-bottom: var(--spacing-md);
-}
-
-.tech-tags {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-    margin-top: var(--spacing-md);
-}
-
-.tech-tag {
-    background: transparent;
-    color: var(--accent-teal);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(94, 234, 212, 0.3);
-}
-
-/* BREAKTHROUGH CALLOUT (SPACING PRESERVED) */
-.breakthrough-callout {
-    background: transparent;
-    border: none;
-    border-left: 2px solid var(--accent-teal);
-    padding: var(--spacing-xl) 0 var(--spacing-xl) var(--spacing-xl);
-    margin-top: var(--spacing-xxl);
-    display: flex;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
-}
-
-.breakthrough-icon {
-    font-size: 32px;
-    flex-shrink: 0;
-    opacity: 0.5;
-}
-
-.breakthrough-content h4 {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--text-primary); /* Becomes black */
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.01em;
-}
-
-.breakthrough-content p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-secondary); /* Becomes grey */
-}
-
-.breakthrough-content strong {
-    color: var(--accent-teal);
-    font-weight: 400;
-}
-
-/* STAT CALLOUT (SPACING PRESERVED) */
-.stat-callout {
-    background: transparent;
-    border: none;
-    padding: var(--spacing-xxl) 0;
-    text-align: center;
-    margin-top: var(--spacing-xxl);
-}
-
-.stat-number {
-    font-family: var(--font-mono);
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 300;
-    color: var(--accent-teal);
-    line-height: 1;
-}
-
-.stat-description {
-    font-size: 16px;
-    color: var(--text-secondary); /* Becomes grey */
-    margin-top: var(--spacing-md);
-    line-height: 1.6;
-}
-
-/* H3, H4 STYLING (TEXT NOW VISIBLE) */
-h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-primary); /* Becomes black */
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.01em;
-}
-
-h4 {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--text-primary); /* Becomes black */
-    margin-bottom: var(--spacing-sm);
-}
-
-/* FOOTER (NOW LIGHT) */
-.footer {
-    padding: 8rem 3rem 3rem;
-    background: var(--surface-elevated); /* Becomes white */
-    border-top: 1px solid var(--border-subtle); /* Becomes light grey border */
-}
-
-.footer-content {
+.container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--spacing-lg);
 }
 
-.footer-main {
-    margin-bottom: 5rem;
+/* ===================================
+   FORCE LIGHT THEME OVERRIDES
+   Override ALL dark backgrounds from demo CSS files
+   =================================== */
+
+/* Journey/Timeline sections */
+.journey-stage,
+.journey-section,
+.timeline-stage {
+    background: var(--color-off-white) !important;
+    color: var(--color-text) !important;
+    border: 1px solid rgba(20, 184, 166, 0.15) !important;
 }
 
-.footer-title {
+.journey-stage h3,
+.journey-stage h4,
+.journey-stage p {
+    color: var(--color-text) !important;
+}
+
+/* Comparison sections */
+.comparison-section {
+    background: var(--color-off-white) !important;
+    color: var(--color-text) !important;
+}
+
+.comparison-section h2,
+.comparison-section h3,
+.comparison-section p {
+    color: var(--color-text) !important;
+}
+
+/* Result/Stat cards */
+.result-stat,
+.result-card,
+.cluster-card,
+.stat-card {
+    background: white !important;
+    color: var(--color-text) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.result-stat h3,
+.result-stat h4,
+.result-stat p,
+.cluster-card h3,
+.cluster-card h4,
+.cluster-card p {
+    color: var(--color-text) !important;
+}
+
+/* Alpha/Formula cards */
+.alpha-formula,
+.alpha-stat,
+.alpha-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--color-text) !important;
+    border: 1px solid rgba(20, 184, 166, 0.2) !important;
+}
+
+/* Chart containers */
+.result-chart,
+.chart-container,
+.cluster-metrics {
+    background: rgba(255, 255, 255, 0.6) !important;
+    color: var(--color-text) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* All section headings */
+section h2,
+section h3,
+section h4,
+section p,
+section li {
+    color: var(--color-text) !important;
+}
+
+/* Hero sections */
+.hero-section {
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%) !important;
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section p {
+    color: var(--color-text) !important;
+}
+
+/* Challenge/Solution/Results sections */
+.challenge-section,
+.solution-section,
+.results-section,
+.visualizations-section,
+.impact-section,
+.production-section,
+.tech-section {
+    background: var(--color-white) !important;
+}
+
+/* Cards and containers */
+.card,
+.metric-card,
+.feature-card,
+.insight-card {
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    transition: transform var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
     font-family: var(--font-heading);
-    font-size: clamp(4rem, 12vw, 9rem);
-    font-weight: 300;
-    line-height: 0.85;
-    margin-bottom: 2rem;
-    color: var(--text-primary); /* Becomes black */
+    font-weight: 500;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: none;
 }
 
-.footer-title-line {
-    display: block;
+.btn-primary {
+    background: var(--primary-teal);
+    color: white;
 }
 
-.footer-tagline {
-    max-width: 35rem;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--text-secondary); /* Becomes grey */
-    font-weight: 300;
+.btn-primary:hover {
+    background: var(--success-green);
+    transform: translateY(-2px);
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border-subtle); /* Becomes light grey border */
+/* ===================================
+   TABLES
+   =================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
-.footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+thead {
+    background: rgba(20, 184, 166, 0.08) !important;
 }
 
-.footer-heading {
+th, td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    color: var(--color-text) !important;
+}
+
+th {
+    font-weight: 600;
+    font-family: var(--font-heading);
+}
+
+/* ===================================
+   BADGES & TAGS
+   =================================== */
+.badge,
+.tag,
+.feature-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    color: var(--text-tertiary); /* Becomes light grey */
-    opacity: 0.5;
+    color: white;
 }
 
-.footer-link {
-    font-size: 0.9375rem;
-    font-weight: 300;
-    color: var(--text-secondary); /* Becomes grey */
-    transition: opacity 0.3s var(--ease-out-expo);
+.result-badge.champion {
+    background: var(--primary-teal) !important;
 }
 
-.footer-link:hover {
-    opacity: 0.6;
+.result-badge.extended {
+    background: var(--accent-orange) !important;
 }
 
-/* ===================================
-   FIXES (OCT 30)
-   =================================== */
-
-/* * FIX 1: "Technology" section text is faint.
- * Changed text color from light --accent-teal to a visible dark grey.
-*/
-.tech-card h4 {
-    color: #14B8A6; /* Use a dark, readable teal */
-}
-
-.tech-card li {
-    color: var(--text-secondary); /* This is already a dark grey */
-}
-
-.tech-card li::before {
-    content: '→ ';
-    color: #14B8A6; /* Use a dark, readable teal */
-    margin-right: var(--spacing-sm);
-    font-weight: 400;
-}
-
-/* * FIX 2: "Beyond the Demo" section spacing.
- * Adds the large 64px top and bottom margins back.
-*/
-.production-comparison {
-    margin-top: var(--spacing-xxl);
-    margin-bottom: var(--spacing-xxl);
+.result-badge.proprietary {
+    background: var(--accent-yellow) !important;
+    color: var(--color-text) !important;
 }
 
 /* ===================================
-   FIX: FORCE ALL TEXT TO BE DARK (NOV 1)
+   RESPONSIVE
    =================================== */
+@media (max-width: 968px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
 
-/* 1. Force all accent colors to be black */
-:root {
-    --accent-teal: var(--text-primary) !important;
-    --accent-orange: var(--text-primary) !important;
-    
-    /* Forcing individual demo colors to black */
-    --success-green: var(--text-primary) !important;
-    --danger-red: var(--text-primary) !important;
-    --secondary-purple: var(--text-primary) !important;
-    --accent-yellow: var(--text-primary) !important;
-    --accent-coral: var(--text-primary) !important;
-}
-
-/* 2. Darken faint grey labels */
-.section-label,
-.stat-label {
-    color: var(--text-secondary) !important; /* Uses your dark #6b6b6b grey */
-    opacity: 1 !important;
-}
-
-/* 3. Fix faint tech/feature tags (from freight demo) */
-.tech-tag,
-.feature-tag {
-    color: var(--text-secondary) !important;
-    border-color: var(--border-subtle) !important;
-    background: transparent !important;
-}
-
-/* 4. Ensure tech card (from freight demo) text is black */
-.tech-card h4,
-.tech-card li::before {
-    color: var(--text-primary) !important;
-}
-
-
-/* ===================================
-   RESPONSIVE (SPACING PRESERVED)
-   =================================== */
-
-@media (max-width: 1024px) {
-    .methodology-flow {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xxl);
-    }
-    
-    .method-arrow {
-        display: none;
-    }
-
-    .challenge-grid,
-    .results-grid,
-    .impact-grid,
-    .usecases-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 15px;
+    section {
+        padding: var(--spacing-2xl) var(--spacing-md);
     }
 
     .container {
-        padding: 0 1.5rem;
-    }
-
-    .tech-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-    }
-
-    .hero-section {
-        padding: 8rem 0 4rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-    
-    .intro-text {
-        font-size: 1rem;
-    }
-
-    .header {
-        padding: 1.5rem 1.5rem;
-    }
-
-    .nav {
-        gap: 1.5rem;
-    }
-
-    .footer {
-        padding: 5rem 1.5rem 2rem;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    section {
-        padding: 5rem 0;
-    }
-
-    .challenge-card,
-    .result-card,
-    .impact-card,
-    .usecase-card,
-    .tech-card {
-        padding: var(--spacing-lg);
+        padding: 0 var(--spacing-md);
     }
 }
+
+@media (max-width: 640px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.25rem; }
+
+    section {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+}
+
+/* ===================================
+   UTILITIES
+   =================================== */
+.text-center { text-align: center; }
+.text-light { color: var(--color-grey); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.py-xl { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
