@@ -270,6 +270,19 @@
     border-radius: 4px;
 }
 
+/* ============================================
+   MOBILE OVERFLOW FIX
+   ============================================ */
+@media (max-width: 968px) {
+    .journey-timeline {
+        grid-template-columns: 1fr;
+    }
+    .journey-connector {
+        display: none;
+    }
+}
+
+
 /* DELETED: .comparison-chart canvas was removed to fix tiny charts. It now inherits height from .chart-container in demo-base-dark.css. */
 /*
 .comparison-chart canvas {
