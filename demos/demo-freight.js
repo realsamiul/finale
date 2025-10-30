@@ -60,24 +60,24 @@ const modelData = [
         training_time: "4.2s",
         production_ready: "Partial"
     }
-];
+]; //
 
 // Simplified forecast data for visualization (last 30 days)
 const forecast7DayData = {
     dates: Array.from({length: 30}, (_, i) => `Day ${i+1}`),
-    actual: [2845, 2912, 2756, 2834, 2901, 2767, 2889, 2923, 2801, 2856, 
+    actual: [2845, 2912, 2756, 2834, 2901, 2767, 2889, 2923, 2801, 2856,
              2778, 2834, 2901, 2845, 2789, 2912, 2834, 2867, 2923, 2801,
              2889, 2845, 2778, 2901, 2834, 2912, 2867, 2789, 2845, 2901],
     predicted: [2823, 2889, 2789, 2867, 2923, 2801, 2912, 2901, 2823, 2878,
                 2801, 2867, 2889, 2834, 2812, 2901, 2856, 2889, 2912, 2823,
                 2901, 2867, 2801, 2889, 2845, 2923, 2878, 2812, 2867, 2889]
-};
+}; //
 
 // Journey data (The Crucible stages)
 const journeyData = {
     stages: ['Start', 'Chimera', 'Abyss', 'Initial Recovery', 'Breakthrough', 'Refinement', 'Final'],
     r2_scores: [0, 0.98, -0.15, 0.35, 0.67, 0.78, 0.8069]
-};
+}; //
 
 // ============================================
 // CHART CONFIGURATION
@@ -140,7 +140,7 @@ const chartDefaults = {
             }
         }
     }
-};
+}; //
 
 // ============================================
 // CHART INITIALIZATION
@@ -340,18 +340,8 @@ function initializeCharts() {
                             weight: 600
                         }
                     },
-                    annotation: {
-                        annotations: {
-                            line1: {
-                                type: 'line',
-                                yMin: 0,
-                                yMax: 0,
-                                borderColor: '#64748B',
-                                borderWidth: 1,
-                                borderDash: [5, 5]
-                            }
-                        }
-                    }
+                    // Removed Annotation plugin reference as it wasn't standard Chart.js
+                    // If you use a plugin, make sure it's loaded via CDN
                 },
                 scales: {
                     ...chartDefaults.scales,
@@ -432,7 +422,7 @@ function initializeCharts() {
             }
         });
     }
-}
+} //
 
 // ============================================
 // TABLE POPULATION
@@ -452,37 +442,23 @@ function populateModelTable() {
             <td>${model.training_time}</td>
         </tr>
     `).join('');
-}
-
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initializeScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-}
+} //
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 Freight Demo chart initialization...');
+
+    if (typeof Chart === 'undefined') {
+        console.error('❌ Chart.js not loaded! Make sure CDN link is correct.');
+        return;
+    }
+
     initializeCharts();
-    populateModelTable();
-    initializeScrollAnimations();
+    populateModelTable(); // Also populate the table on load
     
     console.log('✅ Freight demo initialized successfully');
-});
+}); //
+
