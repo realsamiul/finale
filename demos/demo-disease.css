@@ -18,10 +18,14 @@
     justify-content: center;
     align-items: center;
 }
+
+/* DELETED: .causal-graph canvas was removed to fix inconsistent chart height. It now inherits from .chart-container in demo-base-dark.css */
+/*
 .causal-graph canvas {
     max-width: 100%;
     max-height: 300px;
 }
+*/
 
 
 .causal-findings {
@@ -280,6 +284,8 @@
     margin: 3rem 0;
 }
 
+/* REMOVED: @media block - Mobile fix for pipeline-diagram is now in demo-base-dark.css */
+/*
 @media (max-width: 1200px) {
     .pipeline-diagram {
         grid-template-columns: 1fr;
@@ -290,6 +296,7 @@
         display: none;
     }
 }
+*/
 
 /* .pipeline-stage uses base .method-step styles */
 
