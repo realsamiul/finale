@@ -379,6 +379,8 @@
     color: var(--accent-teal);
 }
 
+
+
 /* Specific Result Badge Styles */
 .result-badge.champion { 
     /* Overriding base.css .champion (which is teal) */
@@ -387,3 +389,18 @@
 }
 .result-badge.discovery { background: var(--accent-purple); color: var(--color-white); }
 .result-badge.cost { background: var(--accent-red); color: var(--color-text); }
+
+/* ============================================
+   MOBILE OVERFLOW FIX
+   ============================================ */
+@media (max-width: 1200px) {
+    .pipeline-diagram {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .pipeline-arrow {
+        display: none;
+    }
+}
+
