@@ -36,7 +36,7 @@ const floodData = {
         train_loss: [0.68, 0.52, 0.41, 0.35, 0.31, 0.28, 0.25, 0.23, 0.21, 0.19, 0.18, 0.17, 0.16, 0.155, 0.15],
         val_loss: [0.71, 0.55, 0.44, 0.38, 0.34, 0.31, 0.29, 0.27, 0.26, 0.24, 0.23, 0.22, 0.21, 0.21, 0.20]
     }
-};
+}; //
 
 // ============================================
 // CHART CONFIGURATION
@@ -103,7 +103,7 @@ const chartDefaults = {
             }
         }
     }
-};
+}; //
 
 // ============================================
 // CHART INITIALIZATION
@@ -461,51 +461,26 @@ function initializeCharts() {
     }
     
     console.log('🎉 All 5 Flood Intelligence charts initialized successfully!');
-}
-
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initializeScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-    
-    console.log('✅ Scroll animations initialized');
-}
+} //
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Flood Intelligence Demo initializing...');
+    console.log('🚀 Flood Intelligence Demo chart initialization...');
     
-    // Wait for Chart.js to be fully loaded
     if (typeof Chart === 'undefined') {
         console.error('❌ Chart.js not loaded! Make sure CDN link is correct.');
         return;
     }
     
     initializeCharts();
-    initializeScrollAnimations();
     
-    console.log('✅ Flood Intelligence demo fully loaded and ready!');
+    console.log('✅ Flood Intelligence charts loaded!');
     console.log('📊 5 charts with real flood detection data');
     console.log('🌊 HAWKEYE Engine: 96.8% accuracy, 336× faster than manual');
-});
+}); //
 
 // Export for debugging
-window.floodData = floodData;
+window.floodData = floodData; //
