@@ -1,6 +1,6 @@
 /* ===================================
-   M0NARQ DEMO - NEW BASE (LIGHT)
-   Inherits from home.css & studio.css
+   M0NARQ DEMO - CORRECTED LIGHT BASE
+   (Proper spacing from original dark file + light theme)
    =================================== */
 
 /* ===================================
@@ -9,58 +9,48 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 /* ===================================
-   ROOT VARIABLES (FROM STUDIO.CSS)
+   ROOT VARIABLES (CORRECTED LIGHT THEME)
    =================================== */
 :root {
-    /* Colors - Matching studio.css exactly */
-    --color-white: #fff;
-    --color-black: #000;
-    --color-off-white: #f8f8f8;
-    --color-light-grey: #f7f7f7;
-    --color-sand: #f4f1ec;
-    --color-grey: #999;
-    --color-text: #1a1a1a;
+    /* Colors - NEW LIGHT THEME */
+    --dark-navy: #f8f8f8; /* Changed to light bg */
+    --surface-elevated: #ffffff; /* Changed to white for cards */
+    --border-subtle: rgba(0, 0, 0, 0.08); /* Changed to subtle dark border */
     
-    /* Fonts - Matching studio.css exactly */
+    --text-primary: #1a1a1a; /* Changed to black */
+    --text-secondary: #6b6b6b; /* Changed to grey */
+    --text-tertiary: #a1a1a1; /* Changed to light grey */
+    
+    /* Accent Colors (Unchanged) */
+    --accent-teal: #5eead4;
+    --accent-orange: #fb923c;
+    
+    /* Fonts - EXACT MATCH */
     --font-heading: 'Space Grotesk', -apple-system, sans-serif;
     --font-body: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
     --font-logo: 'Michroma', sans-serif;
 
-    /* Spacing & Radius - Generous like home/studio */
+    /* Spacing - PRESERVED FROM ORIGINAL */
     --spacing-xs: 8px;
     --spacing-sm: 12px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
     --spacing-xxl: 64px;
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
     
-    /* Easing - EXACT HOME/STUDIO MATCH */
+    /* Radius - Kept minimal from original, but cards will override */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+    
+    /* Easing - EXACT HOME MATCH */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-expo: cubic-bezier(0.76, 0, 0.24, 1);
-    
-    /* * FIX: Add semantic variables so individual demo files
-     * (demo-lpg.css, etc.) don't break.
-     */
-    --primary-teal: #14B8A6;
-    --success-green: #10B981;
-    --danger-red: #EF4444;
-    --accent-yellow: #FBBF24;
-    --secondary-purple: #8B5CF6;
-    --accent-coral: #F87171;
-    --accent-orange: #fb923c;
-    
-    /* Dark theme vars (for .section-dark) */
-    --dark-navy: #0f0f0f;
-    --surface-elevated: #1a1a1a;
-    --border-subtle: rgba(255, 255, 255, 0.05);
 }
 
 /* ===================================
-   GLOBAL STYLES (FROM STUDIO.CSS)
+   GLOBAL STYLES (NOW LIGHT)
    =================================== */
 * {
     margin: 0;
@@ -73,11 +63,11 @@ html {
     overflow-x: hidden;
 }
 
+/* Body now uses the new light theme variables */
 body {
     font-family: var(--font-body);
-    /* FIX: Use the light background from your main site */
-    background: var(--color-off-white);
-    color: var(--color-text);
+    background: var(--dark-navy); /* Becomes #f8f8f8 */
+    color: var(--text-secondary); /* Becomes #6b6b6b */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -95,8 +85,7 @@ a {
 }
 
 /* ===================================
-   SHARED HEADER (FROM STUDIO.CSS)
-   This works on light OR dark backgrounds
+   SHARED HEADER (FIXED FOR LIGHT MODE)
    =================================== */
 .header {
     position: fixed;
@@ -108,12 +97,17 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 3rem;
-    mix-blend-mode: difference;
     pointer-events: none;
+    mix-blend-mode: difference;
 }
 
+/* * FIX: Header text is hard-coded to white.
+ * 'mix-blend-mode: difference' will turn it BLACK on light backgrounds
+ * and WHITE on dark backgrounds. This is the correct behavior.
+*/
 .header * {
     pointer-events: auto;
+    color: #ffffff; /* FORCED WHITE */
 }
 
 .logo {
@@ -121,7 +115,7 @@ a {
     font-weight: 400;
     font-size: 1.375rem;
     letter-spacing: 0.05em;
-    color: var(--color-white); /* 'difference' makes this black on white */
+    color: #ffffff; /* FORCED WHITE */
     transition: opacity 0.3s var(--ease-out-expo);
 }
 
@@ -135,12 +129,12 @@ a {
 }
 
 .nav-link {
-    color: var(--color-white); /* 'difference' makes this black on white */
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    transition: opacity 0.3s var(--ease-out-expo);
     position: relative;
+    color: #ffffff; /* FORCED WHITE */
+    transition: opacity 0.3s var(--ease-out-expo);
 }
 
 .nav-link:hover {
@@ -150,7 +144,7 @@ a {
 .nav-indicator {
     width: 0.75rem;
     height: 0.75rem;
-    color: var(--color-white); /* 'difference' makes this black on white */
+    color: #ffffff; /* FORCED WHITE */
 }
 
 .nav-indicator svg {
@@ -159,42 +153,41 @@ a {
 }
 
 /* ===================================
-   LAYOUT & SPACING (HOME/STUDIO STYLE)
+   SHARED DEMO COMPONENTS (SPACING PRESERVED)
    =================================== */
+
+/* Container - SPACING PRESERVED */
 .container {
     width: 100%;
-    max-width: 1400px; /* Match home.css */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 3rem;
 }
 
-/* FIX: "Tall sections" style */
+/* Section Base - SPACING PRESERVED */
 section {
-    padding: 10rem 3rem; /* Generous, consistent padding */
+    padding: 8rem 0;
 }
 
-/* Hero Section Base */
 .hero-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 12rem 3rem 8rem;
-    /* Use a light-grey, not a dark gradient */
-    background: var(--color-light-grey); 
+    padding: 10rem 0 6rem;
+    /* This gradient now becomes white-to-light-grey */
+    background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--dark-navy) 100%);
 }
 
-/* ===================================
-   TYPOGRAPHY (HOME/STUDIO STYLE)
-   =================================== */
+/* REFINED BADGES (COLORS PRESERVED) */
 .demo-badge {
     display: inline-block;
     padding: 6px 14px;
     background: transparent;
-    border: 1px solid var(--primary-teal); /* Use a working variable */
+    border: 1px solid rgba(94, 234, 212, 0.3);
     border-radius: 20px;
-    color: var(--primary-teal);
+    color: var(--accent-teal);
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
@@ -203,13 +196,13 @@ section {
     letter-spacing: 0.1em;
 }
 
-/* Hero Title (from studio.css) */
+/* HERO TITLE (TEXT NOW VISIBLE) */
 .hero-section h1 {
     font-family: var(--font-heading);
-    font-size: clamp(4rem, 12vw, 10rem);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 300;
-    color: var(--color-text);
-    line-height: 0.9;
+    color: var(--text-primary); /* Becomes black */
+    line-height: 1;
     margin-bottom: var(--spacing-lg);
     letter-spacing: -0.03em;
 }
@@ -220,14 +213,14 @@ section {
 
 .hero-subtitle {
     font-size: clamp(1.125rem, 2vw, 1.5rem);
-    color: var(--color-grey); /* Use light-theme grey */
+    color: var(--text-secondary); /* Becomes grey */
     font-weight: 300;
     max-width: 800px;
     margin: 0 auto var(--spacing-xl);
     line-height: 1.7;
 }
 
-/* Hero Stats (Clean) */
+/* HERO STATS (COLORS PRESERVED) */
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -245,46 +238,48 @@ section {
     font-family: var(--font-mono);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
-    color: var(--primary-teal); /* Use a working variable */
+    color: var(--accent-teal);
     line-height: 1;
 }
 
 .stat-label {
     display: block;
     font-size: 13px;
-    color: var(--color-grey); /* Use light-theme grey */
+    color: var(--text-tertiary); /* Becomes light grey */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: var(--spacing-sm);
 }
 
-/* Section Headings (from home.css) */
+/* SECTION LABELS (TEXT NOW VISIBLE) */
 .section-label {
     font-size: 11px;
     font-family: var(--font-mono);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-grey);
+    color: var(--text-tertiary); /* Becomes light grey */
     margin-bottom: var(--spacing-lg);
     display: block;
     text-align: center;
+    opacity: 0.6;
 }
 
+/* H2 TITLES (TEXT NOW VISIBLE) */
 h2 {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 10vw, 7rem); /* Match home.css .work-title */
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 300;
-    color: var(--color-text);
+    color: var(--text-primary); /* Becomes black */
     text-align: center;
-    line-height: 0.9;
+    line-height: 1.1;
     margin-bottom: var(--spacing-xl);
     letter-spacing: -0.02em;
 }
 
 .intro-text {
     font-size: 1.125rem;
-    color: var(--color-grey); /* Match home.css .work-description */
+    color: var(--text-secondary); /* Becomes grey */
     font-weight: 300;
     max-width: 800px;
     margin: 0 auto;
@@ -293,42 +288,10 @@ h2 {
     line-height: 1.7;
 }
 
-h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem; /* Match home.css .project-name */
-    font-weight: 400;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.01em;
-}
-
-h4 {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-sm);
-}
-
-/* ===================================
-   SHARED COMPONENT FIXES
-   =================================== */
-
-/* Grids (Generous Spacing) */
-.results-grid,
-.impact-grid,
-.usecases-grid,
-.charts-grid,
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl); /* Use xl gap */
-    margin: var(--spacing-xxl) 0;
-}
-
-/* * FIX: "Excessive boxes"
- * Replace hard borders with clean, shadow-based cards.
- */
+/* * FIX: "EXCESSIVE BOXES"
+ * Replaced transparent bg with the clean, shadow-based
+ * card style from my previous (broken) file.
+*/
 .challenge-card,
 .result-card,
 .impact-card,
@@ -338,13 +301,12 @@ h4 {
 .integration-card,
 .method-step,
 .pipeline-stage {
-    background: var(--color-white); /* Clean white background */
-    border: none; /* No more borders */
-    border-radius: var(--radius-md); /* Use 8px radius */
+    background: var(--surface-elevated); /* Becomes white */
+    border: 1px solid var(--border-subtle); /* Becomes light grey border */
+    border-radius: var(--radius-lg); /* 8px radius */
     padding: var(--spacing-xl);
     transition: all 0.3s var(--ease-out-expo);
-    /* Add a subtle, modern shadow */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
 .challenge-card:hover,
@@ -356,70 +318,214 @@ h4 {
 .integration-card:hover,
 .method-step:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    border-color: rgba(0, 0, 0, 0.0); /* Hide border on hover */
 }
 
-/* * FIX: "Small charts"
- * Create a new, responsive container for all charts.
- */
-.chart-container {
-    position: relative;
-    width: 100%;
-    min-height: 350px; /* Give charts space! */
-    margin: var(--spacing-lg) 0;
+
+/* GRIDS (SPACING PRESERVED) */
+.challenge-grid,
+.results-grid,
+.impact-grid,
+.usecases-grid,
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xxl);
+    margin: var(--spacing-xxl) 0;
 }
 
-/* ===================================
-   DARK ACCENT SECTION (Your Idea!)
-   =================================== */
-.section-dark {
-    background: var(--dark-navy); /* Use the dark bg */
-    
-    /* Invert all the text colors */
-    color: var(--color-grey);
-    
-    /* Ensure borders are visible */
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+/* TECH GRID (SPACING PRESERVED) */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xxl);
+    margin-top: var(--spacing-xxl);
 }
 
-.section-dark h1,
-.section-dark h2,
-.section-dark h3,
-.section-dark h4,
-.section-dark .stat-label {
-    color: var(--color-white);
+/* TECH CARD (TEXT NOW VISIBLE) */
+.tech-card h4 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--accent-teal);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
 }
 
-.section-dark .intro-text {
-    color: var(--color-grey);
+.tech-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Dark-mode cards */
-.section-dark .result-card,
-.section-dark .chart-card,
-.section-dark .tech-card,
-.section-dark .usecase-card {
-    background: var(--surface-elevated); /* Use the elevated dark */
-    border: 1px solid var(--border-subtle);
-    box-shadow: none; /* No shadow needed in dark mode */
+.tech-card li {
+    padding: var(--spacing-sm) 0;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--text-secondary); /* Becomes grey */
+    line-height: 1.6;
 }
 
-.section-dark .section-label {
-    color: var(--color-grey);
-    opacity: 0.6;
+.tech-card li::before {
+    content: '→ ';
+    color: var(--accent-teal);
+    margin-right: var(--spacing-sm);
+    font-weight: 400;
 }
 
-/* ===================================
-   FOOTER (MATCH HOME/STUDIO)
-   =================================== */
+/* METHODOLOGY FLOW (SPACING PRESERVED) */
+.methodology-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+    margin: var(--spacing-xxl) 0;
+}
+
+.method-arrow {
+    font-size: 32px;
+    color: var(--accent-teal);
+    font-weight: 300;
+    text-align: center;
+    opacity: 0.3;
+}
+
+.step-number {
+    display: inline-block;
+    background: transparent;
+    color: var(--accent-teal);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border: 1px solid var(--accent-teal);
+    border-radius: 20px;
+    margin-bottom: var(--spacing-md);
+}
+
+.method-step h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-primary); /* Becomes black */
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+    letter-spacing: -0.01em;
+}
+
+.method-step p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary); /* Becomes grey */
+    margin-bottom: var(--spacing-md);
+}
+
+.tech-tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+}
+
+.tech-tag {
+    background: transparent;
+    color: var(--accent-teal);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(94, 234, 212, 0.3);
+}
+
+/* BREAKTHROUGH CALLOUT (SPACING PRESERVED) */
+.breakthrough-callout {
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--accent-teal);
+    padding: var(--spacing-xl) 0 var(--spacing-xl) var(--spacing-xl);
+    margin-top: var(--spacing-xxl);
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.breakthrough-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+.breakthrough-content h4 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-primary); /* Becomes black */
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
+}
+
+.breakthrough-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary); /* Becomes grey */
+}
+
+.breakthrough-content strong {
+    color: var(--accent-teal);
+    font-weight: 400;
+}
+
+/* STAT CALLOUT (SPACING PRESERVED) */
+.stat-callout {
+    background: transparent;
+    border: none;
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    margin-top: var(--spacing-xxl);
+}
+
+.stat-number {
+    font-family: var(--font-mono);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    color: var(--accent-teal);
+    line-height: 1;
+}
+
+.stat-description {
+    font-size: 16px;
+    color: var(--text-secondary); /* Becomes grey */
+    margin-top: var(--spacing-md);
+    line-height: 1.6;
+}
+
+/* H3, H4 STYLING (TEXT NOW VISIBLE) */
+h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary); /* Becomes black */
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
+}
+
+h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-primary); /* Becomes black */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* FOOTER (NOW LIGHT) */
 .footer {
     padding: 8rem 3rem 3rem;
-    background: var(--color-sand); /* Match home/studio */
+    background: var(--surface-elevated); /* Becomes white */
+    border-top: 1px solid var(--border-subtle); /* Becomes light grey border */
 }
 
 .footer-content {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -433,7 +539,7 @@ h4 {
     font-weight: 300;
     line-height: 0.85;
     margin-bottom: 2rem;
-    color: var(--color-text);
+    color: var(--text-primary); /* Becomes black */
 }
 
 .footer-title-line {
@@ -444,7 +550,7 @@ h4 {
     max-width: 35rem;
     font-size: 1.125rem;
     line-height: 1.6;
-    color: var(--color-grey);
+    color: var(--text-secondary); /* Becomes grey */
     font-weight: 300;
 }
 
@@ -453,7 +559,7 @@ h4 {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     padding-top: 3rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border-subtle); /* Becomes light grey border */
 }
 
 .footer-column {
@@ -468,14 +574,14 @@ h4 {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
+    color: var(--text-tertiary); /* Becomes light grey */
     opacity: 0.5;
-    color: var(--color-text);
 }
 
 .footer-link {
     font-size: 0.9375rem;
     font-weight: 300;
-    color: var(--color-grey);
+    color: var(--text-secondary); /* Becomes grey */
     transition: opacity 0.3s var(--ease-out-expo);
 }
 
@@ -484,24 +590,47 @@ h4 {
 }
 
 /* ===================================
-   RESPONSIVE (CLEAN)
+   RESPONSIVE (SPACING PRESERVED)
    =================================== */
 
+@media (max-width: 1024px) {
+    .methodology-flow {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xxl);
+    }
+    
+    .method-arrow {
+        display: none;
+    }
+
+    .challenge-grid,
+    .results-grid,
+    .impact-grid,
+    .usecases-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
     .container {
         padding: 0 1.5rem;
     }
 
-    section {
-        padding: 6rem 1.5rem; /* Reduce padding on mobile */
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
     }
 
     .hero-section {
-        padding: 8rem 1.5rem 4rem;
+        padding: 8rem 0 4rem;
     }
 
     h2 {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
+        font-size: 2.5rem;
     }
     
     .intro-text {
@@ -523,5 +652,17 @@ h4 {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    section {
+        padding: 5rem 0;
+    }
+
+    .challenge-card,
+    .result-card,
+    .impact-card,
+    .usecase-card,
+    .tech-card {
+        padding: var(--spacing-lg);
     }
 }
