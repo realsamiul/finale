@@ -30,14 +30,18 @@
     text-align: center;
     margin: 2rem 0;
 }
+
+/* DELETED: metric-value was removed to fix faint text. It now inherits from demo-base-dark.css. */
+/*
 .metric-value {
-    /* Overriding base .metric-value */
+    // Overriding base .metric-value 
     font-family: var(--font-mono);
     font-size: 3rem;
     font-weight: 700;
     color: var(--accent-teal);
     display: block;
 }
+*/
 .metric-label {
     /* Overriding base .metric-label */
     font-size: 0.875rem;
@@ -66,9 +70,13 @@
     border-radius: 4px;
     min-height: 200px;
 }
+
+/* DELETED: .result-chart canvas was removed to fix tiny charts. It now inherits height from .chart-container in demo-base-dark.css. */
+/*
 .result-chart canvas {
     max-height: 180px !important;
 }
+*/
 
 
 /* Model Race Card */
@@ -225,21 +233,27 @@
     border-radius: 4px;
 }
 
+/* DELETED: .impact-before was removed to fix faint text. It now inherits from demo-base-dark.css. */
+/*
 .impact-before {
     font-family: var(--font-mono);
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--accent-red); /* Mapped from coral */
+    color: var(--accent-red); // Mapped from coral 
 }
+*/
 
 /* .impact-arrow in base.css */
 
+/* DELETED: .impact-after was removed to fix faint text. It now inherits from demo-base-dark.css. */
+/*
 .impact-after {
     font-family: var(--font-mono);
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--accent-green);
 }
+*/
 
 .impact-testimonial {
     background: var(--color-white);
