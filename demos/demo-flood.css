@@ -1,207 +1,154 @@
 /* ============================================
    FLOOD INTELLIGENCE DEMO - SPECIFIC STYLES
-   Inherits from demo-base-dark.css
+   Inherits from new demo-base.css
    ============================================ */
 
 /* ============================================
    CHART VISUALIZATIONS SECTION SPECIFICS
    ============================================ */
-.visualizations-section {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
-}
-
-.chart-card.span-2 {
-    grid-column: span 2;
-}
-
-@media (max-width: 968px) {
-    .chart-card.span-2 {
-        grid-column: span 1;
-    }
-}
+/* .visualizations-section background removed */
+/* .chart-card.span-2 and media queries in base.css */
 
 .chart-card h3 {
-    border-bottom: 2px solid rgba(20, 184, 166, 0.2);
+    /* Overriding base.css .chart-card h3 */
+    border-bottom: 1px solid rgba(20, 184, 166, 0.2);
 }
 
-
-
-.chart-card.span-2 .chart-container {
-    height: 350px; /* Taller for the span-2 chart */
-}
+/* .chart-container styles in base.css */
 
 /* ============================================
    RESULT CARDS SPECIFIC STYLES
    ============================================ */
 
-.result-badge.critical {
-    background: var(--danger-red, #EF4444);
-    color: var(--text-primary, #FFF); /* Ensure text is visible */
-}
-
-.result-badge.severe {
-    background: var(--accent-orange, #FB923C);
-    color: var(--dark-navy, #0A192F); /* Use dark text on orange */
-}
-
-.result-badge.moderate {
-    background: var(--accent-yellow, #FBBF24);
-    color: var(--dark-navy, #0A192F); /* Use dark text on yellow */
-}
-
-.result-badge.certified {
-    background: var(--primary-teal, #14B8A6);
-    color: var(--dark-navy, #0A192F); /* Use dark text on teal */
-}
+/* .result-badge .critical, .severe, .moderate, .certified in base.css */
 
 .result-metric {
     text-align: center;
-    margin: var(--spacing-lg, 24px) 0;
+    margin: 2rem 0;
 }
 
 .metric-value {
+    /* Overriding base .metric-value */
     font-family: var(--font-mono);
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--primary-teal);
+    color: var(--accent-teal);
     display: block;
 }
 
 .metric-label {
-    font-size: 14px;
-    color: var(--text-secondary);
+    /* Overriding base .metric-label */
+    font-size: 0.875rem;
+    color: var(--color-grey);
     font-family: var(--font-mono);
 }
 
 .result-details {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm, 12px);
+    gap: 1rem;
 }
 
-.detail-row {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--spacing-xs, 8px) 0;
-    border-bottom: 1px solid var(--border-subtle);
-}
-.detail-row:last-child {
-    border-bottom: none;
-}
-
-.detail-label {
-    font-size: 14px;
-    color: var(--text-secondary);
-}
+/* .detail-row, .detail-label in base.css */
 
 .detail-value {
-    font-size: 14px;
-    color: var(--text-primary);
+    /* Overriding base .detail-value */
+    font-size: 0.875rem;
+    color: var(--color-text);
     font-family: var(--font-mono);
     font-weight: 600;
 }
 
 .confidence-critical {
-    color: var(--danger-red, #EF4444) !important;
+    color: var(--accent-red) !important;
 }
 
 .confidence-high {
-    color: var(--success-green, #10B8A1) !important;
+    color: var(--accent-green) !important;
 }
 
 /* Certified Card Specific */
 .certified-card {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    border: 2px solid var(--primary-teal);
+    /* Base styles from .result-card in base.css */
+    border: 1px solid var(--accent-teal);
 }
 
 .certified-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md, 16px);
-    margin: var(--spacing-lg, 24px) 0;
+    gap: 1rem;
+    margin: 2rem 0;
 }
 
 .cert-metric {
     text-align: center;
-    padding: var(--spacing-sm, 12px);
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: var(--radius-md, 8px);
+    padding: 1rem;
+    background: var(--color-light-grey);
+    border-radius: 4px;
 }
 
 .cert-label {
-    font-size: 12px;
-    color: var(--text-secondary);
+    font-size: 0.75rem;
+    color: var(--color-grey);
     display: block;
-    margin-bottom: var(--spacing-xs, 8px);
+    margin-bottom: 0.5rem;
 }
 
 .cert-value {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-family: var(--font-mono);
     font-weight: 700;
-    color: var(--primary-teal);
+    color: var(--accent-teal);
 }
 
 .certification-details {
-    margin-top: var(--spacing-lg, 24px);
+    margin-top: 2rem;
 }
 
 .certification-details p {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-xs, 8px);
+    color: var(--color-grey);
+    margin-bottom: 0.5rem;
 }
 
 .certification-details strong {
-    color: var(--text-primary);
+    color: var(--color-text);
 }
 
 .cert-specs {
     display: flex;
-    gap: var(--spacing-sm, 12px);
+    gap: 1rem;
     flex-wrap: wrap;
-    margin-top: var(--spacing-md, 16px);
+    margin-top: 1.5rem;
 }
 
 .cert-spec {
-    padding: 6px 12px;
+    padding: 0.5rem 1rem;
     background: rgba(20, 184, 166, 0.1);
     border: 1px solid rgba(20, 184, 166, 0.3);
-    border-radius: var(--radius-sm, 6px);
-    font-size: 12px;
-    color: var(--primary-teal);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--accent-teal);
     font-family: var(--font-mono);
 }
 
 /* ============================================
    IMPACT SECTION SPECIFICS (Arrows are common)
    ============================================ */
+/* .impact-number, .impact-arrow in base.css */
 .impact-number {
-    font-family: var(--font-mono);
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--primary-teal);
+    /* Overriding base .impact-number */
+    color: var(--accent-teal);
 }
 
-.impact-arrow {
-    font-size: 24px;
-    color: var(--text-tertiary);
-}
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS SPECIFIC TO THIS DEMO
    ============================================ */
 
 @media (max-width: 768px) {
-    .chart-container {
-        height: 250px; /* Adjust chart height on smaller screens */
-    }
-    
-    .chart-card.span-2 .chart-container {
-        height: 280px;
-    }
+    /* .chart-container adjustments in base.css */
 
     .certified-metrics {
         grid-template-columns: 1fr; /* Stack certified metrics */
