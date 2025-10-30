@@ -4,398 +4,427 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flood Intelligence | M0NARQ AI</title>
-    <link rel="stylesheet" href="base.css">
+    <meta name="description" content="From 7 Days to 30 Minutes - 96.8% Mean Accuracy">
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo-base-dark.css">
     <link rel="stylesheet" href="demo-flood.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <span class="demo-badge">HAWKEYE Engine · Physical Intelligence</span>
-            <h1>From 7 Days to 30 Minutes</h1>
-            <p class="hero-subtitle">When floods destroy in hours, the difference between seeing and knowing becomes a matter of life and death</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-value">99.7%</span>
-                    <span class="stat-label">Faster than Traditional</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">96.8%</span>
-                    <span class="stat-label">Mean Accuracy</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">800K</span>
-                    <span class="stat-label">Lives Protected</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<body class="demo-body">
 
-    <!-- Challenge Section -->
-    <section class="challenge-section">
-        <div class="container">
-            <span class="section-label">The Challenge</span>
-            <h2>When Clouds Hide the Crisis</h2>
-            
-            <div class="challenge-grid">
-                <div class="challenge-card fade-in">
-                    <div class="challenge-icon">☁️</div>
-                    <h3>The Visibility Problem</h3>
-                    <p>Traditional optical satellites see nothing through monsoon clouds. During Pakistan's 2022 megaflood—one-third of the country underwater—<strong>satellite imagery arrived 7 days too late</strong>, after 1,700 deaths and $30 billion in damage.</p>
-                </div>
-                
-                <div class="challenge-card fade-in">
-                    <div class="challenge-icon">⏱️</div>
-                    <h3>The Speed Barrier</h3>
-                    <p>Manual analysis takes <strong>3-7 days</strong> of expert labor: downloading 50GB images, preprocessing 12 data layers, hand-digitizing flood boundaries. By the time maps arrive, the water has moved—or lives have ended.</p>
-                </div>
-                
-                <div class="challenge-card fade-in">
-                    <div class="challenge-icon">🌍</div>
-                    <h3>The Scale Crisis</h3>
-                    <p>Floods now affect <strong>250 million people annually</strong> across 100+ countries. One analyst, one flood, one week. The math doesn't work. We need intelligence that scales at the speed of disaster.</p>
-                </div>
-            </div>
-            
-            <div class="stat-callout fade-in">
-                <div class="stat-number">$30B</div>
-                <div class="stat-description">lost in Pakistan 2022 alone<br/>because help arrived too late</div>
-            </div>
+    <header class="header">
+        <a href="../home.html" class="logo">M0NARQ</a>
+        <nav class="nav">
+            <a href="../home.html" class="nav-link">Home</a>
+            <a href="../studio.html" class="nav-link">Studio</a>
+        </nav>
+        <div class="nav-indicator">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.09 5.68L6.5 0L5.91 5.68L0 6.5L5.91 7.32L6.5 13L7.09 7.32L13 6.5L7.09 5.68Z" fill="currentColor"/>
+            </svg>
         </div>
-    </section>
+    </header>
 
-    <!-- Solution Section -->
-    <section class="solution-section">
-        <div class="container">
-            <span class="section-label">The Solution</span>
-            <h2>Physics Meets Vision: Multi-Modal Intelligence</h2>
-            
-            <p class="intro-text fade-in">
-                We don't just train a model to recognize water. We teach it to <strong>understand how water behaves</strong>—combining radar that sees through clouds, optical data that reveals color, and physical laws that govern flow.
-            </p>
-            
-            <div class="methodology-flow">
-                <div class="method-step fade-in">
-                    <div class="step-number">01</div>
-                    <h3>Sentinel-1 SAR</h3>
-                    <p><strong>Radar sees what eyes cannot.</strong> Synthetic Aperture Radar penetrates clouds, fog, darkness—measuring backscatter where water creates mirror-smooth surfaces (VV polarization < 0.2). Day or night, storm or sun, we see everything.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Cloud-Penetrating</span>
-                        <span class="tech-tag">Day/Night</span>
+    <main class="main" data-scroll-container>
+        
+        <section class="hero-section" data-scroll-section>
+            <div class="container">
+                <span class="demo-badge">HAWKEYE Engine · Physical Intelligence</span>
+                <h1 class="hero-title">
+                    <div class="hero-line-wrapper">
+                        <span class="hero-title-line">From 7 Days</span>
                     </div>
-                </div>
-                
-                <div class="method-arrow">+</div>
-                
-                <div class="method-step fade-in">
-                    <div class="step-number">02</div>
-                    <h3>Sentinel-2 Optical</h3>
-                    <p><strong>Color reveals context.</strong> Near-infrared bands compute NDWI (water index), distinguish sediment from clear water, separate seasonal wetlands from catastrophic inundation. Nine spectral bands create a fingerprint only water can match.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Multispectral</span>
-                        <span class="tech-tag">10m Resolution</span>
+                    <div class="hero-line-wrapper">
+                        <span class="hero-title-line">to 30 Minutes</span>
                     </div>
-                </div>
-                
-                <div class="method-arrow">+</div>
-                
-                <div class="method-step fade-in">
-                    <div class="step-number">03</div>
-                    <h3>Physics-Informed AI</h3>
-                    <p><strong>Laws of nature constrain predictions.</strong> We embed Saint-Venant shallow water equations directly into the neural network. Water can't violate physics—it flows downhill, conserves mass, follows momentum. Our model learns patterns <em>and</em> obeys reality.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Differential Equations</span>
-                        <span class="tech-tag">Conservation Laws</span>
+                </h1>
+                <p class="hero-subtitle">When floods destroy in hours, the difference between seeing and knowing becomes a matter of life and death</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">99.7%</span>
+                        <span class="stat-label">Faster than Traditional</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">96.8%</span>
+                        <span class="stat-label">Mean Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">800K</span>
+                        <span class="stat-label">Lives Protected</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="breakthrough-callout fade-in">
-                <div class="breakthrough-icon">🔬</div>
-                <div class="breakthrough-content">
-                    <h4>The Scientific Breakthrough</h4>
-                    <p>Traditional models pattern-match. Ours <strong>simulates</strong>. By fusing temporal transformers (attention across time) with physics-informed layers (fluid dynamics constraints), we don't just detect floods—we understand their mechanics. Result: <strong>96-99% accuracy</strong> even on unprecedented flood geometries never seen during training.</p>
+        </section>
+
+        <section class="challenge-section" data-scroll-section>
+            <div class="container">
+                <span class="section-label">The Challenge</span>
+                <h2>When Clouds Hide the Crisis</h2>
+                <div class="challenge-grid">
+                    <div class="challenge-card fade-in">
+                        <div class="challenge-icon">☁️</div>
+                        <h3>The Visibility Problem</h3>
+                        <p>Traditional optical satellites see nothing through monsoon clouds. During Pakistan's 2022 megaflood—one-third of the country underwater—<strong>satellite imagery arrived 7 days too late</strong>, after 1,700 deaths and $30 billion in damage.</p>
+                    </div>
+                    <div class="challenge-card fade-in">
+                        <div class="challenge-icon">⏱️</div>
+                        <h3>The Speed Barrier</h3>
+                        <p>Manual analysis takes <strong>3-7 days</strong> of expert labor: downloading 50GB images, preprocessing 12 data layers, hand-digitizing flood boundaries. By the time maps arrive, the water has moved—or lives have ended.</p>
+                    </div>
+                    <div class="challenge-card fade-in">
+                        <div class="challenge-icon">🌍</div>
+                        <h3>The Scale Crisis</h3>
+                        <p>Floods now affect <strong>250 million people annually</strong> across 100+ countries. One analyst, one flood, one week. The math doesn't work. We need intelligence that scales at the speed of disaster.</p>
+                    </div>
+                </div>
+                <div class="stat-callout fade-in">
+                    <div class="stat-number">$30B</div>
+                    <div class="stat-description">lost in Pakistan 2022 alone<br/>because help arrived too late</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Results Section -->
-    <section class="results-section">
-        <div class="container">
-            <span class="section-label">Results</span>
-            <h2>Three Countries, 800,000 Lives, One System</h2>
-            
-            <div class="results-grid">
-                <!-- Result 1: Pakistan -->
-                <div class="result-card fade-in" data-location="pakistan">
-                    <div class="result-header">
-                        <h3>Pakistan · Dadu 2022</h3>
-                        <span class="result-badge critical">Megaflood</span>
-                    </div>
-                    <div class="result-metric">
-                        <div class="metric-value">100%</div>
-                        <div class="metric-label">Accuracy</div>
-                    </div>
-                    <div class="result-details">
-                        <div class="detail-row">
-                            <span class="detail-label">People Affected</span>
-                            <span class="detail-value">450,000</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Processing Time</span>
-                            <span class="detail-value">28 minutes</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Coverage</span>
-                            <span class="detail-value">15,000 km²</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Peak Flood Extent</span>
-                            <span class="detail-value confidence-critical">83.6%</span>
+        <section class="solution-section" data-scroll-section>
+            <div class="container">
+                <span class="section-label">The Solution</span>
+                <h2>Physics Meets Vision: Multi-Modal Intelligence</h2>
+                <p class="intro-text fade-in">We don't just train a model to recognize water. We teach it to <strong>understand how water behaves</strong>—combining radar that sees through clouds, optical data that reveals color, and physical laws that govern flow.</p>
+                <div class="methodology-flow">
+                    <div class="method-step fade-in">
+                        <div class="step-number">01</div>
+                        <h3>Sentinel-1 SAR</h3>
+                        <p><strong>Radar sees what eyes cannot.</strong> Synthetic Aperture Radar penetrates clouds, fog, darkness—measuring backscatter where water creates mirror-smooth surfaces (VV polarization < 0.2). Day or night, storm or sun, we see everything.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Cloud-Penetrating</span>
+                            <span class="tech-tag">Day/Night</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Result 2: Bangladesh -->
-                <div class="result-card fade-in" data-location="bangladesh">
-                    <div class="result-header">
-                        <h3>Bangladesh · Sylhet 2022</h3>
-                        <span class="result-badge severe">Seasonal Peak</span>
+                    <div class="method-arrow">+</div>
+                    <div class="method-step fade-in">
+                        <div class="step-number">02</div>
+                        <h3>Sentinel-2 Optical</h3>
+                        <p><strong>Color reveals context.</strong> Near-infrared bands compute NDWI (water index), distinguish sediment from clear water, separate seasonal wetlands from catastrophic inundation. Nine spectral bands create a fingerprint only water can match.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Multispectral</span>
+                            <span class="tech-tag">10m Resolution</span>
+                        </div>
                     </div>
-                    <div class="result-metric">
-                        <div class="metric-value">91%</div>
-                        <div class="metric-label">mIoU Score</div>
-                    </div>
-                    <div class="result-details">
-                        <div class="detail-row">
-                            <span class="detail-label">People Affected</span>
-                            <span class="detail-value">250,000</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Processing Time</span>
-                            <span class="detail-value">30 minutes</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Model Architecture</span>
-                            <span class="detail-value">SegFormer ViT</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Confidence</span>
-                            <span class="detail-value confidence-high">HIGH</span>
+                    <div class="method-arrow">+</div>
+                    <div class="method-step fade-in">
+                        <div class="step-number">03</div>
+                        <h3>Physics-Informed AI</h3>
+                        <p><strong>Laws of nature constrain predictions.</strong> We embed Saint-Venant shallow water equations directly into the neural network. Water can't violate physics—it flows downhill, conserves mass, follows momentum. Our model learns patterns <em>and</em> obeys reality.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Differential Equations</span>
+                            <span class="tech-tag">Conservation Laws</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Result 3: India -->
-                <div class="result-card fade-in" data-location="india">
-                    <div class="result-header">
-                        <h3>India · Bangalore 2022</h3>
-                        <span class="result-badge moderate">Urban Flash Flood</span>
-                    </div>
-                    <div class="result-metric">
-                        <div class="metric-value">85.96%</div>
-                        <div class="metric-label">Accuracy</div>
-                    </div>
-                    <div class="result-details">
-                        <div class="detail-row">
-                            <span class="detail-label">People Affected</span>
-                            <span class="detail-value">100,000</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Uncertainty Score</span>
-                            <span class="detail-value">0.47</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Urban Complexity</span>
-                            <span class="detail-value">High</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Tile Resolution</span>
-                            <span class="detail-value confidence-high">30m</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Result 4: Government Certified System -->
-                <div class="result-card certified-card fade-in">
-                    <div class="result-header">
-                        <h3>Government-Certified System</h3>
-                        <span class="result-badge certified">🏛️ Official</span>
-                    </div>
-                    <div class="certified-metrics">
-                        <div class="cert-metric">
-                            <span class="cert-label">Dice Score</span>
-                            <span class="cert-value">78.1%</span>
-                        </div>
-                        <div class="cert-metric">
-                            <span class="cert-label">IoU Score</span>
-                            <span class="cert-value">68.1%</span>
-                        </div>
-                        <div class="cert-metric">
-                            <span class="cert-label">Training Time</span>
-                            <span class="cert-value">22.7 min</span>
-                        </div>
-                    </div>
-                    <div class="certification-details">
-                        <p><strong>Bangladesh Government Certification</strong> · September 24, 2025</p>
-                        <p>Validated on Gaibandha 2020 + Sylhet 2024 floods</p>
-                        <p>Exceeds 75% Dice threshold · <strong>Ready for operational deployment</strong></p>
-                        <div class="cert-specs">
-                            <span class="cert-spec">434 tiles analyzed</span>
-                            <span class="cert-spec">2,178 km² coverage</span>
-                            <span class="cert-spec">6.31M parameters</span>
-                        </div>
+                <div class="breakthrough-callout fade-in">
+                    <div class="breakthrough-icon">🔬</div>
+                    <div class="breakthrough-content">
+                        <h4>The Scientific Breakthrough</h4>
+                        <p>Traditional models pattern-match. Ours <strong>simulates</strong>. By fusing temporal transformers (attention across time) with physics-informed layers (fluid dynamics constraints), we don't just detect floods—we understand their mechanics. Result: <strong>96-99% accuracy</strong> even on unprecedented flood geometries never seen during training.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Data Visualizations Section -->
-    <section class="visualizations-section">
-        <div class="container">
-            <span class="section-label">Data Analysis</span>
-            <h2>Intelligence in Numbers</h2>
-            
-            <div class="charts-grid fade-in">
-                <!-- Chart 1: Performance Metrics -->
-                <div class="chart-card">
-                    <h3>HAWKEYE vs Traditional Methods</h3>
-                    <div class="chart-container">
-                        <canvas id="chart-performance-metrics"></canvas>
+        <section class="results-section" data-scroll-section>
+            <div class="container">
+                <span class="section-label">Results</span>
+                <h2>Three Countries, 800,000 Lives, One System</h2>
+                <div class="results-grid">
+                    <div class="result-card fade-in" data-location="pakistan">
+                        <div class="result-header">
+                            <h3>Pakistan · Dadu 2022</h3>
+                            <span class="result-badge critical">Megaflood</span>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                        <div class="result-details">
+                            <div class="detail-row">
+                                <span class="detail-label">People Affected</span>
+                                <span class="detail-value">450,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Processing Time</span>
+                                <span class="detail-value">28 minutes</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Coverage</span>
+                                <span class="detail-value">15,000 km²</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Peak Flood Extent</span>
+                                <span class="detail-value confidence-critical">83.6%</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Chart 2: Processing Speed -->
-                <div class="chart-card">
-                    <h3>Processing Time Comparison</h3>
-                    <div class="chart-container">
-                        <canvas id="chart-processing-speed"></canvas>
+                    <div class="result-card fade-in" data-location="bangladesh">
+                        <div class="result-header">
+                            <h3>Bangladesh · Sylhet 2022</h3>
+                            <span class="result-badge severe">Seasonal Peak</span>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">91%</div>
+                            <div class="metric-label">mIoU Score</div>
+                        </div>
+                        <div class="result-details">
+                            <div class="detail-row">
+                                <span class="detail-label">People Affected</span>
+                                <span class="detail-value">250,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Processing Time</span>
+                                <span class="detail-value">30 minutes</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Model Architecture</span>
+                                <span class="detail-value">SegFormer ViT</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Confidence</span>
+                                <span class="detail-value confidence-high">HIGH</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Chart 3: Data Modalities -->
-                <div class="chart-card">
-                    <h3>Multi-Modal Data Contribution</h3>
-                    <div class="chart-container">
-                        <canvas id="chart-data-modalities"></canvas>
+                    <div class="result-card fade-in" data-location="india">
+                        <div class="result-header">
+                            <h3>India · Bangalore 2022</h3>
+                            <span class="result-badge moderate">Urban Flash Flood</span>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">85.96%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                        <div class="result-details">
+                            <div class="detail-row">
+                                <span class="detail-label">People Affected</span>
+                                <span class="detail-value">100,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Uncertainty Score</span>
+                                <span class="detail-value">0.47</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Urban Complexity</span>
+                                <span class="detail-value">High</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Tile Resolution</span>
+                                <span class="detail-value confidence-high">30m</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Chart 4: Flood Extent -->
-                <div class="chart-card">
-                    <h3>Detected Flood Extent</h3>
-                    <div class="chart-container">
-                        <canvas id="chart-flood-extent"></canvas>
-                    </div>
-                </div>
-                
-                <!-- Chart 5: Training Progress -->
-                <div class="chart-card span-2">
-                    <h3>Model Training Convergence</h3>
-                    <div class="chart-container">
-                        <canvas id="chart-training-loss"></canvas>
+                    <div class="result-card certified-card fade-in">
+                        <div class="result-header">
+                            <h3>Government-Certified System</h3>
+                            <span class="result-badge certified">🏛️ Official</span>
+                        </div>
+                        <div class="certified-metrics">
+                            <div class="cert-metric">
+                                <span class="cert-label">Dice Score</span>
+                                <span class="cert-value">78.1%</span>
+                            </div>
+                            <div class="cert-metric">
+                                <span class="cert-label">IoU Score</span>
+                                <span class="cert-value">68.1%</span>
+                            </div>
+                            <div class="cert-metric">
+                                <span class="cert-label">Training Time</span>
+                                <span class="cert-value">22.7 min</span>
+                            </div>
+                        </div>
+                        <div class="certification-details">
+                            <p><strong>Bangladesh Government Certification</strong> · September 24, 2025</p>
+                            <p>Validated on Gaibandha 2020 + Sylhet 2024 floods</p>
+                            <p>Exceeds 75% Dice threshold · <strong>Ready for operational deployment</strong></p>
+                            <div class="cert-specs">
+                                <span class="cert-spec">434 tiles analyzed</span>
+                                <span class="cert-spec">2,178 km² coverage</span>
+                                <span class="cert-spec">6.31M parameters</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Impact Section -->
-    <section class="impact-section">
-        <div class="container">
-            <span class="section-label">Impact</span>
-            <h2>When Minutes Save Millions</h2>
-            
-            <div class="impact-grid fade-in">
-                <div class="impact-card">
-                    <div class="impact-icon">⚡</div>
-                    <h3>Speed Revolution</h3>
-                    <div class="impact-stat">
-                        <span class="impact-number">168 hrs</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-number">30 min</span>
+        <section class="visualizations-section" data-scroll-section>
+            <div class="container">
+                <span class="section-label">Data Analysis</span>
+                <h2>Intelligence in Numbers</h2>
+                <div class="charts-grid fade-in">
+                    <div class="chart-card">
+                        <h3>HAWKEYE vs Traditional Methods</h3>
+                        <div class="chart-container">
+                            <canvas id="chart-performance-metrics"></canvas>
+                        </div>
                     </div>
-                    <p>Traditional manual analysis vs. automated AI processing. <strong>99.7% faster</strong>—the difference between warnings that arrive during the flood and warnings that arrive after.</p>
-                </div>
-                
-                <div class="impact-card">
-                    <div class="impact-icon">💰</div>
-                    <h3>Economic Multiplier</h3>
-                    <div class="impact-stat">
-                        <span class="impact-number">$500K</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-number">$12M</span>
+                    <div class="chart-card">
+                        <h3>Processing Time Comparison</h3>
+                        <div class="chart-container">
+                            <canvas id="chart-processing-speed"></canvas>
+                        </div>
                     </div>
-                    <p>Initial investment to 5-year value. <strong>2.4 month ROI</strong> through saved emergency response ($35M), insurance claims ($70M), and infrastructure protection ($55M) annually.</p>
-                </div>
-                
-                <div class="impact-card">
-                    <div class="impact-icon">🌍</div>
-                    <h3>Global Scale Readiness</h3>
-                    <div class="impact-stat">
-                        <span class="impact-number">3 countries</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-number">Worldwide</span>
+                    <div class="chart-card">
+                        <h3>Multi-Modal Data Contribution</h3>
+                        <div class="chart-container">
+                            <canvas id="chart-data-modalities"></canvas>
+                        </div>
                     </div>
-                    <p>Pilot → 10B people by 2026. <strong>250 million people</strong> face floods annually. Our system scales to continental coverage at 10M km² per hour. No disaster too big, no region too remote.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Production Teaser -->
-    <section class="production-section">
-        <div class="container">
-            <div class="production-content fade-in">
-                <span class="section-label">Beyond the Demo</span>
-                <h2>From Proof-of-Concept to Planetary Intelligence</h2>
-                
-                <div class="production-comparison">
-                    <div class="comparison-column demo-column">
-                        <h4>Demo Version</h4>
-                        <ul class="spec-list">
-                            <li>3 data sources (SAR, Optical, DEM)</li>
-                            <li>Single SegFormer or CNN</li>
-                            <li>256×256 tile processing</li>
-                            <li>5 epochs training</li>
-                            <li>96.8% accuracy achieved</li>
-                        </ul>
+                    <div class="chart-card">
+                        <h3>Detected Flood Extent</h3>
+                        <div class="chart-container">
+                            <canvas id="chart-flood-extent"></canvas>
+                        </div>
                     </div>
-                    
-                    <div class="comparison-divider">
-                        <div class="divider-icon">⚡</div>
-                    </div>
-                    
-                    <div class="comparison-column production-column">
-                        <h4>Production HAWKEYE</h4>
-                        <ul class="spec-list">
-                            <li><strong>100+ data sources</strong> (20 satellites, weather, IoT)</li>
-                            <li><strong>Billion-parameter models</strong> (foundation + ensemble)</li>
-                            <li><strong>Continental scale</strong> (10M km²/hour)</li>
-                            <li><strong>100+ epochs</strong> (weeks of training)</li>
-                            <li><strong>97-99% accuracy</strong> (+3% improvement)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="production-features fade-in">
-                    <h4>Production System Capabilities:</h4>
-                    <div class="feature-tags">
-                        <span class="feature-tag">Real-Time Streaming</span>
-                        <span class="feature-tag">Global Daily Updates</span>
-                        <span class="feature-tag">Multi-Hazard Fusion</span>
-                        <span class="feature-tag">Causality-Aware Forecasting</span>
-                        <span class="feature-tag">Foundation Model Pre-Training</span>
-                        <span class="feature-tag">Sub-Second Alerting</span>
+                    <div class="chart-card span-2">
+                        <h3>Model Training Convergence</h3>
+                        <div class="chart-container">
+                            <canvas id="chart-training-loss"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script src="demo-flood.js"></script>
+        <section class="impact-section" data-scroll-section>
+            <div class="container">
+                <span class="section-label">Impact</span>
+                <h2>When Minutes Save Millions</h2>
+                <div class="impact-grid fade-in">
+                    <div class="impact-card">
+                        <div class="impact-icon">⚡</div>
+                        <h3>Speed Revolution</h3>
+                        <div class="impact-stat">
+                            <span class="impact-number">168 hrs</span>
+                            <span class="impact-arrow">→</span>
+                            <span class="impact-number">30 min</span>
+                        </div>
+                        <p>Traditional manual analysis vs. automated AI processing. <strong>99.7% faster</strong>—the difference between warnings that arrive during the flood and warnings that arrive after.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">💰</div>
+                        <h3>Economic Multiplier</h3>
+                        <div class="impact-stat">
+                            <span class="impact-number">$500K</span>
+                            <span class="impact-arrow">→</span>
+                            <span class="impact-number">$12M</span>
+                        </div>
+                        <p>Initial investment to 5-year value. <strong>2.4 month ROI</strong> through saved emergency response ($35M), insurance claims ($70M), and infrastructure protection ($55M) annually.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🌍</div>
+                        <h3>Global Scale Readiness</h3>
+                        <div class="impact-stat">
+                            <span class="impact-number">3 countries</span>
+                            <span class="impact-arrow">→</span>
+                            <span class="impact-number">Worldwide</span>
+                        </div>
+                        <p>Pilot → 10B people by 2026. <strong>250 million people</strong> face floods annually. Our system scales to continental coverage at 10M km² per hour. No disaster too big, no region too remote.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="production-section" data-scroll-section>
+            <div class="container">
+                <div class="production-content fade-in">
+                    <span class="section-label">Beyond the Demo</span>
+                    <h2>From Proof-of-Concept to Planetary Intelligence</h2>
+                    <div class="production-comparison">
+                        <div class="comparison-column demo-column">
+                            <h4>Demo Version</h4>
+                            <ul class="spec-list">
+                                <li>3 data sources (SAR, Optical, DEM)</li>
+                                <li>Single SegFormer or CNN</li>
+                                <li>256×256 tile processing</li>
+                                <li>5 epochs training</li>
+                                <li>96.8% accuracy achieved</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-divider">
+                            <div class="divider-icon">⚡</div>
+                        </div>
+                        <div class="comparison-column production-column">
+                            <h4>Production HAWKEYE</h4>
+                            <ul class="spec-list">
+                                <li><strong>100+ data sources</strong> (20 satellites, weather, IoT)</li>
+                                <li><strong>Billion-parameter models</strong> (foundation + ensemble)</li>
+                                <li><strong>Continental scale</strong> (10M km²/hour)</li>
+                                <li><strong>100+ epochs</strong> (weeks of training)</li>
+                                <li><strong>97-99% accuracy</strong> (+3% improvement)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="production-features fade-in">
+                        <h4>Production System Capabilities:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Real-Time Streaming</span>
+                            <span class="feature-tag">Global Daily Updates</span>
+                            <span class="feature-tag">Multi-Hazard Fusion</span>
+                            <span class="feature-tag">Causality-Aware Forecasting</span>
+                            <span class="feature-tag">Foundation Model Pre-Training</span>
+                            <span class="feature-tag">Sub-Second Alerting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer dark-footer" data-scroll-section>
+            <div class="footer-content">
+                <div class="footer-main">
+                    <h2 class="footer-title">
+                        <div class="title-line-wrapper">
+                            <span class="footer-title-line">The</span>
+                        </div>
+                        <div class="title-line-wrapper">
+                            <span class="footer-title-line">Vision</span>
+                        </div>
+                    </h2>
+                    <p class="footer-tagline">
+                        Beyond the algorithm, beyond the noise—lies the verifiable edge.
+                        Our commitment: intellectual honesty, rigorous validation.
+                    </p>
+                </div>
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Contact</h3>
+                        <a href="mailto:contact@samiulkarim.online" class="footer-link">contact@samiulkarim.online</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Navigate</h3>
+                        <a href="../home.html" class="footer-link">Home</a>
+                        <a href="../studio.html" class="footer-link">Studio</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Connect</h3>
+                        <a href="https://github.com" target="_blank" rel="noreferrer" class="footer-link">GitHub</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="footer-link">LinkedIn</a>
+                        <a href="https://twitter.com" target="_blank" rel="noreferrer" class="footer-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="demo-animations.js"></script> <script src="demo-flood.js"></script>
 </body>
 </html>
