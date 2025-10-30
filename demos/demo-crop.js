@@ -41,7 +41,7 @@ const cropData = {
         bare_soil_km2: 187.5,
         stressed_km2: 103.35
     }
-};
+}; //
 
 // ============================================
 // CHART CONFIGURATION
@@ -108,7 +108,7 @@ const chartDefaults = {
             }
         }
     }
-};
+}; //
 
 // ============================================
 // CHART INITIALIZATION
@@ -122,10 +122,10 @@ function initializeCharts() {
     if (ctxDistribution) {
         new Chart(ctxDistribution, {
             type: 'doughnut',
-             {
+            data: { // Added missing 'data:' property
                 labels: cropData.cluster_distribution.clusters,
                 datasets: [{
-                     cropData.cluster_distribution.percentages,
+                    data: cropData.cluster_distribution.percentages, // Added missing 'data:' property
                     backgroundColor: cropData.cluster_distribution.colors,
                     borderColor: '#0A192F',
                     borderWidth: 3,
@@ -179,10 +179,10 @@ function initializeCharts() {
     if (ctxSeparation) {
         new Chart(ctxSeparation, {
             type: 'scatter',
-             {
+            data: { // Added missing 'data:' property
                 datasets: cropData.cluster_separation.datasets.map(cluster => ({
                     label: cluster.cluster,
-                     [{ x: cluster.ndwi, y: cluster.ndvi }],
+                    data: [{ x: cluster.ndwi, y: cluster.ndvi }], // Added missing 'data:' property
                     backgroundColor: cluster.color,
                     borderColor: cluster.color,
                     borderWidth: 2,
@@ -251,11 +251,11 @@ function initializeCharts() {
     if (ctxBands) {
         new Chart(ctxBands, {
             type: 'bar',
-             {
+            data: { // Added missing 'data:' property
                 labels: cropData.spectral_bands.bands,
                 datasets: [{
                     label: 'Feature Importance (%)',
-                     cropData.spectral_bands.importance,
+                    data: cropData.spectral_bands.importance, // Added missing 'data:' property
                     backgroundColor: cropData.spectral_bands.colors,
                     borderWidth: 0,
                     borderRadius: 4
@@ -303,11 +303,11 @@ function initializeCharts() {
     if (ctxPipeline) {
         new Chart(ctxPipeline, {
             type: 'bar',
-             {
+            data: { // Added missing 'data:' property
                 labels: cropData.processing_pipeline.stages,
                 datasets: [{
                     label: 'Processing Time (seconds)',
-                     cropData.processing_pipeline.time_seconds,
+                    data: cropData.processing_pipeline.time_seconds, // Added missing 'data:' property
                     backgroundColor: [
                         '#3B82F6',
                         '#10B981',
@@ -372,30 +372,30 @@ function initializeCharts() {
     if (ctxStress) {
         new Chart(ctxStress, {
             type: 'bar',
-             {
+            data: { // Added missing 'data:' property
                 labels: ['Jessore Region (1,250 km²)'],
                 datasets: [
                     {
                         label: 'Healthy Vegetation',
-                         [cropData.stress_area.healthy_km2],
+                        data: [cropData.stress_area.healthy_km2], // Added missing 'data:' property
                         backgroundColor: '#10B981',
                         borderWidth: 0
                     },
                     {
                         label: 'Water Bodies',
-                         [cropData.stress_area.water_km2],
+                        data: [cropData.stress_area.water_km2], // Added missing 'data:' property
                         backgroundColor: '#3B82F6',
                         borderWidth: 0
                     },
                     {
                         label: 'Bare Soil',
-                         [cropData.stress_area.bare_soil_km2],
+                        data: [cropData.stress_area.bare_soil_km2], // Added missing 'data:' property
                         backgroundColor: '#FB923C',
                         borderWidth: 0
                     },
                     {
                         label: 'Stressed Crops',
-                         [cropData.stress_area.stressed_km2],
+                        data: [cropData.stress_area.stressed_km2], // Added missing 'data:' property
                         backgroundColor: '#EF4444',
                         borderWidth: 0
                     }
@@ -459,51 +459,27 @@ function initializeCharts() {
     }
     
     console.log('🎉 All 5 Crop Intelligence charts initialized successfully!');
-}
-
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initializeScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-    
-    console.log('✅ Scroll animations initialized');
-}
+} //
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Crop Intelligence Demo initializing...');
+    console.log('🚀 Crop Intelligence Demo chart initialization...');
     
-    // Wait for Chart.js to be fully loaded
     if (typeof Chart === 'undefined') {
         console.error('❌ Chart.js not loaded! Make sure CDN link is correct.');
         return;
     }
     
     initializeCharts();
-    initializeScrollAnimations();
     
-    console.log('✅ Crop Intelligence demo fully loaded and ready!');
+    console.log('✅ Crop Intelligence charts loaded!');
     console.log('📊 5 charts with self-supervised learning data');
     console.log('🌾 HAWKEYE Engine: Zero labels, 8.27% crop stress detected');
-});
+}); //
 
 // Export for debugging
-window.cropData = cropData;
+window.cropData = cropData; //
+
