@@ -16,7 +16,8 @@
     --color-off-white: #f8f8f8;
     --color-light-grey: #f7f7f7;
     --color-sand: #f4f1ec;
-    --color-grey: #999;
+    /* FIXED: Changed from #999 to a dark slate/charcoal */
+    --color-grey: #555; 
     --color-text: #1a1a1a;
     
     /* Accent colors for data visualization */
@@ -215,7 +216,7 @@ section:nth-child(odd) {
 
 .hero-section h1 {
     font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     color: var(--color-text);
     line-height: 0.9;
     letter-spacing: -0.03em;
@@ -230,7 +231,7 @@ section:nth-child(odd) {
 .hero-subtitle {
     font-size: 1.125rem;
     color: var(--color-grey);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     max-width: 600px;
     margin: 0 auto 4rem;
     line-height: 1.6;
@@ -250,7 +251,7 @@ section:nth-child(odd) {
 .stat-value {
     display: block;
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     color: var(--color-text);
     line-height: 1;
     font-family: var(--font-primary);
@@ -281,7 +282,7 @@ section:nth-child(odd) {
 
 h2 {
     font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     color: var(--color-text);
     text-align: center;
     line-height: 1;
@@ -308,13 +309,13 @@ p {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--color-grey);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
 }
 
 .intro-text {
     font-size: 1.125rem;
     color: var(--color-grey);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     max-width: 800px;
     margin: 0 auto 5rem;
     text-align: center;
@@ -377,8 +378,8 @@ p {
 
 .impact-grid,
 .usecases-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
 }
 
 /* ===================================
@@ -486,7 +487,7 @@ p {
    =================================== */
 .metric-value {
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     color: var(--color-text);
     line-height: 1;
     display: block;
@@ -569,7 +570,7 @@ p {
 
 .stat-number {
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     color: var(--color-text);
     display: block;
     margin-bottom: 0.5rem;
@@ -585,7 +586,7 @@ p {
    =================================== */
 .charts-grid {
     display: grid;
-    grid-template-columns: 1fr; /* <-- MODIFIED FOR FULL WIDTH */
+    grid-template-columns: 1fr; 
     gap: 3rem;
     margin: 4rem 0;
 }
@@ -613,7 +614,7 @@ p {
 }
 
 .chart-card.span-2 {
-    grid-column: span 1; /* <-- MODIFIED FOR CONSISTENCY */
+    grid-column: span 1; 
 }
 
 .chart-card.span-2 .chart-container {
@@ -747,7 +748,7 @@ tbody tr:last-child td {
 
 .stage-metric {
     font-size: 2.5rem;
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     margin: 1rem 0;
     color: var(--color-text);
 }
@@ -856,7 +857,7 @@ tbody tr:last-child td {
 
 .footer-title {
     font-size: clamp(4rem, 10vw, 8rem);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     line-height: 0.85;
     margin-bottom: 2rem;
 }
@@ -870,7 +871,7 @@ tbody tr:last-child td {
     font-size: 1.125rem;
     line-height: 1.6;
     color: var(--color-grey);
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
 }
 
 .footer-grid {
@@ -893,12 +894,13 @@ tbody tr:last-child td {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
-    opacity: 0.5;
+    /* FIXED: Removed opacity, set color to dark grey */
+    color: var(--color-grey); 
 }
 
 .footer-link {
     font-size: 0.9375rem;
-    font-weight: 300;
+    font-weight: 400; /* FIXED: Was 300 */
     transition: opacity 0.3s var(--ease-out-expo);
 }
 
