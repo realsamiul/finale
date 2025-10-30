@@ -98,10 +98,7 @@
     border: 2px solid var(--secondary-purple, #8B5CF6);
 }
 
-.correlation-chart {
-    min-height: 250px;
-    margin: var(--spacing-md, 16px) 0;
-}
+
 
 .correlation-stats {
     display: flex;
@@ -141,10 +138,7 @@
     }
 }
 
-.temporal-chart {
-    min-height: 300px;
-    margin: var(--spacing-md, 16px) 0;
-}
+
 
 .trend-insight {
     margin-top: var(--spacing-md, 16px);
