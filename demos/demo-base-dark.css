@@ -1,6 +1,6 @@
 /* ===================================
-   M0NARQ DEMO - MINIMAL DARK BASE
-   Matching home.html & studio.html aesthetics
+   M0NARQ DEMO - NEW BASE (LIGHT)
+   Inherits from home.css & studio.css
    =================================== */
 
 /* ===================================
@@ -9,48 +9,58 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 /* ===================================
-   ROOT VARIABLES (EXACT HOME/STUDIO)
+   ROOT VARIABLES (FROM STUDIO.CSS)
    =================================== */
 :root {
-    /* Colors - Matching home.css exactly */
-    --dark-navy: #0f0f0f;
-    --surface-elevated: #1a1a1a;
-    --border-subtle: rgba(255, 255, 255, 0.05);
+    /* Colors - Matching studio.css exactly */
+    --color-white: #fff;
+    --color-black: #000;
+    --color-off-white: #f8f8f8;
+    --color-light-grey: #f7f7f7;
+    --color-sand: #f4f1ec;
+    --color-grey: #999;
+    --color-text: #1a1a1a;
     
-    --text-primary: #f8f8f8;
-    --text-secondary: #a1a1a1;
-    --text-tertiary: #6b6b6b;
-    
-    /* Accent Colors */
-    --accent-teal: #5eead4;
-    --accent-orange: #fb923c;
-    
-    /* Fonts - EXACT MATCH */
+    /* Fonts - Matching studio.css exactly */
     --font-heading: 'Space Grotesk', -apple-system, sans-serif;
     --font-body: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
     --font-logo: 'Michroma', sans-serif;
 
-    /* Spacing - Generous like home.css */
+    /* Spacing & Radius - Generous like home/studio */
     --spacing-xs: 8px;
     --spacing-sm: 12px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
     --spacing-xxl: 64px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
     
-    /* Radius - Minimal */
-    --radius-sm: 2px;
-    --radius-md: 4px;
-    --radius-lg: 8px;
-    
-    /* Easing - EXACT HOME MATCH */
+    /* Easing - EXACT HOME/STUDIO MATCH */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-expo: cubic-bezier(0.76, 0, 0.24, 1);
+    
+    /* * FIX: Add semantic variables so individual demo files
+     * (demo-lpg.css, etc.) don't break.
+     */
+    --primary-teal: #14B8A6;
+    --success-green: #10B981;
+    --danger-red: #EF4444;
+    --accent-yellow: #FBBF24;
+    --secondary-purple: #8B5CF6;
+    --accent-coral: #F87171;
+    --accent-orange: #fb923c;
+    
+    /* Dark theme vars (for .section-dark) */
+    --dark-navy: #0f0f0f;
+    --surface-elevated: #1a1a1a;
+    --border-subtle: rgba(255, 255, 255, 0.05);
 }
 
 /* ===================================
-   GLOBAL STYLES
+   GLOBAL STYLES (FROM STUDIO.CSS)
    =================================== */
 * {
     margin: 0;
@@ -65,8 +75,9 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--dark-navy);
-    color: var(--text-secondary);
+    /* FIX: Use the light background from your main site */
+    background: var(--color-off-white);
+    color: var(--color-text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -84,7 +95,8 @@ a {
 }
 
 /* ===================================
-   SHARED HEADER (MATCH HOME/STUDIO)
+   SHARED HEADER (FROM STUDIO.CSS)
+   This works on light OR dark backgrounds
    =================================== */
 .header {
     position: fixed;
@@ -96,13 +108,12 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 3rem;
-    pointer-events: none;
     mix-blend-mode: difference;
+    pointer-events: none;
 }
 
 .header * {
     pointer-events: auto;
-    color: var(--text-primary);
 }
 
 .logo {
@@ -110,7 +121,7 @@ a {
     font-weight: 400;
     font-size: 1.375rem;
     letter-spacing: 0.05em;
-    color: var(--text-primary);
+    color: var(--color-white); /* 'difference' makes this black on white */
     transition: opacity 0.3s var(--ease-out-expo);
 }
 
@@ -124,12 +135,12 @@ a {
 }
 
 .nav-link {
+    color: var(--color-white); /* 'difference' makes this black on white */
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    position: relative;
-    color: var(--text-primary);
     transition: opacity 0.3s var(--ease-out-expo);
+    position: relative;
 }
 
 .nav-link:hover {
@@ -139,7 +150,7 @@ a {
 .nav-indicator {
     width: 0.75rem;
     height: 0.75rem;
-    color: var(--text-primary);
+    color: var(--color-white); /* 'difference' makes this black on white */
 }
 
 .nav-indicator svg {
@@ -148,40 +159,42 @@ a {
 }
 
 /* ===================================
-   SHARED DEMO COMPONENTS (MINIMAL)
+   LAYOUT & SPACING (HOME/STUDIO STYLE)
    =================================== */
-
-/* Container */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px; /* Match home.css */
     margin: 0 auto;
     padding: 0 3rem;
 }
 
-/* Section Base */
+/* FIX: "Tall sections" style */
 section {
-    padding: 8rem 0;
+    padding: 10rem 3rem; /* Generous, consistent padding */
 }
 
+/* Hero Section Base */
 .hero-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10rem 0 6rem;
-    background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--dark-navy) 100%);
+    padding: 12rem 3rem 8rem;
+    /* Use a light-grey, not a dark gradient */
+    background: var(--color-light-grey); 
 }
 
-/* REFINED BADGES */
+/* ===================================
+   TYPOGRAPHY (HOME/STUDIO STYLE)
+   =================================== */
 .demo-badge {
     display: inline-block;
     padding: 6px 14px;
     background: transparent;
-    border: 1px solid rgba(94, 234, 212, 0.3);
+    border: 1px solid var(--primary-teal); /* Use a working variable */
     border-radius: 20px;
-    color: var(--accent-teal);
+    color: var(--primary-teal);
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
@@ -190,13 +203,13 @@ section {
     letter-spacing: 0.1em;
 }
 
-/* HERO TITLE (MATCH HOME/STUDIO) */
+/* Hero Title (from studio.css) */
 .hero-section h1 {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(4rem, 12vw, 10rem);
     font-weight: 300;
-    color: var(--text-primary);
-    line-height: 1;
+    color: var(--color-text);
+    line-height: 0.9;
     margin-bottom: var(--spacing-lg);
     letter-spacing: -0.03em;
 }
@@ -207,14 +220,14 @@ section {
 
 .hero-subtitle {
     font-size: clamp(1.125rem, 2vw, 1.5rem);
-    color: var(--text-secondary);
+    color: var(--color-grey); /* Use light-theme grey */
     font-weight: 300;
     max-width: 800px;
     margin: 0 auto var(--spacing-xl);
     line-height: 1.7;
 }
 
-/* HERO STATS (CLEAN) */
+/* Hero Stats (Clean) */
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -232,48 +245,46 @@ section {
     font-family: var(--font-mono);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
-    color: var(--accent-teal);
+    color: var(--primary-teal); /* Use a working variable */
     line-height: 1;
 }
 
 .stat-label {
     display: block;
     font-size: 13px;
-    color: var(--text-tertiary);
+    color: var(--color-grey); /* Use light-theme grey */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: var(--spacing-sm);
 }
 
-/* SECTION LABELS */
+/* Section Headings (from home.css) */
 .section-label {
     font-size: 11px;
     font-family: var(--font-mono);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--text-tertiary);
+    color: var(--color-grey);
     margin-bottom: var(--spacing-lg);
     display: block;
     text-align: center;
-    opacity: 0.6;
 }
 
-/* H2 TITLES (MATCH HOME/STUDIO) */
 h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(3rem, 10vw, 7rem); /* Match home.css .work-title */
     font-weight: 300;
-    color: var(--text-primary);
+    color: var(--color-text);
     text-align: center;
-    line-height: 1.1;
+    line-height: 0.9;
     margin-bottom: var(--spacing-xl);
     letter-spacing: -0.02em;
 }
 
 .intro-text {
     font-size: 1.125rem;
-    color: var(--text-secondary);
+    color: var(--color-grey); /* Match home.css .work-description */
     font-weight: 300;
     max-width: 800px;
     margin: 0 auto;
@@ -282,7 +293,42 @@ h2 {
     line-height: 1.7;
 }
 
-/* CARDS (NO BORDERS - CLEAN LIKE HOME.CSS) */
+h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem; /* Match home.css .project-name */
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
+}
+
+h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ===================================
+   SHARED COMPONENT FIXES
+   =================================== */
+
+/* Grids (Generous Spacing) */
+.results-grid,
+.impact-grid,
+.usecases-grid,
+.charts-grid,
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl); /* Use xl gap */
+    margin: var(--spacing-xxl) 0;
+}
+
+/* * FIX: "Excessive boxes"
+ * Replace hard borders with clean, shadow-based cards.
+ */
 .challenge-card,
 .result-card,
 .impact-card,
@@ -292,11 +338,13 @@ h2 {
 .integration-card,
 .method-step,
 .pipeline-stage {
-    background: transparent;
-    border: none;
-    border-radius: 0;
+    background: var(--color-white); /* Clean white background */
+    border: none; /* No more borders */
+    border-radius: var(--radius-md); /* Use 8px radius */
     padding: var(--spacing-xl);
-    transition: all 0.6s var(--ease-out-expo);
+    transition: all 0.3s var(--ease-out-expo);
+    /* Add a subtle, modern shadow */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03); 
 }
 
 .challenge-card:hover,
@@ -307,213 +355,71 @@ h2 {
 .chart-card:hover,
 .integration-card:hover,
 .method-step:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
 }
 
-/* GRIDS (GENEROUS SPACING) */
-.challenge-grid,
-.results-grid,
-.impact-grid,
-.usecases-grid,
-.charts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xxl);
-    margin: var(--spacing-xxl) 0;
+/* * FIX: "Small charts"
+ * Create a new, responsive container for all charts.
+ */
+.chart-container {
+    position: relative;
+    width: 100%;
+    min-height: 350px; /* Give charts space! */
+    margin: var(--spacing-lg) 0;
 }
 
-/* TECH GRID (RESPONSIVE LAYOUT) */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-xxl);
-    margin-top: var(--spacing-xxl);
+/* ===================================
+   DARK ACCENT SECTION (Your Idea!)
+   =================================== */
+.section-dark {
+    background: var(--dark-navy); /* Use the dark bg */
+    
+    /* Invert all the text colors */
+    color: var(--color-grey);
+    
+    /* Ensure borders are visible */
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
-/* TECH CARD SPECIFIC STYLING (VISIBLE TEXT) */
-.tech-card h4 {
-    font-family: var(--font-heading);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--accent-teal);
-    margin-bottom: var(--spacing-lg);
-    letter-spacing: -0.01em;
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark .stat-label {
+    color: var(--color-white);
 }
 
-.tech-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.section-dark .intro-text {
+    color: var(--color-grey);
 }
 
-.tech-card li {
-    padding: var(--spacing-sm) 0;
-    font-family: var(--font-mono);
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
+/* Dark-mode cards */
+.section-dark .result-card,
+.section-dark .chart-card,
+.section-dark .tech-card,
+.section-dark .usecase-card {
+    background: var(--surface-elevated); /* Use the elevated dark */
+    border: 1px solid var(--border-subtle);
+    box-shadow: none; /* No shadow needed in dark mode */
 }
 
-.tech-card li::before {
-    content: '→ ';
-    color: var(--accent-teal);
-    margin-right: var(--spacing-sm);
-    font-weight: 400;
+.section-dark .section-label {
+    color: var(--color-grey);
+    opacity: 0.6;
 }
 
-/* METHODOLOGY FLOW (CLEAN) */
-.methodology-flow {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: var(--spacing-xl);
-    align-items: start;
-    margin: var(--spacing-xxl) 0;
-}
-
-.method-arrow {
-    font-size: 32px;
-    color: var(--accent-teal);
-    font-weight: 300;
-    text-align: center;
-    opacity: 0.3;
-}
-
-.step-number {
-    display: inline-block;
-    background: transparent;
-    color: var(--accent-teal);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border: 1px solid var(--accent-teal);
-    border-radius: 20px;
-    margin-bottom: var(--spacing-md);
-}
-
-.method-step h3 {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin: var(--spacing-md) 0 var(--spacing-sm);
-    letter-spacing: -0.01em;
-}
-
-.method-step p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-md);
-}
-
-.tech-tags {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-    margin-top: var(--spacing-md);
-}
-
-.tech-tag {
-    background: transparent;
-    color: var(--accent-teal);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(94, 234, 212, 0.3);
-}
-
-/* BREAKTHROUGH CALLOUT (NO BORDER) */
-.breakthrough-callout {
-    background: transparent;
-    border: none;
-    border-left: 2px solid var(--accent-teal);
-    padding: var(--spacing-xl) 0 var(--spacing-xl) var(--spacing-xl);
-    margin-top: var(--spacing-xxl);
-    display: flex;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
-}
-
-.breakthrough-icon {
-    font-size: 32px;
-    flex-shrink: 0;
-    opacity: 0.5;
-}
-
-.breakthrough-content h4 {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.01em;
-}
-
-.breakthrough-content p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
-
-.breakthrough-content strong {
-    color: var(--accent-teal);
-    font-weight: 400;
-}
-
-/* STAT CALLOUT (MINIMAL) */
-.stat-callout {
-    background: transparent;
-    border: none;
-    padding: var(--spacing-xxl) 0;
-    text-align: center;
-    margin-top: var(--spacing-xxl);
-}
-
-.stat-number {
-    font-family: var(--font-mono);
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 300;
-    color: var(--accent-teal);
-    line-height: 1;
-}
-
-.stat-description {
-    font-size: 16px;
-    color: var(--text-secondary);
-    margin-top: var(--spacing-md);
-    line-height: 1.6;
-}
-
-/* H3, H4 STYLING */
-h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.01em;
-}
-
-h4 {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-sm);
-}
-
-/* FOOTER (MATCH HOME/STUDIO) */
+/* ===================================
+   FOOTER (MATCH HOME/STUDIO)
+   =================================== */
 .footer {
     padding: 8rem 3rem 3rem;
-    background: var(--surface-elevated);
-    border-top: 1px solid var(--border-subtle);
+    background: var(--color-sand); /* Match home/studio */
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -527,7 +433,7 @@ h4 {
     font-weight: 300;
     line-height: 0.85;
     margin-bottom: 2rem;
-    color: var(--text-primary);
+    color: var(--color-text);
 }
 
 .footer-title-line {
@@ -538,7 +444,7 @@ h4 {
     max-width: 35rem;
     font-size: 1.125rem;
     line-height: 1.6;
-    color: var(--text-secondary);
+    color: var(--color-grey);
     font-weight: 300;
 }
 
@@ -547,7 +453,7 @@ h4 {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     padding-top: 3rem;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-column {
@@ -562,14 +468,14 @@ h4 {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
-    color: var(--text-tertiary);
     opacity: 0.5;
+    color: var(--color-text);
 }
 
 .footer-link {
     font-size: 0.9375rem;
     font-weight: 300;
-    color: var(--text-secondary);
+    color: var(--color-grey);
     transition: opacity 0.3s var(--ease-out-expo);
 }
 
@@ -581,44 +487,21 @@ h4 {
    RESPONSIVE (CLEAN)
    =================================== */
 
-@media (max-width: 1024px) {
-    .methodology-flow {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xxl);
-    }
-    
-    .method-arrow {
-        display: none;
-    }
-
-    .challenge-grid,
-    .results-grid,
-    .impact-grid,
-    .usecases-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 768px) {
-    body {
-        font-size: 15px;
-    }
-
     .container {
         padding: 0 1.5rem;
     }
 
-    .tech-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
+    section {
+        padding: 6rem 1.5rem; /* Reduce padding on mobile */
     }
 
     .hero-section {
-        padding: 8rem 0 4rem;
+        padding: 8rem 1.5rem 4rem;
     }
 
     h2 {
-        font-size: 2.5rem;
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
     }
     
     .intro-text {
@@ -640,17 +523,5 @@ h4 {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    section {
-        padding: 5rem 0;
-    }
-
-    .challenge-card,
-    .result-card,
-    .impact-card,
-    .usecase-card,
-    .tech-card {
-        padding: var(--spacing-lg);
     }
 }
