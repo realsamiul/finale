@@ -34,14 +34,14 @@ const dengueData = {
         lower_ci: [3, 3, 2, 2, 2, 2, 2],
         upper_ci: [5, 6, 6, 5, 5, 4, 4]
     }
-};
+}; //
 
 // Multi-horizon performance data
 const horizonData = {
     horizons: ['7-Day', '14-Day', '30-Day'],
     mape: [9.8, 12.5, 17.2],
     mae: [1.2, 1.8, 2.9]
-};
+}; //
 
 // Causal relationships discovered
 const causalData = {
@@ -60,7 +60,7 @@ const causalData = {
         {from: 'rainfall', to: 'water', strength: 0.512, lag: 1, color: '#FB923C'},
         {from: 'water', to: 'dengue', strength: 0.231, lag: 5, color: '#10B981'}
     ]
-};
+}; //
 
 // ============================================
 // CHART CONFIGURATION
@@ -122,7 +122,7 @@ const chartDefaults = {
             }
         }
     }
-};
+}; //
 
 // ============================================
 // CHART INITIALIZATION
@@ -202,12 +202,14 @@ function initializeCharts() {
         const canvas = ctxCausal;
         const ctx = canvas.getContext('2d');
         
-        // Set canvas size
-        canvas.width = canvas.offsetWidth * 2; // Retina
-        canvas.height = 300 * 2;
-        ctx.scale(2, 2);
-        
-        // Draw causal network
+        // Ensure canvas has dimensions before drawing
+        function setupCanvas() {
+            canvas.width = canvas.offsetWidth * (window.devicePixelRatio || 1); // Retina support
+            canvas.height = 300 * (window.devicePixelRatio || 1);
+            ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+            drawCausalNetwork();
+        }
+
         function drawCausalNetwork() {
             const width = canvas.offsetWidth;
             const height = 300;
@@ -226,7 +228,7 @@ function initializeCharts() {
                     const x2 = toNode.x * width / 100;
                     const y2 = toNode.y * height / 100;
                     
-                    // Draw arrow
+                    // Draw line
                     ctx.strokeStyle = edge.color;
                     ctx.lineWidth = Math.abs(edge.strength) * 4;
                     ctx.globalAlpha = 0.6;
@@ -278,18 +280,21 @@ function initializeCharts() {
                 ctx.fill();
                 ctx.stroke();
                 
-                // Node label
+                // Node label (adjust vertical position slightly)
                 ctx.fillStyle = '#E2E8F0';
                 ctx.font = '11px "IBM Plex Mono"';
                 ctx.textAlign = 'center';
-                ctx.fillText(node.label.split(' ')[0], x, y + 35);
-                if (node.label.split(' ')[1]) {
-                    ctx.fillText(node.label.split(' ')[1], x, y + 47);
+                const labelLines = node.label.split(' ');
+                ctx.fillText(labelLines[0], x, y + 30);
+                if (labelLines[1]) {
+                    ctx.fillText(labelLines[1], x, y + 42);
                 }
             });
         }
         
-        drawCausalNetwork();
+        // Initial setup and redraw on resize
+        setupCanvas();
+        window.addEventListener('resize', setupCanvas);
     }
 
     // Chart 3: Multi-Horizon Performance
@@ -331,6 +336,14 @@ function initializeCharts() {
                     },
                     legend: {
                         display: false
+                    },
+                    tooltip: { // Add % sign to tooltip
+                         ...chartDefaults.plugins.tooltip,
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + '%';
+                            }
+                        }
                     }
                 },
                 scales: {
@@ -343,42 +356,34 @@ function initializeCharts() {
                             color: '#94A3B8'
                         },
                         beginAtZero: true,
-                        max: 20
+                        max: 20,
+                         ticks: { // Add % sign to axis ticks
+                            ...chartDefaults.scales.y.ticks,
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
                     }
                 }
             }
         });
     }
-}
-
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initializeScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-}
+} //
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    initializeCharts();
-    initializeScrollAnimations();
+    console.log('🚀 Disease Intelligence Demo chart initialization...');
+
+    if (typeof Chart === 'undefined') {
+        console.error('❌ Chart.js not loaded! Make sure CDN link is correct.');
+        return;
+    }
     
-    console.log('✅ Disease Intelligence demo initialized');
-});
+    initializeCharts();
+    
+    console.log('✅ Disease Intelligence charts loaded!');
+}); //
+
