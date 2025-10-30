@@ -3,7 +3,8 @@ DEMO BASE - LIGHT THEME (MATCHES HOME)
 =================================== */
 
 /* FIXED: Corrected font weight from 5.00 to 500 */
-@import url(‘https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap’);
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
 
 /* ===================================
 ROOT VARIABLES - EXACT HOME MATCH
@@ -633,7 +634,7 @@ CHARTS & VISUALIZATIONS
 =================================== */
 .charts-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 gap: 3rem;
 margin: 5rem 0;
 }
@@ -641,7 +642,7 @@ margin: 5rem 0;
 .chart-card {
 background: var(–color-white);
 border-radius: 4px;
-padding: 1.5rem;
+padding: 2.5rem;
 border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
