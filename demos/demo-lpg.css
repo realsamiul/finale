@@ -1,5 +1,6 @@
 /* ============================================
-   LPG DEMAND FORECASTING - ENHANCED STYLES
+   LPG DEMAND FORECASTING - SPECIFIC STYLES
+   Inherits from demo-base-dark.css
    ============================================ */
 
 /* Champion Card Highlight */
@@ -29,6 +30,59 @@
     border-radius: 20px;
     font-size: var(--text-sm, 14px);
 }
+
+/* Specific Result Badge Styles */
+.result-badge.production { background: var(--secondary-purple); color: var(--text-primary); }
+.confidence-high { color: var(--success-green, #10B981) !important; }
+.confidence-medium { color: var(--accent-orange, #FB923C) !important; }
+
+/* Result Card Metrics */
+.result-metric {
+    text-align: center;
+    margin: var(--spacing-lg, 24px) 0;
+}
+.metric-value {
+    font-family: var(--font-mono);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-teal);
+    display: block;
+}
+.metric-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+.result-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm, 12px);
+}
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xs, 8px) 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-label { font-size: 14px; color: var(--text-secondary); }
+.detail-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+.result-chart {
+    margin-top: var(--spacing-md, 16px);
+    padding: var(--spacing-md, 16px);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md, 8px);
+    min-height: 200px;
+}
+.result-chart canvas {
+    max-height: 180px !important;
+}
+
 
 /* Model Race Card */
 .result-card.model-race-card {
@@ -72,7 +126,7 @@
 }
 
 /* ============================================
-   FEATURES SECTION
+   FEATURES SECTION SPECIFICS
    ============================================ */
 .features-section {
     background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
@@ -171,43 +225,10 @@
 }
 
 /* ============================================
-   IMPACT SECTION
+   IMPACT SECTION SPECIFICS
    ============================================ */
 .impact-section {
-    background: var(--surface-base, #0A192F);
-}
-
-.impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg, 24px);
-    margin-bottom: var(--spacing-xl, 32px);
-}
-
-.impact-card {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
-    transition: all 0.3s ease;
-}
-
-.impact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(20, 184, 166, 0.2);
-    border-color: var(--primary-teal, #14B8A6);
-}
-
-.impact-icon {
-    font-size: 48px;
-    margin-bottom: var(--spacing-md, 16px);
-}
-
-.impact-card h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-md, 16px);
+    background: var(--surface-base, #0A192F); /* Already in base, but good to ensure */
 }
 
 .impact-stat {
@@ -240,23 +261,13 @@
     color: var(--success-green, #10B981);
 }
 
-.impact-card p {
-    font-size: var(--text-sm, 14px);
-    line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
-}
-
-.impact-card strong {
-    color: var(--text-primary, #E2E8F0);
-}
-
-/* Testimonial */
 .impact-testimonial {
     background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
     border: 2px solid var(--primary-teal, #14B8A6);
     border-radius: var(--radius-lg, 12px);
     padding: var(--spacing-xl, 32px);
     position: relative;
+    margin-top: var(--spacing-xxl); /* Add margin */
 }
 
 .quote-icon {
@@ -304,31 +315,23 @@
 }
 
 /* ============================================
-   USE CASES SECTION
+   USE CASES SECTION SPECIFICS
    ============================================ */
 .usecases-section {
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
 }
 
 .usecases-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--spacing-lg, 24px);
 }
 
 .usecase-card {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
     text-align: center;
-    transition: all 0.3s ease;
 }
 
 .usecase-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
     border-color: var(--secondary-purple, #8B5CF6);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
 }
 
 .usecase-icon {
@@ -347,8 +350,4 @@
     font-size: var(--text-sm, 14px);
     line-height: 1.6;
     color: var(--text-secondary, #94A3B8);
-}
-
-.usecase-card strong {
-    color: var(--primary-teal, #14B8A6);
 }
