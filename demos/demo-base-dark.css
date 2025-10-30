@@ -310,6 +310,15 @@ h2 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
 }
 
+/* TECH GRID (RESPONSIVE LAYOUT) */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+
 /* METHODOLOGY FLOW (REFINED) */
 .methodology-flow {
     display: grid;
@@ -523,6 +532,12 @@ h2 {
 
     .container {
         padding: 0 1.5rem;
+    }
+
+    /* ADD THIS: */
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
     .hero-section {
