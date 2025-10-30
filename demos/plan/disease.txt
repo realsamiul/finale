@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="M0NARQ - Disease Intelligence with Causal Discovery">
+    <title>Disease Intelligence - M0NARQ</title>
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="demo-base-dark.css">
+    <link rel="stylesheet" href="demo-disease.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../home.html" class="logo">M0NARQ</a>
+        <nav class="nav">
+            <a href="../home.html" class="nav-link">Home</a>
+            <a href="../studio.html" class="nav-link">Studio</a>
+        </nav>
+        <div class="nav-indicator">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.09 5.68L6.5 0L5.91 5.68L0 6.5L5.91 7.32L6.5 13L7.09 7.32L13 6.5L7.09 5.68Z" fill="currentColor"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="main" data-scroll-container>
+        
+        <section class="hero-section" data-scroll-section>
+            <div class="container">
+                <span class="demo-badge">HAWKEYE Omega v4 · Causal Intelligence</span>
+                <h1 class="hero-title">
+                    <div class="hero-line-wrapper">
+                        <span class="hero-title-line">From Correlation</span>
+                    </div>
+                    <div class="hero-line-wrapper">
+                        <span class="hero-title-line">to Causation</span>
+                    </div>
+                </h1>
+                <p class="hero-subtitle">When disease prediction becomes prevention: discovering why temperature causes dengue with a 7-day lag</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">9.8%</span>
+                        [span_0](start_span)<span class="stat-label">7-Day MAPE</span>[span_0](end_span)
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">33,806</span>
+                        [span_1](start_span)<span class="stat-label">Cases Analyzed</span>[span_1](end_span)
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">$15.2M</span>
+                        [span_2](start_span)<span class="stat-label">Economic Burden Quantified</span>[span_2](end_span)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="challenge-section" data-scroll-section>
+            <div class="container">
+                [span_3](start_span)<span class="section-label">The Challenge</span>[span_3](end_span)
+                [span_4](start_span)<h2>When Prediction Isn't Prevention</h2>[span_4](end_span)
+                
+                <div class="challenge-grid fade-in">
+                    <div class="challenge-card">
+                        <div class="challenge-icon">📊</div>
+                        [span_5](start_span)<h3>The Correlation Trap</h3>[span_5](end_span)
+                        [span_6](start_span)<p>Traditional models find correlations everywhere—<strong>temperature, humidity, rainfall, 50+ variables</strong>[span_6](end_span). [span_7](start_span)But correlation doesn't enable intervention[span_7](end_span). [span_8](start_span)You can't change the weather[span_8](end_span). [span_9](start_span)You need to know <em>which</em> variables drive outbreaks and <em>when</em> to act[span_9](end_span).</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">🏥</div>
+                        [span_10](start_span)<h3>The Siloed Data Problem</h3>[span_10](end_span)
+                        [span_11](start_span)<p>Health data lives in hospitals[span_11](end_span). [span_12](start_span)Weather data at meteorological offices[span_12](end_span). [span_13](start_span)Economic indicators at central banks[span_13](end_span). [span_14](start_span)<strong>No system sees the whole picture</strong>—yet dengue doesn't respect organizational boundaries[span_14](end_span).</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">💰</div>
+                        [span_15](start_span)<h3>The Hidden Cost</h3>[span_15](end_span)
+                        [span_16](start_span)<p>Dhaka alone: <strong>33,806 cases</strong> in 3 years[span_16](end_span). [span_17](start_span)At $450 per case (treatment + productivity loss), that's $15.2 million in preventable damage[span_17](end_span). [span_18](start_span)Early warnings save lives <em>and</em> economies[span_18](end_span).</p>
+                    </div>
+                </div>
+                
+                <div class="stat-callout fade-in">
+                    [span_19](start_span)<div class="stat-number">1,105 days</div>[span_19](end_span)
+                    [span_20](start_span)<div class="stat-description">of multi-modal data fused<br/>Health · Weather · Economic · Satellite</div>[span_20](end_span)
+                </div>
+            </div>
+        </section>
+
+        <section class="solution-section" data-scroll-section>
+            <div class="container">
+                [span_21](start_span)<span class="section-label">The Solution</span>[span_21](end_span)
+                [span_22](start_span)<h2>Causal Discovery: From "What" to "Why"</h2>[span_22](end_span)
+                
+                <p class="intro-text fade-in">
+                    [span_23](start_span)We don't just predict case counts[span_23](end_span). [span_24](start_span)We build <strong>causal graphs</strong> that reveal the hidden mechanistic chains: temperature → mosquito reproduction → disease transmission[span_24](end_span). [span_25](start_span)This transforms passive forecasting into active prevention[span_25](end_span).
+                </p>
+                
+                <div class="methodology-flow fade-in">
+                    <div class="method-step">
+                        [span_26](start_span)<div class="step-number">01</div>[span_26](end_span)
+                        [span_27](start_span)<h3>Data Fusion (30+ Sources)</h3>[span_27](end_span)
+                        <p><strong>Health:</strong> Daily dengue cases, demographics<br/>
+                           <strong>Weather:</strong> Temp, humidity, rainfall, pressure<br/>
+                           <strong>Economic:</strong> GDP, inflation, trade volumes<br/>
+                           [span_28](start_span)<strong>Satellite:</strong> Nightlights (economic proxy), NDVI, water coverage</p>[span_28](end_span)
+                        <div class="tech-tags">
+                            <span class="tech-tag">Multi-Modal</span>
+                            [span_29](start_span)<span class="tech-tag">36 Features</span>[span_29](end_span)
+                        </div>
+                    </div>
+                    [span_30](start_span)<div class="method-arrow">→</div>[span_30](end_span)
+                    <div class="method-step">
+                        [span_31](start_span)<div class="step-number">02</div>[span_31](end_span)
+                        [span_32](start_span)<h3>Tigramite (PCMCI+)</h3>[span_32](end_span)
+                        [span_33](start_span)<p><strong>Causal discovery algorithm</strong> that identifies lagged dependencies[span_33](end_span). [span_34](start_span)Tests conditional independence across 0-21 day lags[span_34](end_span). [span_35](start_span)Discovers: <strong>Max_Temp → Dengue (7-day lag, r=0.324, p<1e-28)</strong>[span_35](end_span). [span_36](start_span)Not just correlation—causal directionality with time delay[span_36](end_span).</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Causal AI</span>
+                            [span_37](start_span)<span class="tech-tag">Lag Analysis</span>[span_37](end_span)
+                        </div>
+                    </div>
+                    [span_38](start_span)<div class="method-arrow">→</div>[span_38](end_span)
+                    <div class="method-step">
+                        [span_39](start_span)<div class="step-number">03</div>[span_39](end_span)
+                        [span_40](start_span)<h3>Ensemble Forecasting</h3>[span_40](end_span)
+                        <p><strong>Prophet</strong> decomposes time series (trend + seasonality)<br/>
+                           <strong>LightGBM</strong> learns non-linear interactions across all 36 features<br/>
+                           [span_41](start_span)Result: <strong>9.8% MAPE at 7-day horizon</strong>—accurate enough for public health action.</p>[span_41](end_span)
+                        <div class="tech-tags">
+                            <span class="tech-tag">Prophet + LGBM</span>
+                            [span_42](start_span)<span class="tech-tag">Uncertainty Quantified</span>[span_42](end_span)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="breakthrough-callout fade-in">
+                    [span_43](start_span)<div class="breakthrough-icon">🔬</div>[span_43](end_span)
+                    <div class="breakthrough-content">
+                        [span_44](start_span)<h4>The Causal Breakthrough</h4>[span_44](end_span)
+                        [span_45](start_span)<p><strong>Temperature drives dengue with a 7-day lag.</strong> This isn't a statistical artifact—it matches the <em>Aedes aegypti</em> mosquito reproduction cycle[span_45](end_span). [span_46](start_span)At 28-32°C, eggs hatch in 2-3 days, larvae mature in 4-5 days[span_46](end_span). [span_47](start_span)Our AI discovered biological reality embedded in data[span_47](end_span). [span_48](start_span)This enables <strong>targeted vector control 7 days before outbreaks spike</strong>[span_48](end_span).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section" data-scroll-section>
+            <div class="container">
+                [span_49](start_span)<span class="section-label">Results</span>[span_49](end_span)
+                [span_50](start_span)<h2>Predictive Power Meets Causal Understanding</h2>[span_50](end_span)
+                
+                <div class="results-grid">
+                    <div class="result-card fade-in" data-metric="forecast">
+                        <div class="result-header">
+                            [span_51](start_span)<h3>7-Day Forecast</h3>[span_51](end_span)
+                            [span_52](start_span)<span class="result-badge champion">9.8% MAPE</span>[span_52](end_span)
+                        </div>
+                        <div class="result-chart">
+                            [span_53](start_span)<canvas id="chart-forecast-7day"></canvas>[span_53](end_span)
+                        </div>
+                        <div class="result-details">
+                            <div class="detail-row">
+                                [span_54](start_span)<span class="detail-label">Mean Absolute % Error</span>[span_54](end_span)
+                                [span_55](start_span)<span class="detail-value">9.8%</span>[span_55](end_span)
+                            </div>
+                            <div class="detail-row">
+                                [span_56](start_span)<span class="detail-label">14-Day MAPE</span>[span_56](end_span)
+                                [span_57](start_span)<span class="detail-value">12.5%</span>[span_57](end_span)
+                            </div>
+                            <div class="detail-row">
+                                [span_58](start_span)<span class="detail-label">30-Day MAPE</span>[span_58](end_span)
+                                [span_59](start_span)<span class="detail-value">17.2%</span>[span_59](end_span)
+                            </div>
+                            <div class="detail-row">
+                                [span_60](start_span)<span class="detail-label">Trend</span>[span_60](end_span)
+                                [span_61](start_span)<span class="detail-value confidence-high">Decreasing</span>[span_61](end_span)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card causal-card fade-in" data-metric="causal">
+                        <div class="result-header">
+                            [span_62](start_span)<h3>Causal Discovery</h3>[span_62](end_span)
+                            [span_63](start_span)<span class="result-badge discovery">Mechanistic</span>[span_63](end_span)
+                        </div>
+                        <div class="causal-graph">
+                            [span_64](start_span)<canvas id="chart-causal-network"></canvas>[span_64](end_span)
+                        </div>
+                        <div class="causal-findings">
+                            <div class="finding-item">
+                                [span_65](start_span)<div class="finding-icon">🌡️</div>[span_65](end_span)
+                                <div class="finding-text">
+                                    [span_66](start_span)<strong>Temperature → Dengue</strong>[span_66](end_span)
+                                    [span_67](start_span)<span>7-day lag, r=0.324, p<1e-28</span>[span_67](end_span)
+                                </div>
+                            </div>
+                            <div class="finding-item">
+                                [span_68](start_span)<div class="finding-icon">💹</div>[span_68](end_span)
+                                <div class="finding-text">
+                                    [span_69](start_span)<strong>Economic Activity → Dengue</strong>[span_69](end_span)
+                                    [span_70](start_span)<span>Inverse correlation r=-0.574</span>[span_70](end_span)
+                                </div>
+                            </div>
+                            <div class="finding-item">
+                                [span_71](start_span)<div class="finding-icon">💧</div>[span_71](end_span)
+                                <div class="finding-text">
+                                    [span_72](start_span)<strong>Rainfall → Water Bodies</strong>[span_72](end_span)
+                                    [span_73](start_span)<span>Breeding site proxy</span>[span_73](end_span)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card fade-in" data-metric="horizons">
+                        <div class="result-header">
+                            [span_74](start_span)<h3>Multi-Horizon Performance</h3>[span_74](end_span)
+                            [span_75](start_span)<span class="result-badge">Robust</span>[span_75](end_span)
+                        </div>
+                        <div class="result-chart">
+                            [span_76](start_span)<canvas id="chart-multi-horizon"></canvas>[span_76](end_span)
+                        </div>
+                        <div class="horizon-details">
+                            [span_77](start_span)<p>Accuracy degrades gracefully with longer horizons[span_77](end_span). [span_78](start_span)<strong>7-day forecasts are actionable</strong> for vector control[span_78](end_span). [span_79](start_span)14-day for resource planning[span_79](end_span). [span_80](start_span)30-day for policy decisions[span_80](end_span).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card economic-card fade-in" data-metric="impact">
+                        <div class="result-header">
+                            [span_81](start_span)<h3>Economic Burden Analysis</h3>[span_81](end_span)
+                            [span_82](start_span)<span class="result-badge cost">$15.2M Total</span>[span_82](end_span)
+                        </div>
+                        <div class="economic-breakdown">
+                            <div class="cost-item">
+                                [span_83](start_span)<div class="cost-label">Healthcare Costs</div>[span_83](end_span)
+                                [span_84](start_span)<div class="cost-bar" style="width: 33%"></div>[span_84](end_span)
+                                [span_85](start_span)<div class="cost-value">$5.07M</div>[span_85](end_span)
+                            </div>
+                            <div class="cost-item">
+                                [span_86](start_span)<div class="cost-label">Productivity Loss</div>[span_86](end_span)
+                                [span_87](start_span)<div class="cost-bar" style="width: 67%"></div>[span_87](end_span)
+                                [span_88](start_span)<div class="cost-value">$10.14M</div>[span_88](end_span)
+                            </div>
+                            <div class="cost-item total">
+                                [span_89](start_span)<div class="cost-label"><strong>Total Economic Impact</strong></div>[span_89](end_span)
+                                [span_90](start_span)<div class="cost-value"><strong>$15.21M</strong></div>[span_90](end_span)
+                            </div>
+                        </div>
+                        <div class="savings-potential">
+                            <p><strong>Potential Savings:</strong> $7.6M (50% reduction)<br/>
+                               [span_91](start_span)<small>Via early intervention targeting high-risk periods</small></p>[span_91](end_span)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="risk-section" data-scroll-section>
+            <div class="container">
+                [span_92](start_span)<span class="section-label">Live Intelligence</span>[span_92](end_span)
+                [span_93](start_span)<h2>Real-Time Mosquito Risk Assessment</h2>[span_93](end_span)
+                
+                <div class="risk-dashboard fade-in">
+                    <div class="current-conditions">
+                        [span_94](start_span)<h3>Current Environmental Conditions</h3>[span_94](end_span)
+                        <div class="condition-grid">
+                            <div class="condition-card">
+                                [span_95](start_span)<div class="condition-icon">🌡️</div>[span_95](end_span)
+                                [span_96](start_span)<div class="condition-value" id="current-temp">28.8°C</div>[span_96](end_span)
+                                [span_97](start_span)<div class="condition-label">Temperature</div>[span_97](end_span)
+                            </div>
+                            <div class="condition-card">
+                                [span_98](start_span)<div class="condition-icon">💧</div>[span_98](end_span)
+                                [span_99](start_span)<div class="condition-value" id="current-humidity">74%</div>[span_99](end_span)
+                                [span_100](start_span)<div class="condition-label">Humidity</div>[span_100](end_span)
+                            </div>
+                            <div class="condition-card">
+                                [span_101](start_span)<div class="condition-icon">🌧️</div>[span_101](end_span)
+                                [span_102](start_span)<div class="condition-value" id="current-rainfall">0 mm</div>[span_102](end_span)
+                                [span_103](start_span)<div class="condition-label">Rainfall (24h)</div>[span_103](end_span)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-indicator">
+                        [span_104](start_span)<h3>Mosquito Breeding Risk</h3>[span_104](end_span)
+                        <div class="risk-gauge">
+                            [span_105](start_span)<div class="gauge-fill high" style="width: 80%"></div>[span_105](end_span)
+                        </div>
+                        <div class="risk-level">
+                            [span_106](start_span)<span class="risk-status high">HIGH RISK</span>[span_106](end_span)
+                            [span_107](start_span)<span class="risk-score">0.8 / 1.0</span>[span_107](end_span)
+                        </div>
+                        <p class="risk-interpretation">
+                            [span_108](start_span)<strong>Optimal breeding conditions detected.</strong> Temperature in 28-32°C danger zone[span_108](end_span). [span_109](start_span)High humidity sustained[span_109](end_span). [span_110](start_span)Recommend immediate vector surveillance and targeted larvicide deployment in water accumulation zones[span_110](end_span).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="architecture-section" data-scroll-section>
+            <div class="container">
+                [span_111](start_span)<span class="section-label">Technology Stack</span>[span_111](end_span)
+                [span_112](start_span)<h2>The Complete Intelligence Pipeline</h2>[span_112](end_span)
+                
+                <div class="pipeline-diagram fade-in">
+                    <div class="pipeline-stage">
+                        [span_113](start_span)<div class="stage-icon">📥</div>[span_113](end_span)
+                        [span_114](start_span)<h4>Data Ingestion</h4>[span_114](end_span)
+                        <ul>
+                            [span_115](start_span)<li>Health: Daily case reports</li>[span_115](end_span)
+                            [span_116](start_span)<li>Weather: OpenWeather API</li>[span_116](end_span)
+                            [span_117](start_span)<li>Economic: World Bank data</li>[span_117](end_span)
+                            [span_118](start_span)<li>Satellite: VIIRS nightlights</li>[span_118](end_span)
+                        </ul>
+                    </div>
+                    [span_119](start_span)<div class="pipeline-arrow">→</div>[span_119](end_span)
+                    <div class="pipeline-stage">
+                        [span_120](start_span)<div class="stage-icon">🔬</div>[span_120](end_span)
+                        [span_121](start_span)<h4>Causal Discovery</h4>[span_121](end_span)
+                        <ul>
+                            [span_122](start_span)<li>Tigramite PCMCI+</li>[span_122](end_span)
+                            [span_123](start_span)<li>Lag analysis (0-21 days)</li>[span_123](end_span)
+                            [span_124](start_span)<li>Conditional independence tests</li>[span_124](end_span)
+                        </ul>
+                    </div>
+                    [span_125](start_span)<div class="pipeline-arrow">→</div>[span_125](end_span)
+                    <div class="pipeline-stage">
+                        [span_126](start_span)<div class="stage-icon">📈</div>[span_126](end_span)
+                        [span_127](start_span)<h4>Forecasting</h4>[span_127](end_span)
+                        <ul>
+                            [span_128](start_span)<li>Prophet (trend decomposition)</li>[span_128](end_span)
+                            [span_129](start_span)<li>LightGBM (non-linear patterns)</li>[span_129](end_span)
+                            [span_130](start_span)<li>Uncertainty quantification</li>[span_130](end_span)
+                        </ul>
+                    </div>
+                    [span_131](start_span)<div class="pipeline-arrow">→</div>[span_131](end_span)
+                    <div class="pipeline-stage">
+                        [span_132](start_span)<div class="stage-icon">⚠️</div>[span_132](end_span)
+                        [span_133](start_span)<h4>Actionable Intelligence</h4>[span_133](end_span)
+                        <ul>
+                            [span_134](start_span)<li>7-day outbreak probability</li>[span_134](end_span)
+                            [span_135](start_span)<li>High-risk zone identification</li>[span_135](end_span)
+                            [span_136](start_span)<li>Intervention recommendations</li>[span_136](end_span)
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-specs fade-in">
+                    [span_137](start_span)<h4>Technical Specifications</h4>[span_137](end_span)
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            [span_138](start_span)<span class="spec-label">Data Records</span>[span_138](end_span)
+                            [span_139](start_span)<span class="spec-value">1,105 days</span>[span_139](end_span)
+                        </div>
+                        <div class="spec-card">
+                            [span_140](start_span)<span class="spec-label">Features</span>[span_140](end_span)
+                            [span_141](start_span)<span class="spec-value">36 variables</span>[span_141](end_span)
+                        </div>
+                        <div class="spec-card">
+                            [span_142](start_span)<span class="spec-label">Missing Data</span>[span_142](end_span)
+                            [span_143](start_span)<span class="spec-value">0.16%</span>[span_143](end_span)
+                        </div>
+                        <div class="spec-card">
+                            [span_144](start_span)<span class="spec-label">Causal Links Found</span>[span_144](end_span)
+                            [span_145](start_span)<span class="spec-value">12 significant</span>[span_145](end_span)
+                        </div>
+                        <div class="spec-card">
+                            [span_146](start_span)<span class="spec-label">Model Update Frequency</span>[span_146](end_span)
+                            [span_147](start_span)<span class="spec-value">Daily</span>[span_147](end_span)
+                        </div>
+                        <div class="spec-card">
+                            [span_148](start_span)<span class="spec-label">Inference Time</span>[span_148](end_span)
+                            [span_149](start_span)<span class="spec-value"><5 seconds</span>[span_149](end_span)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="production-section" data-scroll-section>
+            <div class="container">
+                <div class="production-content fade-in">
+                    [span_150](start_span)<span class="section-label">Beyond the Demo</span>[span_150](end_span)
+                    [span_151](start_span)<h2>From Dhaka to Every City on Earth</h2>[span_151](end_span)
+                    
+                    <div class="production-comparison">
+                        <div class="comparison-column demo-column">
+                            [span_152](start_span)<h4>Demo Version</h4>[span_152](end_span)
+                            <ul class="spec-list">
+                                [span_153](start_span)<li>Single city (Dhaka)</li>[span_153](end_span)
+                                [span_154](start_span)<li>30 datasets integrated</li>[span_154](end_span)
+                                [span_155](start_span)<li>Prophet + LightGBM</li>[span_155](end_span)
+                                [span_156](start_span)<li>7/14/30-day forecasts</li>[span_156](end_span)
+                                [span_157](start_span)<li>9.8% MAPE achieved</li>[span_157](end_span)
+                            </ul>
+                        </div>
+                        
+                        <div class="comparison-divider">
+                            [span_158](start_span)<div class="divider-icon">⚡</div>[span_158](end_span)
+                        </div>
+                        
+                        <div class="comparison-column production-column">
+                            [span_159](start_span)<h4>Production HAWKEYE Omega</h4>[span_159](end_span)
+                            <ul class="spec-list">
+                                [span_160](start_span)<li><strong>1,000+ cities</strong> (global coverage)</li>[span_160](end_span)
+                                [span_161](start_span)<li><strong>500+ data sources</strong> (multi-hazard)</li>[span_161](end_span)
+                                [span_162](start_span)<li><strong>Deep ensemble</strong> (10+ models)</li>[span_162](end_span)
+                                [span_163](start_span)<li><strong>1-90 day range</strong> (adaptive horizons)</li>[span_163](end_span)
+                                [span_164](start_span)<li><strong>7-8% MAPE</strong> (20% improvement)</li>[span_164](end_span)
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="production-features fade-in">
+                        [span_165](start_span)<h4>Production Capabilities:</h4>[span_165](end_span)
+                        <div class="feature-tags">
+                            [span_166](start_span)<span class="feature-tag">Multi-Disease (Dengue, Malaria, Zika, Chikungunya)</span>[span_166](end_span)
+                            [span_167](start_span)<span class="feature-tag">Climate Change Scenarios</span>[span_167](end_span)
+                            [span_168](start_span)<span class="feature-tag">Intervention Simulation</span>[span_168](end_span)
+                            [span_169](start_span)<span class="feature-tag">Policy Impact Analysis</span>[span_169](end_span)
+                            [span_170](start_span)<span class="feature-tag">Mobile App Integration</span>[span_170](end_span)
+                            [span_171](start_span)<span class="feature-tag">API for Health Systems</span>[span_171](end_span)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer" data-scroll-section>
+            <div class="footer-content">
+                <div class="footer-main">
+                    <h2 class="footer-title">
+                        <div class="title-line-wrapper">
+                            <span class="footer-title-line">The</span>
+                        </div>
+                        <div class="title-line-wrapper">
+                            <span class="footer-title-line">Vision</span>
+                        </div>
+                    </h2>
+                    <p class="footer-tagline">
+                        Beyond the algorithm, beyond the noise—lies the verifiable edge. Our commitment: intellectual honesty, rigorous validation.
+                    </p>
+                </div>
+
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Contact</h3>
+                        <a href="mailto:contact@samiulkarim.online" class="footer-link">contact@samiulkarim.online</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Navigate</h3>
+                        <a href="../home.html" class="footer-link">Home</a>
+                        <a href="../studio.html" class="footer-link">Studio</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Connect</h3>
+                        <a href="https://github.com" target="_blank" rel="noreferrer" class="footer-link">GitHub</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="footer-link">LinkedIn</a>
+                        <a href="https://twitter.com" target="_blank" rel="noreferrer" class="footer-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    [span_172](start_span)<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>[span_172](end_span)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <script src="demo-animations.js"></script>
+    [span_173](start_span)<script src="demo-disease.js"></script>[span_173](end_span)
+</body>
+</html>
