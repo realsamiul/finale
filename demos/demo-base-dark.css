@@ -619,6 +619,43 @@ h4 {
     margin-bottom: var(--spacing-xxl);
 }
 
+/* ===================================
+   FIX: FORCE ALL TEXT TO BE DARK (NOV 1)
+   =================================== */
+
+/* 1. Force all accent colors to be black */
+:root {
+    --accent-teal: var(--text-primary) !important;
+    --accent-orange: var(--text-primary) !important;
+    
+    /* Forcing individual demo colors to black */
+    --success-green: var(--text-primary) !important;
+    --danger-red: var(--text-primary) !important;
+    --secondary-purple: var(--text-primary) !important;
+    --accent-yellow: var(--text-primary) !important;
+    --accent-coral: var(--text-primary) !important;
+}
+
+/* 2. Darken faint grey labels */
+.section-label,
+.stat-label {
+    color: var(--text-secondary) !important; /* Uses your dark #6b6b6b grey */
+    opacity: 1 !important;
+}
+
+/* 3. Fix faint tech/feature tags (from freight demo) */
+.tech-tag,
+.feature-tag {
+    color: var(--text-secondary) !important;
+    border-color: var(--border-subtle) !important;
+    background: transparent !important;
+}
+
+/* 4. Ensure tech card (from freight demo) text is black */
+.tech-card h4,
+.tech-card li::before {
+    color: var(--text-primary) !important;
+}
 
 
 /* ===================================
