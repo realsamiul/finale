@@ -14,9 +14,12 @@
     min-height: 200px; /* Ensure space for chart */
 }
 
+/* DELETED: .result-chart canvas was removed to fix tiny charts. It now inherits height from .chart-container in demo-base-dark.css. */
+/*
 .result-chart canvas {
-    max-height: 180px !important; /* Limit chart height inside card */
+    max-height: 180px !important; // Limit chart height inside card 
 }
+*/
 
 /* Alpha Card Specific Styling */
 .alpha-card {
@@ -120,6 +123,8 @@
     margin-bottom: 3rem;
 }
 
+/* REMOVED: @media block - Mobile fix for journey-timeline is now in demo-base-dark.css */
+/*
 @media (max-width: 968px) {
     .journey-timeline {
         grid-template-columns: 1fr;
@@ -128,6 +133,7 @@
         display: none;
     }
 }
+*/
 
 /* .journey-stage base styles are in new base.css */
 
@@ -188,9 +194,12 @@
     border-radius: 4px;
 }
 
+/* DELETED: .journey-chart canvas was removed to fix tiny charts. It now inherits height from .chart-container in demo-base-dark.css. */
+/*
 .journey-chart canvas {
     max-height: 300px !important;
 }
+*/
 
 /* ============================================
    MODEL COMPARISON TABLE
@@ -261,6 +270,9 @@
     border-radius: 4px;
 }
 
+/* DELETED: .comparison-chart canvas was removed to fix tiny charts. It now inherits height from .chart-container in demo-base-dark.css. */
+/*
 .comparison-chart canvas {
     max-height: 350px !important;
 }
+*/
