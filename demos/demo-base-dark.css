@@ -6,7 +6,7 @@
 /* ===================================
    FONTS (EXACT HOME/STUDIO MATCH)
    =================================== */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 /* ===================================
    ROOT VARIABLES (REFINED PALETTE)
@@ -547,5 +547,313 @@ h2 {
 
     .footer {
         padding: 4rem 1.5rem 2rem;
+    }
+}
+    
+/* ===================================
+   GLOBAL OVERRIDES FOR ALL DEMOS
+   Fix fonts, spacing, and chart sizes
+   =================================== */
+
+/* ===================================
+   CHART CONTAINERS - FULL WIDTH
+   =================================== */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 100%;           /* Remove max-width restriction */
+    margin: 0 -1rem;           /* Bleed to edges */
+}
+
+.chart-card {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--spacing-lg) !important;
+}
+
+.chart-card h3 {
+    font-family: var(--font-heading) !important;
+    font-size: 16px !important;        /* Was 20px+ - too big */
+    font-weight: 400 !important;       /* Match home.html */
+    color: var(--text-primary) !important;
+    margin-bottom: var(--spacing-md) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;  /* Minimal border */
+    padding-bottom: var(--spacing-sm) !important;
+    letter-spacing: -0.01em !important;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px !important;          /* Bigger charts */
+    width: 100% !important;
+}
+
+.chart-card.span-2 {
+    grid-column: span 2;
+}
+
+.chart-card.span-2 .chart-container {
+    height: 450px !important;          /* Even bigger for wide charts */
+}
+
+/* ===================================
+   RESULT CARDS - REFINED STYLING
+   =================================== */
+.result-card {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+.result-header h3 {
+    font-family: var(--font-heading) !important;
+    font-size: 18px !important;        /* Was 24px+ */
+    font-weight: 400 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: var(--spacing-sm) !important;
+}
+
+.result-badge {
+    display: inline-block;
+    padding: 3px 10px !important;      /* Smaller badges */
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    font-family: var(--font-mono) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.result-badge.critical {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #ef4444 !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+.result-badge.severe {
+    background: rgba(251, 146, 60, 0.2) !important;
+    color: #fb923c !important;
+    border: 1px solid rgba(251, 146, 60, 0.3) !important;
+}
+
+.result-badge.certified {
+    background: rgba(94, 234, 212, 0.2) !important;
+    color: var(--accent-teal) !important;
+    border: 1px solid rgba(94, 234, 212, 0.3) !important;
+}
+
+/* Metric Values - Toned Down */
+.metric-value {
+    font-family: var(--font-mono) !important;
+    font-size: 36px !important;        /* Was 48px */
+    font-weight: 600 !important;       /* Was 700 */
+    color: var(--accent-teal) !important;
+}
+
+.metric-label {
+    font-size: 12px !important;
+    color: var(--text-tertiary) !important;
+    font-family: var(--font-mono) !important;
+}
+
+/* Detail Rows - Refined */
+.detail-row {
+    padding: var(--spacing-xs) 0 !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+}
+
+.detail-label,
+.detail-value {
+    font-size: 13px !important;        /* Was 14px */
+    font-weight: 400 !important;
+}
+
+.detail-label {
+    color: var(--text-secondary) !important;
+}
+
+.detail-value {
+    color: var(--text-primary) !important;
+    font-family: var(--font-mono) !important;
+    font-weight: 500 !important;       /* Was 600 */
+}
+
+/* ===================================
+   CERTIFIED CARD - MINIMAL STYLING
+   =================================== */
+.certified-card {
+    background: rgba(94, 234, 212, 0.04) !important;
+    border: 1px solid rgba(94, 234, 212, 0.2) !important;
+}
+
+.cert-metric {
+    padding: var(--spacing-sm) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+.cert-label {
+    font-size: 11px !important;
+    color: var(--text-tertiary) !important;
+}
+
+.cert-value {
+    font-size: 20px !important;        /* Was 24px */
+    font-weight: 600 !important;       /* Was 700 */
+    color: var(--accent-teal) !important;
+}
+
+.cert-spec {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+    background: rgba(94, 234, 212, 0.08) !important;
+    border: 1px solid rgba(94, 234, 212, 0.2) !important;
+}
+
+/* ===================================
+   IMPACT SECTION - REFINED
+   =================================== */
+.impact-number {
+    font-size: 24px !important;        /* Was 28px */
+    font-weight: 600 !important;       /* Was 700 */
+    color: var(--accent-teal) !important;
+}
+
+.impact-arrow {
+    font-size: 20px !important;        /* Was 24px */
+    color: var(--text-tertiary) !important;
+}
+
+/* ===================================
+   GRID LAYOUTS - FULL BLEED
+   =================================== */
+.results-grid,
+.impact-grid,
+.usecases-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    max-width: 100%;
+    margin: 0 -1rem;                   /* Bleed to edges */
+}
+
+.results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.impact-grid,
+.usecases-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* ===================================
+   CHALLENGE/IMPACT CARD ICONS
+   =================================== */
+.challenge-icon,
+.impact-icon,
+.usecase-icon {
+    font-size: 28px !important;        /* Was 32px+ */
+    margin-bottom: var(--spacing-sm) !important;
+}
+
+.challenge-card h3,
+.impact-card h3,
+.usecase-card h3 {
+    font-family: var(--font-heading) !important;
+    font-size: 18px !important;        /* Consistent with rest */
+    font-weight: 400 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: var(--spacing-sm) !important;
+}
+
+.challenge-card p,
+.impact-card p,
+.usecase-card p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: var(--text-secondary) !important;
+}
+
+/* ===================================
+   PRODUCTION COMPARISON SECTION
+   =================================== */
+.production-comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xxl) 0;
+}
+
+.comparison-column {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+.comparison-column h4 {
+    font-family: var(--font-heading) !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: var(--text-primary) !important;
+}
+
+.spec-list li {
+    font-size: 14px !important;
+    color: var(--text-secondary) !important;
+    padding: var(--spacing-xs) 0 !important;
+}
+
+.production-column {
+    border: 1px solid rgba(94, 234, 212, 0.3) !important;
+}
+
+.production-column .spec-list li {
+    color: var(--text-primary) !important;
+}
+
+.production-column .spec-list li strong {
+    color: var(--accent-teal) !important;
+}
+
+.feature-tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.feature-tag {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+    background: rgba(94, 234, 212, 0.08) !important;
+    border: 1px solid rgba(94, 234, 212, 0.2) !important;
+}
+
+/* ===================================
+   RESPONSIVE - MAINTAIN FULL WIDTH
+   =================================== */
+@media (max-width: 968px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+        margin: 0 -0.5rem;
+    }
+    
+    .chart-card.span-2 {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        height: 350px !important;
+    }
+    
+    .chart-card.span-2 .chart-container {
+        height: 380px !important;
+    }
+    
+    .results-grid,
+    .impact-grid,
+    .usecases-grid {
+        grid-template-columns: 1fr;
+        margin: 0;
     }
 }
