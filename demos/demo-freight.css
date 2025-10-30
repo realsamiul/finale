@@ -291,41 +291,6 @@
 /* #comparison-table tbody tr.champion td { background: rgba(var(--primary-teal-rgb), 0.05); color: var(--primary-teal); } */
 
 
-/* ============================================
-   TECH STACK SECTION SPECIFICS
-   ============================================ */
-.tech-section {
-     background: var(--surface-elevated);
-}
-
-.tech-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax */
-}
-
-.tech-card h4 {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    color: var(--primary-teal);
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-.tech-card ul {
-    list-style: none;
-}
-
-.tech-card li {
-    padding: var(--spacing-xs) 0;
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-}
-.tech-card li::before {
-    content: '✓ ';
-    color: var(--primary-teal);
-    margin-right: var(--spacing-sm);
-}
 
 /* ============================================
    PRODUCTION TEASER (Feature Tag Color)
