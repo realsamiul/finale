@@ -462,3 +462,18 @@
     color: var(--accent-teal);
     text-align: center; /* Ensure arrow is centered */
 }
+
+/* ============================================
+   MOBILE OVERFLOW FIX
+   ============================================ */
+@media (max-width: 1200px) {
+    .integration-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .integration-link {
+        display: none;
+    }
+}
+
