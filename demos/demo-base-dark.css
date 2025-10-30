@@ -28,15 +28,9 @@
     --accent-purple: #8B5CF6;
     
     /* Exact home fonts */
-
-:root {
-    /* ... */
     --font-primary: 'Space Grotesk', -apple-system, sans-serif;
     --font-logo: 'Michroma', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
-    /* ... */
-}
-
     
     /* Exact home easing */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
