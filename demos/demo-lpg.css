@@ -79,9 +79,7 @@
     border-radius: var(--radius-md, 8px);
     min-height: 200px;
 }
-.result-chart canvas {
-    max-height: 180px !important;
-}
+
 
 
 /* Model Race Card */
