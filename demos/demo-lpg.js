@@ -27,7 +27,7 @@ const lpgData = {
     forecast_7day: [2300000, 2240000, 2340000, 2380000, 2320000, 2260000, 2420000],
     forecast_14day: [2300000, 2240000, 2340000, 2380000, 2320000, 2260000, 2420000, 2320000, 2260000, 2360000, 2400000, 2340000, 2280000, 2440000],
     forecast_30day: Array.from({length: 30}, (_, i) => 2200000 + (i * 8000) + (Math.sin(i / 3) * 100000))
-};
+}; //
 
 // Model comparison data (R² scores across horizons)
 const modelPerformance = {
@@ -35,7 +35,7 @@ const modelPerformance = {
     r2_7day: [0.920, 0.912, 0.865, 0.851, 0.798, 0.732],
     r2_14day: [0.875, 0.868, 0.823, 0.810, 0.756, 0.698],
     r2_30day: [0.783, 0.776, 0.734, 0.721, 0.672, 0.615]
-};
+}; //
 
 // Feature importance data
 const featureImportance = {
@@ -44,7 +44,7 @@ const featureImportance = {
         'Temperature', 'Festival_Indicator', 'GDP_Growth', 'Fuel_Price'
     ],
     importance: [18.5, 12.3, 7.2, 22.0, 15.0, 12.0, 8.5, 4.5]
-};
+}; //
 
 // ============================================
 // CHART CONFIGURATION
@@ -109,7 +109,7 @@ const chartDefaults = {
             }
         }
     }
-};
+}; //
 
 // ============================================
 // CHART INITIALIZATION
@@ -409,7 +409,7 @@ function initializeCharts() {
                         display: false
                     },
                     title: {
-                        display: false
+                        display: false // Title is handled by the heading in HTML
                     }
                 },
                 scales: {
@@ -438,36 +438,22 @@ function initializeCharts() {
             }
         });
     }
-}
-
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initializeScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-}
+} //
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 LPG Demand Forecasting chart initialization...');
+    
+    if (typeof Chart === 'undefined') {
+        console.error('❌ Chart.js not loaded! Make sure CDN link is correct.');
+        return;
+    }
+
     initializeCharts();
-    initializeScrollAnimations();
     
     console.log('✅ LPG Demand Forecasting demo initialized');
-});
+}); //
+
