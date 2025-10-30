@@ -9,7 +9,7 @@ const nightlightsData = {
     years: ['2022', '2023', '2024', '2025'],
     radiance: [18.32, 21.53, 23.75, 24.12], // nW/cm²/sr
     gdp_growth: [3.8, 4.2, 4.2, 4.5] // Official % growth
-};
+}; //
 
 // Monthly temporal evolution (last 36 months)
 const temporalData = {
@@ -29,7 +29,7 @@ const temporalData = {
         23.2, 23.8, 24.3, 24.6, 24.9, 23.9, // 2024
         23.5, 23.7, 24.1, 24.5, 24.8, 25.1
     ]
-};
+}; //
 
 // Correlation scatter data (Nightlight vs GDP)
 const correlationData = {
@@ -41,7 +41,7 @@ const correlationData = {
     ],
     correlation: 0.88,
     pValue: 0.0001
-};
+}; //
 
 // ============================================
 // CHART CONFIGURATION
@@ -103,7 +103,7 @@ const chartDefaults = {
             }
         }
     }
-};
+}; //
 
 // ============================================
 // CHART INITIALIZATION
@@ -246,40 +246,7 @@ function initializeCharts() {
                     legend: {
                         display: false
                     },
-                    annotation: {
-                        annotations: {
-                            // Mark seasonal patterns
-                            monsoon2022: {
-                                type: 'box',
-                                xMin: 5,
-                                xMax: 8,
-                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                                borderColor: 'rgba(239, 68, 68, 0.3)',
-                                borderWidth: 1,
-                                label: {
-                                    content: 'Monsoon',
-                                    enabled: true,
-                                    position: 'center'
-                                }
-                            },
-                            monsoon2023: {
-                                type: 'box',
-                                xMin: 17,
-                                xMax: 20,
-                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                                borderColor: 'rgba(239, 68, 68, 0.3)',
-                                borderWidth: 1
-                            },
-                            monsoon2024: {
-                                type: 'box',
-                                xMin: 29,
-                                xMax: 32,
-                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                                borderColor: 'rgba(239, 68, 68, 0.3)',
-                                borderWidth: 1
-                            }
-                        }
-                    }
+                    // Removed Annotation plugin reference
                 },
                 scales: {
                     ...chartDefaults.scales,
@@ -305,68 +272,64 @@ function initializeCharts() {
             }
         });
     }
-}
+} //
 
 // ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initializeScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // Animate growth bars
-                if (entry.target.classList.contains('growth-card')) {
-                    animateGrowthComparison();
-                }
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// ============================================
-// ANIMATIONS
+// ANIMATIONS (Only Growth Card needs specific JS)
 // ============================================
 
 function animateGrowthComparison() {
-    const metrics = document.querySelectorAll('.growth-metric .metric-value');
-    metrics.forEach((metric, index) => {
-        const targetValue = index === 0 ? 21.53 : 23.75;
-        animateValue(metric, 0, targetValue, 1500);
-    });
+    const metrics = document.querySelectorAll('.growth-card .metric-value');
+    if (metrics.length === 2) {
+        const targetValue1 = parseFloat(nightlightsData.radiance[1].toFixed(2)); // 2023
+        const targetValue2 = parseFloat(nightlightsData.radiance[2].toFixed(2)); // 2024
+        
+        // Check if elements are visible before animating
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue(metrics[0], 0, targetValue1, 1500);
+                    animateValue(metrics[1], 0, targetValue2, 1500);
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        // Observe the parent card
+        const card = document.querySelector('.growth-card');
+        if(card) observer.observe(card);
+        
+    }
 }
 
 function animateValue(element, start, end, duration) {
-    const range = end - start;
-    const increment = range / (duration / 16); // 60fps
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-            current = end;
-            clearInterval(timer);
-        }
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = start + (end - start) * progress;
         element.textContent = current.toFixed(2);
-    }, 16);
-}
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+} //
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 Nightlights Economic Intelligence chart initialization...');
+
+    if (typeof Chart === 'undefined') {
+        console.error('❌ Chart.js not loaded! Make sure CDN link is correct.');
+        return;
+    }
+
     initializeCharts();
-    initializeScrollAnimations();
+    animateGrowthComparison(); // Trigger the specific animation for this page
     
     console.log('✅ Nightlights Economic Intelligence demo initialized');
-});
+}); //
