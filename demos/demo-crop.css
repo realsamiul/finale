@@ -1,28 +1,20 @@
 /* ============================================
    CROP INTELLIGENCE DEMO - SPECIFIC STYLES
-   Inherits from demo-base.css
+   Inherits from new demo-base.css
    ============================================ */
 
 /* ============================================
    CHART VISUALIZATIONS SECTION SPECIFICS
    ============================================ */
-.visualizations-section {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-}
-
-.chart-card.span-2 {
-    grid-column: span 2;
-}
-
-@media (max-width: 968px) {
-    .chart-card.span-2 {
-        grid-column: span 1;
-    }
-}
+/* .visualizations-section background removed */
+/* .chart-card.span-2 and media queries in base.css */
 
 .chart-card h3 {
-    border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+    /* Overriding base .chart-card h3 */
+    border-bottom: 1px solid rgba(16, 185, 129, 0.2);
 }
+
+/* .chart-container styles in base.css */
 
 /* ============================================
    RESULTS SECTION - CLUSTER CARDS
@@ -31,166 +23,167 @@
 .results-summary {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--spacing-lg, 24px);
-    margin-top: var(--spacing-xl, 32px);
-    margin-bottom: var(--spacing-xxl, 48px); /* Using xxl */
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem; 
 }
 
 .result-stat {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
+    background: var(--color-white);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    padding: 2.5rem;
     display: flex;
     align-items: center;
-    gap: var(--spacing-md, 16px);
+    gap: 1.5rem;
     transition: all 0.3s ease;
 }
 
 .result-stat:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
-    border-color: var(--success-green, #10B981);
+    transform: translateY(-5px); /* Matches base hover */
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1); /* Simplified shadow */
+    border-color: var(--accent-green);
 }
 
 .stat-icon {
-    font-size: 36px;
+    font-size: 2.25rem;
 }
 
 .stat-content {
     flex: 1;
 }
 
-.stat-number { /* Overriding common stat-number slightly */
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 28px;
+.stat-number { /* Overriding common stat-number in base */
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
     font-weight: 700;
-    color: var(--success-green, #10B981);
+    color: var(--accent-green);
     display: block;
     margin-bottom: 4px;
 }
 
-.stat-label { /* Overriding common stat-label slightly */
-    font-size: 13px;
-    color: var(--text-secondary, #94A3B8);
+.stat-label { /* Overriding common stat-label in base */
+    font-size: 0.8125rem;
+    color: var(--color-grey);
     line-height: 1.4;
 }
 
 /* Discovery Details */
 .discovery-details {
-    margin-top: var(--spacing-xxl, 48px); /* Using xxl */
+    margin-top: 4rem;
 }
 
 .discovery-details h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: 24px;
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-lg, 24px);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
 }
 
 .cluster-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg, 24px);
+    gap: 2rem;
 }
 
 .cluster-card {
-    background: var(--surface-elevated, #1a1f35);
-    border: 2px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
+    background: var(--color-white);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    padding: 2.5rem;
     transition: all 0.3s ease;
 }
 
 .cluster-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1); /* Simplified */
 }
 
 /* Specific Border Colors for Clusters */
-.cluster-card.cluster-1 { border-color: var(--success-green, #10B981); }
-.cluster-card.cluster-2 { border-color: #3B82F6; } /* Assuming blue for water */
-.cluster-card.cluster-3 { border-color: var(--accent-orange, #FB923C); }
-.cluster-card.cluster-4 { border-color: var(--danger-red, #EF4444); }
+.cluster-card.cluster-1 { border-color: var(--accent-green); }
+.cluster-card.cluster-2 { border-color: #3B82F6; } /* Custom blue */
+.cluster-card.cluster-3 { border-color: var(--accent-orange); }
+.cluster-card.cluster-4 { border-color: var(--accent-red); }
 
 
 .cluster-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-md, 16px);
-    padding-bottom: var(--spacing-sm, 12px);
-    border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .cluster-name {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: 16px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--text-primary, #E2E8F0);
+    color: var(--color-text);
 }
 
 .cluster-percent {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 18px;
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--success-green, #10B981);
+    color: var(--accent-green);
 }
 
 .cluster-percent.alert {
-    color: var(--danger-red, #EF4444);
+    color: var(--accent-red);
 }
 
 .cluster-metrics {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs, 8px);
-    margin-bottom: var(--spacing-sm, 12px);
-    padding: var(--spacing-sm, 12px);
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: var(--radius-sm, 6px);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--color-light-grey);
+    border-radius: 4px;
 }
 
 .cluster-metrics span {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 13px;
-    color: var(--text-secondary, #94A3B8);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-grey);
 }
 
 .cluster-card p {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
+    color: var(--color-grey);
 }
 
 .cluster-card p strong {
-    color: var(--text-primary, #E2E8F0);
+    color: var(--color-text);
 }
 
-/* Discovery Callout (Breakthrough is common, this is slightly different) */
+/* Discovery Callout */
 .discovery-callout {
-    margin-top: var(--spacing-xxl, 48px);
-    padding: var(--spacing-xl, 32px);
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    border: 2px solid rgba(16, 185, 129, 0.3);
-    border-radius: var(--radius-lg, 12px);
+    /* Using base .discovery-callout styles */
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--color-sand);
+    border-left: 3px solid var(--accent-green); /* Specific color */
+    border-radius: 4px;
 }
 
 .discovery-callout h4 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: 20px;
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-md, 16px);
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
 }
 
 .discovery-callout p {
-    font-size: 15px;
+    font-size: 1rem;
     line-height: 1.7;
-    color: var(--text-secondary, #94A3B8);
+    color: var(--color-grey);
 }
 
 .discovery-callout strong {
-    color: var(--success-green, #10B981);
+    color: var(--accent-green);
 }
 
 
@@ -198,28 +191,39 @@
    IMPACT SECTION SPECIFICS
    ============================================ */
 .impact-number {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--success-green, #10B981);
+    /* Overriding base .impact-number */
+    color: var(--accent-green);
 }
 
-.impact-arrow {
-    font-size: 24px;
-    color: var(--text-tertiary, #64748B);
-}
+/* .impact-arrow in base.css */
 
 /* ============================================
    PRODUCTION SECTION SPECIFICS (Feature Tags)
    ============================================ */
 .feature-tag {
-    /* Overriding the common tech-tag slightly for purple theme */
-    padding: 8px 16px;
+    /* Overriding the common .feature-tag */
+    padding: 0.5rem 1rem;
     background: rgba(139, 92, 246, 0.1);
     border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 20px;
-    font-size: 13px;
-    color: var(--secondary-purple, #8B5CF6);
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    color: var(--accent-purple);
+    font-family: var(--font-mono);
     font-weight: 600;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS SPECIFIC TO THIS DEMO
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* .chart-container adjustments in base.css */
+    
+    .results-summary {
+        grid-template-columns: 1fr; /* Stack summary stats */
+    }
+    
+    .cluster-grid {
+        grid-template-columns: 1fr; /* Stack cluster cards */
+    }
 }
