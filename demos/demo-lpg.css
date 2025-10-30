@@ -1,92 +1,81 @@
 /* ============================================
    LPG DEMAND FORECASTING - SPECIFIC STYLES
-   Inherits from demo-base-dark.css
+   Inherits from new demo-base.css
    ============================================ */
 
 /* Champion Card Highlight */
 .result-card.champion-card {
-    background: linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, rgba(20, 184, 166, 0.2) 100%);
-    border: 3px solid var(--accent-orange, #FB923C);
-    box-shadow: 0 0 40px rgba(251, 146, 60, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.result-card.champion-card::before {
-    content: '🏆';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 120px;
-    opacity: 0.05;
-    transform: rotate(15deg);
+    /* Base styles (bg, padding, radius, hover) from .result-card in base.css */
+    border: 2px solid var(--accent-orange);
+    /* Decorative elements (::before, shadow) removed */
 }
 
 .result-badge.champion {
-    background: linear-gradient(135deg, var(--accent-orange, #FB923C) 0%, var(--accent-coral, #F87171) 100%);
-    color: var(--dark-navy, #0A192F);
+    /* Overriding base.css .champion (which is teal) */
+    background: var(--accent-orange);
+    color: var(--color-text);
     font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: var(--text-sm, 14px);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
 }
 
-/* Specific Result Badge Styles */
-.result-badge.production { background: var(--secondary-purple); color: var(--text-primary); }
-.confidence-high { color: var(--success-green, #10B981) !important; }
-.confidence-medium { color: var(--accent-orange, #FB923C) !important; }
+/* .production, .confidence-X in base.css or other sheets */
+.confidence-high { color: var(--accent-green) !important; }
+.confidence-medium { color: var(--accent-orange) !important; }
+
 
 /* Result Card Metrics */
 .result-metric {
     text-align: center;
-    margin: var(--spacing-lg, 24px) 0;
+    margin: 2rem 0;
 }
 .metric-value {
+    /* Overriding base .metric-value */
     font-family: var(--font-mono);
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--primary-teal);
+    color: var(--accent-teal);
     display: block;
 }
 .metric-label {
-    font-size: 14px;
-    color: var(--text-secondary);
+    /* Overriding base .metric-label */
+    font-size: 0.875rem;
+    color: var(--color-grey);
     font-family: var(--font-mono);
 }
 .result-details {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm, 12px);
+    gap: 1rem;
 }
-.detail-row {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--spacing-xs, 8px) 0;
-    border-bottom: 1px solid var(--border-subtle);
-}
-.detail-row:last-child { border-bottom: none; }
-.detail-label { font-size: 14px; color: var(--text-secondary); }
+
+/* .detail-row, .detail-label in base.css */
+
 .detail-value {
-    font-size: 14px;
-    color: var(--text-primary);
+    /* Overriding base .detail-value */
+    font-size: 0.875rem;
+    color: var(--color-text);
     font-family: var(--font-mono);
     font-weight: 600;
 }
 .result-chart {
-    margin-top: var(--spacing-md, 16px);
-    padding: var(--spacing-md, 16px);
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: var(--radius-md, 8px);
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-light-grey);
+    border-radius: 4px;
     min-height: 200px;
 }
-
+.result-chart canvas {
+    max-height: 180px !important;
+}
 
 
 /* Model Race Card */
 .result-card.model-race-card {
     grid-column: span 3;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
-    border: 2px solid var(--secondary-purple, #8B5CF6);
+    /* Base styles from .result-card in base.css */
+    border: 1px solid var(--accent-purple);
 }
 
 @media (max-width: 1200px) {
@@ -103,37 +92,35 @@
 
 .model-comparison-chart {
     min-height: 350px;
-    margin: var(--spacing-lg, 24px) 0;
+    margin: 2rem 0;
 }
 
 .race-findings {
-    margin-top: var(--spacing-md, 16px);
-    padding: var(--spacing-md, 16px);
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: var(--radius-md, 8px);
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-light-grey);
+    border-radius: 4px;
 }
 
 .race-findings p {
-    font-size: var(--text-sm, 14px);
+    font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
+    color: var(--color-grey);
 }
 
 .race-findings strong {
-    color: var(--primary-teal, #14B8A6);
+    color: var(--accent-teal);
 }
 
 /* ============================================
    FEATURES SECTION SPECIFICS
    ============================================ */
-.features-section {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-}
+/* .features-section background removed, handled by base */
 
 .features-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl, 32px);
+    gap: 3rem;
     align-items: start;
 }
 
@@ -144,17 +131,17 @@
 }
 
 .feature-importance-chart {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
+    background: var(--color-white);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    padding: 2.5rem;
 }
 
 .feature-importance-chart h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-md, 16px);
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
 }
 
 .feature-importance-chart canvas {
@@ -162,32 +149,32 @@
 }
 
 .feature-explanations {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
+    background: var(--color-white);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    padding: 2.5rem;
 }
 
 .feature-explanations h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-lg, 20px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-md, 16px);
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
 }
 
 .explanation-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md, 16px);
+    gap: 1rem;
 }
 
 .explanation-item {
     display: flex;
-    gap: var(--spacing-md, 16px);
-    padding: var(--spacing-md, 16px);
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: var(--radius-md, 8px);
-    border-left: 3px solid var(--primary-teal, #14B8A6);
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-light-grey);
+    border-radius: 4px;
+    border-left: 3px solid var(--accent-teal);
 }
 
 .feature-rank {
@@ -197,87 +184,73 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--primary-teal, #14B8A6);
-    color: var(--dark-navy, #0A192F);
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-sm, 14px);
+    background: var(--accent-teal);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
     font-weight: 700;
     border-radius: 50%;
 }
 
 .feature-content h4 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-base, 16px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-xs, 8px);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
 }
 
 .feature-content p {
-    font-size: var(--text-sm, 14px);
+    font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
+    color: var(--color-grey);
 }
 
 .feature-content strong {
-    color: var(--primary-teal, #14B8A6);
+    color: var(--accent-teal);
 }
 
 /* ============================================
    IMPACT SECTION SPECIFICS
    ============================================ */
-.impact-section {
-    background: var(--surface-base, #0A192F); /* Already in base, but good to ensure */
-}
+/* .impact-section background removed */
 
 .impact-stat {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-md, 16px);
-    margin: var(--spacing-lg, 24px) 0;
-    padding: var(--spacing-md, 16px);
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: var(--radius-md, 8px);
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--color-light-grey);
+    border-radius: 4px;
 }
 
 .impact-before {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-xl, 28px);
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
     font-weight: 700;
-    color: var(--accent-coral, #F87171);
+    color: var(--accent-red); /* Mapped from coral */
 }
 
-.impact-arrow {
-    font-size: 24px;
-    color: var(--text-tertiary, #64748B);
-}
+/* .impact-arrow in base.css */
 
 .impact-after {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: var(--text-xl, 28px);
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
     font-weight: 700;
-    color: var(--success-green, #10B981);
+    color: var(--accent-green);
 }
 
 .impact-testimonial {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    border: 2px solid var(--primary-teal, #14B8A6);
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-xl, 32px);
+    background: var(--color-white);
+    border: 1px solid var(--accent-teal);
+    border-radius: 4px;
+    padding: 2.5rem;
     position: relative;
-    margin-top: var(--spacing-xxl); /* Add margin */
+    margin-top: 4rem; 
 }
 
-.quote-icon {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 80px;
-    color: var(--primary-teal, #14B8A6);
-    opacity: 0.1;
-    font-family: Georgia, serif;
-    line-height: 1;
-}
+/* .quote-icon removed */
 
 .testimonial-content {
     position: relative;
@@ -285,67 +258,66 @@
 }
 
 .testimonial-content blockquote {
-    font-size: var(--text-lg, 20px);
+    font-size: 1.25rem;
     line-height: 1.7;
-    color: var(--text-primary, #E2E8F0);
+    color: var(--color-text);
     font-style: italic;
-    margin: 0 0 var(--spacing-lg, 24px) 0;
-    padding-left: 40px;
+    margin: 0 0 2rem 0;
+    padding-left: 2.5rem;
 }
 
 .testimonial-author {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs, 8px);
-    padding-left: 40px;
+    gap: 0.5rem;
+    padding-left: 2.5rem;
 }
 
 .testimonial-author strong {
-    font-size: var(--text-base, 16px);
-    color: var(--primary-teal, #14B8A6);
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+    font-size: 1rem;
+    color: var(--accent-teal);
+    font-family: var(--font-primary);
 }
 
 .testimonial-author span {
-    font-size: var(--text-sm, 14px);
-    color: var(--text-tertiary, #64748B);
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+    font-size: 0.875rem;
+    color: var(--color-grey);
+    font-family: var(--font-mono);
 }
 
 /* ============================================
    USE CASES SECTION SPECIFICS
    ============================================ */
-.usecases-section {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
-}
+/* .usecases-section background removed */
 
 .usecases-grid {
+    /* Overriding base.css (1fr) */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.usecase-card {
-    text-align: center;
-}
+/* .usecase-card base styles in base.css */
 
 .usecase-card:hover {
-    border-color: var(--secondary-purple, #8B5CF6);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
+    /* Overriding base.css hover (shadow) */
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.1);
 }
 
 .usecase-icon {
-    font-size: 56px;
-    margin-bottom: var(--spacing-md, 16px);
+    /* Overriding base.css .usecase-icon */
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .usecase-card h3 {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: var(--text-base, 16px);
-    color: var(--text-primary, #E2E8F0);
-    margin-bottom: var(--spacing-sm, 12px);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
 }
 
 .usecase-card p {
-    font-size: var(--text-sm, 14px);
+    font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--text-secondary, #94A3B8);
+    color: var(--color-grey);
 }
