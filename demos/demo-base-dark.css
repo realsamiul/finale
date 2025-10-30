@@ -633,7 +633,7 @@ CHARTS & VISUALIZATIONS
 =================================== */
 .charts-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 3rem;
 margin: 5rem 0;
 }
@@ -641,7 +641,7 @@ margin: 5rem 0;
 .chart-card {
 background: var(–color-white);
 border-radius: 4px;
-padding: 2.5rem;
+padding: 1.5rem;
 border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
