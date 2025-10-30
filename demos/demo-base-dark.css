@@ -3,6 +3,9 @@
    Matching Home/Studio Aesthetic
    =================================== */
 
+/* * FIX 1: Corrected '5.00' to '500' for Space Grotesk font weight.
+ * This will fix the "cramped" text issue.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
 
 
@@ -27,16 +30,13 @@
     --accent-teal: #14B8A6;
     --accent-purple: #8B5CF6;
     
-    /* Exact home fonts */
-
-:root {
-    /* ... */
+    /* * FIX 2: Removed the broken, nested :root block.
+     * These font definitions are now in the correct place.
+     * This will fix the logo font.
+    */
     --font-primary: 'Space Grotesk', -apple-system, sans-serif;
     --font-logo: 'Michroma', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
-    /* ... */
-}
-
     
     /* Exact home easing */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
