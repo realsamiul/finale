@@ -590,6 +590,38 @@ h4 {
 }
 
 /* ===================================
+   FIXES (OCT 30)
+   =================================== */
+
+/* * FIX 1: "Technology" section text is faint.
+ * Changed text color from light --accent-teal to a visible dark grey.
+*/
+.tech-card h4 {
+    color: #14B8A6; /* Use a dark, readable teal */
+}
+
+.tech-card li {
+    color: var(--text-secondary); /* This is already a dark grey */
+}
+
+.tech-card li::before {
+    content: '→ ';
+    color: #14B8A6; /* Use a dark, readable teal */
+    margin-right: var(--spacing-sm);
+    font-weight: 400;
+}
+
+/* * FIX 2: "Beyond the Demo" section spacing.
+ * Adds the large 64px top and bottom margins back.
+*/
+.production-comparison {
+    margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxl);
+}
+
+
+
+/* ===================================
    RESPONSIVE (SPACING PRESERVED)
    =================================== */
 
