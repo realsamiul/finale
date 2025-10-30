@@ -8,7 +8,7 @@ FLOOD-SPECIFIC OVERRIDES
 ============================================ */
 
 .visualizations-section {
-background: var(–color-off-white);
+background: var(--color-off-white);
 }
 
 .chart-card h3 {
@@ -20,30 +20,30 @@ RESULT CARDS - FLOOD SPECIFIC
 ============================================ */
 
 .confidence-critical {
-color: var(–accent-red) !important;
+color: var(--accent-red) !important;
 font-weight: 600;
 }
 
 .confidence-high {
-color: var(–accent-green) !important;
+color: var(--accent-green) !important;
 font-weight: 600;
 }
 
 /* Certified Card Styling */
 .certified-card {
-border: 2px solid var(–accent-teal);
+border: 2px solid var(--accent-teal);
 position: relative;
 overflow: hidden;
 }
 
 .certified-card::before {
-content: ‘’;
+content: '';
 position: absolute;
 top: 0;
 left: 0;
 right: 0;
 height: 4px;
-background: linear-gradient(90deg, var(–accent-teal), var(–accent-purple));
+background: linear-gradient(90deg, var(--accent-teal), var(--accent-purple));
 }
 
 .certified-metrics {
@@ -56,19 +56,19 @@ margin: 2rem 0;
 .cert-metric {
 text-align: center;
 padding: 1.5rem 1rem;
-background: var(–color-light-grey);
+background: var(--color-light-grey);
 border-radius: 4px;
-transition: all 0.3s var(–ease-out-expo);
+transition: all 0.3s var(--ease-out-expo);
 }
 
 .cert-metric:hover {
-background: var(–color-sand);
+background: var(--color-sand);
 transform: translateY(-2px);
 }
 
 .cert-label {
 font-size: 0.75rem;
-color: var(–color-grey);
+color: var(--color-grey);
 display: block;
 margin-bottom: 0.75rem;
 text-transform: uppercase;
@@ -77,9 +77,9 @@ letter-spacing: 0.05em;
 
 .cert-value {
 font-size: 1.75rem;
-font-family: var(–font-mono);
+font-family: var(--font-mono);
 font-weight: 600;
-color: var(–accent-teal);
+color: var(--accent-teal);
 line-height: 1;
 }
 
@@ -97,7 +97,7 @@ margin-bottom: 0.75rem;
 }
 
 .certification-details strong {
-color: var(–color-text);
+color: var(--color-text);
 font-weight: 500;
 }
 
@@ -114,8 +114,8 @@ background: rgba(20, 184, 166, 0.08);
 border: 1px solid rgba(20, 184, 166, 0.2);
 border-radius: 4px;
 font-size: 0.75rem;
-color: var(–accent-teal);
-font-family: var(–font-mono);
+color: var(--accent-teal);
+font-family: var(--font-mono);
 font-weight: 500;
 }
 
@@ -124,12 +124,12 @@ IMPACT SECTION - FLOOD SPECIFIC
 ============================================ */
 
 .impact-card h3 {
-color: var(–color-text);
+color: var(--color-text);
 margin-bottom: 1.5rem;
 }
 
 .impact-stat {
-background: var(–color-light-grey);
+background: var(--color-light-grey);
 padding: 1.5rem;
 border-radius: 4px;
 margin: 2rem 0;
@@ -140,11 +140,11 @@ METHODOLOGY FLOW - FLOOD SPECIFIC
 ============================================ */
 
 .method-step:hover {
-border-left-color: var(–accent-teal);
+border-left-color: var(--accent-teal);
 }
 
 .method-step:hover .step-number {
-background: var(–accent-teal);
+background: var(--accent-teal);
 }
 
 /* ============================================
@@ -157,7 +157,6 @@ grid-template-columns: 1fr;
 gap: 1rem;
 }
 
-```
 .cert-value {
     font-size: 1.5rem;
 }
@@ -165,6 +164,5 @@ gap: 1rem;
 .impact-stat {
     padding: 1rem;
 }
-```
 
 }
