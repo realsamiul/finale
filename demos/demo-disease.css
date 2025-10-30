@@ -1,8 +1,7 @@
 /* ============================================
-   DISEASE INTELLIGENCE - ENHANCED STYLES
+   DISEASE INTELLIGENCE - SPECIFIC STYLES
+   Inherits from demo-base-dark.css
    ============================================ */
-
-/* Add to existing base styles */
 
 /* Causal Card Highlight */
 .result-card.causal-card {
@@ -14,8 +13,16 @@
     background: rgba(0, 0, 0, 0.3);
     border-radius: var(--radius-md, 8px);
     padding: var(--spacing-lg, 24px);
-    min-height: 300px;
+    min-height: 300px; /* Ensure space for the canvas */
+    display: flex; /* Center canvas if needed */
+    justify-content: center;
+    align-items: center;
 }
+.causal-graph canvas {
+    max-width: 100%;
+    max-height: 300px;
+}
+
 
 .causal-findings {
     margin-top: var(--spacing-md, 16px);
@@ -85,7 +92,7 @@
     height: 24px;
     background: linear-gradient(90deg, var(--accent-coral, #F87171) 0%, var(--accent-orange, #FB923C) 100%);
     border-radius: 4px;
-    transition: width 1s ease;
+    transition: width 1s ease; /* Keep transition for potential animation */
 }
 
 .cost-value {
@@ -141,7 +148,7 @@
 }
 
 /* ============================================
-   LIVE RISK SECTION
+   LIVE RISK SECTION SPECIFICS
    ============================================ */
 .risk-section {
     background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(251, 146, 60, 0.05) 100%);
@@ -227,17 +234,9 @@
     position: relative;
 }
 
-.gauge-fill.high {
-    background: linear-gradient(90deg, var(--accent-orange, #FB923C) 0%, var(--accent-coral, #F87171) 100%);
-}
-
-.gauge-fill.medium {
-    background: linear-gradient(90deg, var(--accent-yellow, #FBBF24) 0%, var(--accent-orange, #FB923C) 100%);
-}
-
-.gauge-fill.low {
-    background: linear-gradient(90deg, var(--success-green, #10B981) 0%, var(--primary-teal, #14B8A6) 100%);
-}
+.gauge-fill.high { background: linear-gradient(90deg, var(--accent-orange, #FB923C) 0%, var(--accent-coral, #F87171) 100%); }
+.gauge-fill.medium { background: linear-gradient(90deg, var(--accent-yellow, #FBBF24) 0%, var(--accent-orange, #FB923C) 100%); }
+.gauge-fill.low { background: linear-gradient(90deg, var(--success-green, #10B981) 0%, var(--primary-teal, #14B8A6) 100%); }
 
 .risk-level {
     display: flex;
@@ -252,17 +251,9 @@
     font-weight: 700;
 }
 
-.risk-status.high {
-    color: var(--accent-coral, #F87171);
-}
-
-.risk-status.medium {
-    color: var(--accent-orange, #FB923C);
-}
-
-.risk-status.low {
-    color: var(--success-green, #10B981);
-}
+.risk-status.high { color: var(--accent-coral, #F87171); }
+.risk-status.medium { color: var(--accent-orange, #FB923C); }
+.risk-status.low { color: var(--success-green, #10B981); }
 
 .risk-score {
     font-family: var(--font-mono, 'IBM Plex Mono', monospace);
@@ -281,13 +272,13 @@
 }
 
 /* ============================================
-   PIPELINE DIAGRAM
+   PIPELINE DIAGRAM SPECIFICS
    ============================================ */
 .pipeline-diagram {
     display: grid;
     grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
     gap: var(--spacing-md, 16px);
-    align-items: center;
+    align-items: stretch; /* Make stages equal height */
     margin: var(--spacing-xl, 32px) 0;
 }
 
@@ -302,23 +293,16 @@
     }
 }
 
-.pipeline-stage {
-    background: var(--surface-elevated, #1a1f35);
-    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-    border-radius: var(--radius-lg, 12px);
-    padding: var(--spacing-lg, 24px);
-    text-align: center;
-}
-
-.stage-icon {
-    font-size: 36px;
-    margin-bottom: var(--spacing-md, 16px);
-}
-
 .pipeline-stage h4 {
     font-family: var(--font-heading, 'Space Grotesk', sans-serif);
     font-size: var(--text-base, 16px);
     color: var(--text-primary, #E2E8F0);
+    margin-bottom: var(--spacing-md, 16px);
+    margin-top: var(--spacing-sm); /* Add margin for icon */
+}
+
+.stage-icon {
+    font-size: 36px;
     margin-bottom: var(--spacing-md, 16px);
 }
 
@@ -341,6 +325,8 @@
 }
 
 .pipeline-arrow {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     color: var(--primary-teal, #14B8A6);
 }
@@ -373,6 +359,7 @@
     gap: var(--spacing-xs, 8px);
     text-align: center;
 }
+.spec-card:hover { /* Inherit hover from common card styles */ }
 
 .spec-label {
     font-size: var(--text-sm, 14px);
@@ -385,3 +372,9 @@
     font-weight: 700;
     color: var(--primary-teal, #14B8A6);
 }
+
+/* Specific Result Badge Styles (from demo-flood.css, needed here) */
+.result-badge.champion { background: var(--success-green); color: var(--dark-navy); }
+.result-badge.discovery { background: var(--secondary-purple); color: var(--text-primary); }
+.result-badge.cost { background: var(--accent-coral); color: var(--dark-navy); }
+
