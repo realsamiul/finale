@@ -24,11 +24,7 @@
     border-bottom: 2px solid rgba(20, 184, 166, 0.2);
 }
 
-.chart-container {
-    position: relative;
-    height: 300px; /* Base height */
-    width: 100%;
-}
+
 
 .chart-card.span-2 .chart-container {
     height: 350px; /* Taller for the span-2 chart */
