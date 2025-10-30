@@ -14,9 +14,6 @@
     min-height: 200px; /* Ensure space for chart */
 }
 
-.result-chart canvas {
-    max-height: 180px !important; /* Limit chart height inside card */
-}
 
 /* Alpha Card Specific Styling */
 .alpha-card {
@@ -222,9 +219,6 @@
     border-radius: var(--radius-lg);
 }
 
-.journey-chart canvas {
-    max-height: 300px !important;
-}
 
 /* ============================================
    MODEL COMPARISON TABLE
@@ -313,7 +307,4 @@
     border-radius: var(--radius-lg);
 }
 
-.comparison-chart canvas {
-    max-height: 350px !important;
-}
 
