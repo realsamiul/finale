@@ -1,0 +1,19 @@
+Here are the next steps to finalize your website:
+🧹 Final Cleanup and Organization
+ * Rename Files:
+   * Rename all the demo .txt files to .html (e.g., freight.txt becomes freight.html).
+   * Rename shared css.txt to demo-base-dark.css.
+   * Rename shared js.txt to demo-animations.js.
+ * Organize Folders:
+   * Place all 6 new demo .html files (e.g., freight.html, flood.html) into a demos subfolder.
+   * Place the new demo-base-dark.css and demo-animations.js files either in the root directory alongside home.html or inside the demos folder (adjust the links in the HTML files accordingly). I recommend putting them in the demos folder for neatness.
+   * Ensure your specific demo CSS (e.g., demo-flood.css) and JS (e.g., demo-flood.js) files are also in the demos folder.
+ * Clean Specific Demo Files:
+   * CSS: Go into each specific demo CSS file (e.g., demo-flood.css, demo-lpg.css) and delete all the common styles that are now handled by demo-base-dark.css. These files should become much smaller, only containing styles unique to that specific demo (like chart card variations).
+   * JS: Go into each specific demo JS file (e.g., demo-flood.js, demo-lpg.js) and delete the old IntersectionObserver animation code. These files should now only contain the Chart.js data and initialization logic.
+🧪 Testing and Deployment
+ * Test Locally: Open home.html in your browser.
+   * Click on the project links to navigate to the demo pages (e.g., /demos/freight.html).
+   * Verify that the header, footer, dark theme, fonts, animations, and charts all look correct on every demo page. Check navigation links back to Home/Studio.
+   * Check the console for any errors.
+ * Deploy: Once everything looks good locally, deploy your updated code to Vercel (or your hosting platform).
